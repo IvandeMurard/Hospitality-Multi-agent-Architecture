@@ -5,6 +5,7 @@
 
 <p align="center">
   <a href="https://ivandemurard.com/aetherix">Case study</a> ·
+  <a href="https://github.com/IvandeMurard/aetherix-hospitality-ai">Aetherix (access upon request)</a> ·
   <a href="https://github.com/IvandeMurard/tacet-app">Tacet (public repo)</a> ·
   <a href="https://www.linkedin.com/in/ivandemurard/">Contact</a>
 </p>
