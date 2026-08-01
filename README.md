@@ -59,10 +59,11 @@ graph LR
 1. **Execution nodes never orchestrate.** The perception nodes (Anima, Aetherix, Tacet) strictly *interpret* signals within their domain. They never decide when to run or what action to take. The bespoke Orchestrator holds 100% of the decision logic.
 2. **Glue, not replacement Delivery.** The Mesh operates via a PMS-agnostic canonical schema behind adapters. Intelligence is delivered directly inside the tools managers already use (e.g., 1-tap WhatsApp "receipts" summarizing the reasoning), requiring zero new dashboards to monitor.
 3. **Preventing HITL (Human-in-the-Loop) Fatigue.** Human-in-the-loop is structural, but a manager bombarded with alerts will ignore them. The Orchestrator uses calibrated thresholds to filter out the noise, sending only high-significance, composite recommendations.
-4. **Continuous Improvement (The Meta-Learner).** The system employs a dual learning strategy to continually optimize the Orchestrator's decision thresholds:
-    - *Human Feedback Loop:* Every manager's 1-tap response (accept/reject) trains the system.
-    - *Autonomous Loop:* The system automatically compares its past predictions against the actual ground-truth data flowing from the PMS/POS, self-correcting without human intervention.
-5. **Hive Memory (Federated Priors).** To solve the cold-start problem for new hotels, a federated "Hive" layer shares anonymized, learned priors across properties, ensuring day-1 effectiveness without leaking tenant data.
+4. **Continuous Improvement (The Meta-Learner).** The system *would* use a dual learning strategy to optimize the Orchestrator's decision thresholds — this loop is **Research**, not yet built:
+    - *Human Feedback Loop:* every manager 1-tap response (accept/reject) would train the system.
+    - *Autonomous Loop:* the system would compare its past predictions against ground-truth flowing from the PMS/POS, self-correcting without human intervention.
+   Today, outcome capture exists only inside the F&B node; the federated meta-learner does not.
+5. **Hive Memory (Federated Priors).** To solve cold-start for new hotels, a federated "Hive" layer *would* share anonymized, learned priors across properties for day-1 effectiveness without leaking tenant data. This layer is **Research**: there is no substrate today (the cohort-feature table does not yet exist), so no prior is shared.
 
 ## The Nodes
 
@@ -77,15 +78,22 @@ Tacet listens to the city. It monitors external risks—construction noise, tran
 
 ## What's built vs. what's vision
 
-This is a solo project. The mesh narrative is a north star, but tangible PoCs and production-ready nodes are already built to de-risk the architecture.
+This is a solo project — **built by one person, which is a real key-person (bus-factor) risk** for anyone relying on it. It is mitigated by tracked decisions (12 ADRs), synchronized recovery harnesses, and deterministic, reproducible pipelines — not by redundancy, and there is no SLA yet. The mesh narrative is a north star; the nodes below are built to de-risk the architecture, but every status uses one honest label, and **Built means the code runs, not that anyone uses it yet**:
+
+- **Built** — deployed and exercised end-to-end on the target environment.
+- **Shadow-mode** — runs on real data, but no decision is delivered to a human on that basis.
+- **Synthetic PoC** — validated on fabricated data only; never met the real world.
+- **Design** — specified (ADR, schema, contract), not implemented.
+- **Research** — open exploration, no delivery commitment.
 
 | Component | Status | Evidence |
 |---|---|---|
-| **Aetherix** (F&B Node) | **Built** (private): ~16.5k LOC, staging live on Fly.io, 11 ADRs | Case study; walkthrough on request |
-| **Anima** (Guest Node) | **Built (PoC)**: 4-layer temporal memory, synthetic cohort eval, working MCP server | Local evals & synthetic data |
-| **Tacet** (Environment Node) | **Built** (public): Live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
-| **Bespoke Orchestrator** | **In Progress**: Building the event-driven decision engine from scratch | Architectural ADRs |
-| **Meta-Learner & Feedback Loop** | **In Progress**: Outcome capture and threshold calibration | Proof of concept in F&B |
+| **Aetherix** (F&B Node) | **Built** (private, **0 real users**): ~16.5k LOC, staging on Fly.io, 12 ADRs | Case study; walkthrough on request |
+| **Aetherix — forecast** | **Shadow-mode**: benchmarked on real public data; no manager decision delivered on it yet | Recruit benchmark (see *Current focus*) |
+| **Anima** (Guest Node) | **Synthetic PoC**: 4-layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA-gated) | Local evals & synthetic data |
+| **Tacet** (Environment Node) | **Built** (public): live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
+| **Bespoke Orchestrator** | **Design**: event-driven decision engine specified in ADRs; proto-stub only, not built | Architectural ADRs |
+| **Meta-Learner & Hive priors** | **Research**: no substrate yet (the cohort-feature table does not exist). Outcome capture exists only inside the F&B node | — |
 
 ## Engineering practices I'd bring to a team
 
@@ -100,7 +108,7 @@ I am building this Mesh solo from zero-to-one to master the full lifecycle of ag
 
 ## Current focus (90-day plan, started July 2026)
 
-1. **Proof:** real-data forecast benchmark • closed-loop demo on the Apaleo sandbox (forecast, recommendation, feedback, recalibration) • observability (Logfire traces, LLM cost per recommendation) • F&B manager interviews.
+1. **Proof:** real-data forecast benchmark — *on 829 real restaurants (Kaggle Recruit), Prophet beats a naive same-weekday baseline by 6.15 pts of mean MAPE, but **ties it on the median day** (MdAPE 27.0% vs 27.6%) and is marginally worse at J+1; a gradient-boosted baseline wins the median (25.6%). Both readings are published because the flattering one alone would not be true, and the forecast is not led as the differentiator until it clears a pre-registered bar on real hotel data (shadow mode).* • closed-loop demo on the Apaleo sandbox (forecast, recommendation, feedback, recalibration) • observability (Logfire traces, LLM cost per recommendation) • F&B manager interviews.
 2. **Visibility:** this repo • a technical write-up on the blocking eval gate • a demo video.
 
 ## Stack
