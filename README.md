@@ -101,6 +101,10 @@ I am building this Mesh solo from zero-to-one to master the full lifecycle of ag
 
 - **Full Ownership & Bespoke Control:** I build the critical path (like the Orchestrator) from scratch. When off-the-shelf frameworks obscure reasoning or limit control, I engineer bespoke solutions that keep the logic 100% transparent and deterministic.
 - **Evals as merge gates, not dashboards.** Golden dataset plus an offline gate in CI (exit codes block the merge), separated by contract from runtime guardrails.
+- **A hygiene agent that audits the repo, including its own claims.** Ten detectors run weekly and on every pull request, comparing what the repo *says* to what it *is*: harness drift, docs citing files that do not exist, undocumented env vars, guardrail reasons no eval scenario covers, self-declared line ceilings, hardcoded counts, unqualified metrics, properties asserted without anything that could falsify them, branches pushed with no pull request, and whether the weekly job itself still runs.
+
+  It earns its keep. It caught this repository claiming the forecast benchmark ran on 829 restaurants when it ran on 30, the dataset size passed off as the sample, on six surfaces at once, including the sentence arguing for honest reporting. The published results file had said 30 throughout. Two of those six were found by the detector after a manual pass had missed them. The fix and the check that prevents the recurrence shipped together.
+
 - **Typed failure reasons.** Every guardrail trip carries a machine-readable reason; "it degraded gracefully" is verifiable, not folklore.
 - **Continuous discovery as a routine, not an event.** Every Monday morning: an automated scan of the market and competitive watchlist (PMS vendors, agentic startups, MCP ecosystem moves), followed by a proactive PM review session run with agent workflows. Findings feed a watchlist re-evaluated at each phase gate.
 - **Incident response, practiced.** Handled a real leaked-secrets incident end-to-end: history rewrite, 11/11 credential rotation, GitHub Support purge, and post-mortem.
