@@ -67,13 +67,13 @@ graph LR
 
 ## The Nodes
 
-### 🧠 Anima: The Relational Core (Guest Context)
+### Anima: The Relational Core (Guest Context)
 Hospitality is fundamentally about the guest. Anima is the intelligence engine that allows the hotel to anticipate and personalize the experience as if every guest were a regular. It utilizes a **4-layer temporal memory** (Working, Episodic, Semantic, Segment) to prevent "over-fetching" context, ensuring the Orchestrator makes the *right gesture* for the *right guest* at the *right time*.
 
-### 🍽️ Aetherix: F&B Execution
+### Aetherix: F&B Execution
 Aetherix anticipates staffing and F&B needs to cut food waste and control costs. It ingests historical data, weather, and local events to forecast operational pressure, issuing daily recommendations for kitchen prep and front-of-house staffing.
 
-### 🌍 Tacet: Environmental Awareness
+### Tacet: Environmental Awareness
 Tacet listens to the city. It monitors external risks—construction noise, transit strikes, and local events—translating chaotic real-world data into structured risk scores so the hotel can act proactively.
 
 ## What's built vs. what's vision
