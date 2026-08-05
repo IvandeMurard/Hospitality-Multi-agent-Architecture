@@ -113,7 +113,7 @@ I am building this Mesh solo from zero-to-one to master the full lifecycle of ag
 ## Current focus (90-day plan, started July 2026)
 
 1. **Proof:** real-data forecast benchmark — *on 30 real restaurants drawn from the Kaggle Recruit dataset (829 in total), Prophet beats a naive same-weekday baseline by 6.15 pts of mean MAPE, but **ties it on the median day** (MdAPE 27.0% vs 27.6%) and is marginally worse at J+1; a gradient-boosted baseline wins the median (25.6%). Both readings are published because the flattering one alone would not be true, and the forecast is not led as the differentiator until it clears a pre-registered bar on real hotel data (shadow mode).* • closed-loop demo on the Apaleo sandbox (forecast, recommendation, feedback, recalibration) • observability (Logfire traces, LLM cost per recommendation) • F&B manager interviews.
-2. **Visibility:** this repo • a technical write-up on the blocking eval gate • a demo video.
+2. **Visibility:** this repo • a technical write-up on the blocking eval gate ([published](https://ivandemurard.com/journal/harnesses-graders-closed-loops) — the vocabulary, the severity tiers, the exit-code contract, and the canary that got invalidated) • a demo video.
 
 ## Stack
 
