@@ -44,6 +44,45 @@ The detailed schemas (signal contracts, confidence weighting, federation design)
 deliberately private. This page states the thesis; the proof will follow the same path
 Aetherix took: build, instrument, benchmark honestly, publish the loop.
 
+## Extending the thesis to staff: institutional knowledge (not started)
+
+Aetherix remembers what the property did. Anima would remember what a guest is like. Neither
+remembers **what the people who work there know** — the memory that leaves fastest, when a
+manager resigns or a head chef retires and a decade of context about this kitchen, these
+suppliers, this Tuesday walks out with them.
+
+Nothing is built. What exists is a reserved place and a proven pattern:
+
+- **The namespace is reserved.** The signal contract carries `staff.*` and `institutional.*`
+  alongside `guest.*`. A fifth node is an addition, not a redesign.
+- **The pattern is proven elsewhere.** [Lore](https://github.com/IvandeMurard/Lore) does this in
+  aviation maintenance: it interviews a senior by voice after an intervention, files the
+  knowledge against the machine and the conditions it applies to, and returns it to a junior
+  behind the governing procedure, attributed by name and date.
+- **Lore stays separate.** Folding it in would make this a hospitality product with five nodes.
+  Keeping it out makes it evidence that the architecture holds in a second industry under a
+  stricter regime, where a licensed technician signs the release and nothing else can.
+- **Deliberately unnamed.** A functional label beats a proper noun on something with no code.
+
+### Open questions, for whoever picks this up
+
+None of these is answered, and each blocks the next:
+
+1. **Who benefits?** Lore answers a junior asking a question. Here the consumer could be the
+   orchestrator, an incoming manager, or the property at handover — each implying a different
+   capture moment and retention rule.
+2. **What triggers capture?** Lore has a natural boundary: the end of an intervention. Hotel
+   operations have no equivalent. A departure is too late; a weekly prompt is abandoned by
+   week three.
+3. **Employee data is not lighter than guest data.** Modelling what a worker knows touches
+   performance and monitoring law, and a capture system read as surveillance is dead on
+   arrival whatever its architecture.
+4. **How does it avoid becoming a wiki nobody writes?** Every knowledge-management project
+   fails here. Voice capture is Lore's answer; whether it transfers from a hangar to a service
+   floor is untested.
+5. **What would falsify it?** Define the failure before building, as everything else here
+   does: what does a bad answer look like, and above what rate is it unacceptable?
+
 ## Reading list in this repo
 
 - [`demo/closed-loop/memory_tour.md`](demo/closed-loop/memory_tour.md): what the system knows
