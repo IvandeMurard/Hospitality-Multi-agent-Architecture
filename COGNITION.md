@@ -15,6 +15,13 @@ day, on real restaurant data. What does not commoditize is what sits around the 
 - and compounding all of it into a **per-property operational memory** that a competitor
   cannot copy by training the same model.
 
+The order matters. Persistent agent memory became commodity infrastructure during 2026 — the
+storage is not the asset, and a claim resting on "we have memory" would be resting on a library
+anyone can install. The asset is the four bullets above it: a record of what was recommended,
+what happened, which human overrode it, and who was right. That is a memory of a trade's
+decisions rather than of its conversations, and the only way to get one is to run in production
+for months. This system has not done that yet.
+
 Aetherix, the F&B node, implements this loop today. The demo artifacts in
 [`demo/closed-loop/`](demo/closed-loop/) show it end to end: the agent citing its drivers the
 evening before, flagging a corrupted POS export, naming its own drift after three consecutive

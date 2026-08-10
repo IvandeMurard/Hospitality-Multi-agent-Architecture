@@ -1,6 +1,6 @@
 <h1 align="center">Hospitality Agentic Mesh</h1>
 <p align="center">
-  <em>Operational memory for hotel operations: A network of specialized AI agents that anticipate guest needs, evaluate autonomously, and learn from every service to optimize operations and cut costs.</em>
+  <em>A network of specialized AI agents for hotel operations that store every recommendation next to what actually happened — then name the gap and recalibrate. Not a memory of conversations: a memory of a trade's decisions.</em>
 </p>
 
 <p align="center">
@@ -12,14 +12,17 @@
 
 ---
 
-## The Vision: AI as a Living Operational Memory
+## The Vision: A Closed Loop, Not a Smarter Model
 
-This Hospitality Agentic Architecture turns AI into a **living operational memory**. Rather than just generating a static F&B forecast or a daily report, the Mesh acts as a living cognitive system for the property:
+Rather than generating a static F&B forecast or a daily report, the Mesh closes the loop between what it said and what happened:
+
+- **Measures, like a machine:** Every recommendation is stored next to its real outcome, so the system explicitly knows what it said versus what actually happened — and says so to the manager the next morning, in plain language, including when it was wrong.
 - **Understands, like a human:** Contextual reasoning grounded in each property's history, powered by a unified signal ontology that translates chaotic real-world events into structured, cross-domain context.
-- **Measures, like a machine:** Every recommendation is stored next to its real outcome, so the system explicitly knows what it said versus what actually happened.
 - **Learns, like a network:** Per-property memory today, federated priors next, leveraging shared intelligence to give independent hotels the power of a hive.
 
-The individual forecasts and risk scores are just sensory organs. The true product and value lies in the **per-property memory** as it builds a compounding asset that continually optimizes operations, cuts waste, and elevates the guest experience.
+The individual forecasts and risk scores are just sensory organs. What compounds is the **record of decisions and their outcomes** — including which manager overrode which recommendation, and who turned out to be right.
+
+> **A word on "operational memory," said precisely.** Persistent agent memory became commodity infrastructure during 2026 — several production-grade implementations exist, some free. Having memory is not the differentiator and this repo does not claim it is. What is hard to copy is *what the memory is made of*: outcomes of a specific trade, captured at the moment of decision, over enough months to be worth something. That takes deployment, not architecture. **Today this system has zero real users, so that asset is a mechanism in place, not an accumulated advantage.**
 
 ## What this is
 
@@ -58,12 +61,13 @@ graph LR
 
 1. **Execution nodes never orchestrate.** The perception nodes (Anima, Aetherix, Tacet) strictly *interpret* signals within their domain. They never decide when to run or what action to take. The bespoke Orchestrator holds 100% of the decision logic.
 2. **Glue, not replacement Delivery.** The Mesh operates via a PMS-agnostic canonical schema behind adapters. Intelligence is delivered directly inside the tools managers already use (e.g., 1-tap WhatsApp "receipts" summarizing the reasoning), requiring zero new dashboards to monitor.
-3. **Preventing HITL (Human-in-the-Loop) Fatigue.** Human-in-the-loop is structural, but a manager bombarded with alerts will ignore them. The Orchestrator uses calibrated thresholds to filter out the noise, sending only high-significance, composite recommendations.
+3. **Preventing HITL (Human-in-the-Loop) Fatigue.** Human-in-the-loop is structural, but a manager bombarded with alerts will ignore them. The Orchestrator uses calibrated thresholds to filter out the noise, sending only high-significance, composite recommendations. *Worth stating plainly: explicit human approval before action is no longer a distinguishing stance — three unrelated hospitality AI products shipped the same pre-approval model within three weeks in mid-2026. It is a prerequisite here, correctly implemented, not a differentiator. The part that stays hard is deciding what is worth interrupting a human for.*
 4. **Continuous Improvement (The Meta-Learner).** The system *would* use a dual learning strategy to optimize the Orchestrator's decision thresholds — this loop is **Research**, not yet built:
     - *Human Feedback Loop:* every manager 1-tap response (accept/reject) would train the system.
     - *Autonomous Loop:* the system would compare its past predictions against ground-truth flowing from the PMS/POS, self-correcting without human intervention.
    Today, outcome capture exists only inside the F&B node; the federated meta-learner does not.
 5. **Hive Memory (Federated Priors).** To solve cold-start for new hotels, a federated "Hive" layer *would* share anonymized, learned priors across properties for day-1 effectiveness without leaking tenant data. This layer is **Research**: there is no substrate today (the cohort-feature table does not yet exist), so no prior is shared.
+6. **Accountability is wired in, not bolted on.** Every guardrail trip carries a machine-readable reason. The eval gate blocks merges on exit codes rather than reporting to a dashboard. A data-protection impact assessment gates the guest node and has *not* been cleared — thirteen blocking measures, named. Emotion inference on staff and biometric/voice processing are recorded as red lines under the EU AI Act, not as backlog. A metric-honesty gate forbids quoting a synthetic figure as if it were measured, and a hygiene agent enforces it against the repo's own text. None of this was built as a moat; it is being written down here because the traceability it produces is the part a horizontal platform is least likely to absorb.
 
 ## The Nodes
 
@@ -124,7 +128,9 @@ I am building this Mesh solo from zero-to-one to master the full lifecycle of ag
   It earns its keep. It caught this repository claiming the forecast benchmark ran on 829 restaurants when it ran on 30, the dataset size passed off as the sample, on six surfaces at once, including the sentence arguing for honest reporting. The published results file had said 30 throughout. Two of those six were found by the detector after a manual pass had missed them. The fix and the check that prevents the recurrence shipped together.
 
 - **Typed failure reasons.** Every guardrail trip carries a machine-readable reason; "it degraded gracefully" is verifiable, not folklore.
-- **Continuous discovery as a routine, not an event.** Every Monday morning: an automated scan of the market and competitive watchlist (PMS vendors, agentic startups, MCP ecosystem moves), followed by a proactive PM review session run with agent workflows. Findings feed a watchlist re-evaluated at each phase gate.
+- **Continuous discovery as a routine, not an event.** Every Monday morning, a PM review session run with agent workflows: market and competitive watchlist (PMS vendors, agentic startups, MCP ecosystem moves), each monitor carrying explicit triggers and a pre-framed mitigation. Findings feed a watchlist re-evaluated at each phase gate; a triggered monitor opens a real decision rather than a note.
+
+  The scan that used to feed this was automated, and it was retired in July 2026 — it ran on cloud runners and could no longer write to the notes it fed, so it was producing drafts nobody read. Saying "automated weekly scan" would still read well; it stopped being true, so it is not claimed. The review runs on vendor digests and targeted checks instead. Two habits keep this from rotting: a monitor whose manual check has been announced and skipped repeatedly gets **removed and replaced with observable triggers** rather than reconducted, and the hygiene agent carries a dead-man's-switch detector for exactly the failure mode above — a scheduled job that quietly stops running.
 - **Incident response, practiced.** Handled a real leaked-secrets incident end-to-end: history rewrite, 11/11 credential rotation, GitHub Support purge, and post-mortem.
 - **Tests outweigh code.** 1.13:1 test-to-app LOC ratio on the main node.
 
