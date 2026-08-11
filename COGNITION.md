@@ -60,8 +60,9 @@ suppliers, this Tuesday walks out with them.
 
 Nothing is built. What exists is a reserved place and a proven pattern:
 
-- **The namespace is reserved.** The signal contract carries `staff.*` and `institutional.*`
-  alongside `guest.*`. A fifth node is an addition, not a redesign.
+- **The architecture already admits it.** The contract governing exchanges between nodes was
+  designed for a domain none of them currently occupies. A fifth node would be an addition
+  rather than a rewrite, which is the whole difference between a roadmap item and a rebuild.
 - **The pattern is proven elsewhere.** [Lore](https://github.com/IvandeMurard/Lore) does this in
   aviation maintenance: it interviews a senior by voice after an intervention, files the
   knowledge against the machine and the conditions it applies to, and returns it to a junior
