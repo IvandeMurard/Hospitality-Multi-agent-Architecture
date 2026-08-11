@@ -94,7 +94,7 @@ Digital twins are mature elsewhere: market scenarios in banking, data centres at
 | Decision | Policies, trade-offs, scenarios | **Not built** — nothing here simulates a scenario |
 | Guest experience | Reaction, friction, loyalty | A signal crossing every layer, not a branch. Anima owns its memory, **Synthetic PoC** |
 
-Two boundaries, stated plainly because both are easy to blur. The decision layer is the interesting one and it does not exist here, so none of this is a "decision twin". And guest experience is not a node: `guest.*` travels across the mesh rather than living behind one service.
+Two boundaries, stated plainly because both are easy to blur. The decision layer is the interesting one and it does not exist here, so none of this is a "decision twin". And guest experience is not a node: it is a signal that travels across the mesh rather than living behind one service.
 
 On the human-centered row, [Manzano-Farray et al.](https://pmc.ncbi.nlm.nih.gov/articles/PMC13078991/) (2026) model the employee to **support human judgement, not replace it** — the same guard applied here. It is an adoption study across 141 employees, not a deployed system.
 
