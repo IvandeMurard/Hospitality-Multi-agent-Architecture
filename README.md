@@ -66,7 +66,7 @@ Rather than generating a static F&B forecast or a daily report, the Mesh closes 
 
 What compounds is the **record of decisions and their outcomes** — including which manager overrode which recommendation, and who turned out to be right.
 
-> **Operational memory, precisely:** persistent agent memory is now commodity infrastructure. The differentiator is not “having memory”, but what it is made of: outcomes of a specific trade, captured at decision time, over months. That takes deployment, not architecture. **This system has zero real users today, so the asset is a mechanism in place, not an accumulated advantage.**
+> **Operational memory, precisely:** persistent agent memory is now commodity infrastructure. The differentiator is the loop: what a human does with each recommendation, what outcome follows, and how the system autonomously learns from it. That takes deployment, not architecture. **This system has zero real users -yet (interested?), so the asset is a mechanism in place, not an accumulated advantage.**
 
 ## What this is
 
