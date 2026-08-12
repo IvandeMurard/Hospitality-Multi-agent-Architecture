@@ -1,16 +1,19 @@
-<h1 align="center">Hospitality Multi‑agent Mesh</h1>
+<h1 align="center">The Hospitality Mesh</h1>
 
 <p align="center">
   <strong>
-    A network of 5 specialized AI agents that continuously learn from operations and close the loop between prediction and outcome.
+    A network of 5 specialized AI agents that learn from every feedback to continually improve decision-making, operations and guest experiences.
   </strong>
 </p>
 
 <p align="center">
   <em>
-    Not a smarter model. A closed loop: every recommendation is measured against reality,
-    so the system learns what actually works in each hotel.
+    The Mesh closes the loop between prediction and outcome: every recommendation is measured against reality, so the system learns what actually works in each hotel.
   </em>
+</p>
+
+<p align="center">
+  Each decision is grounded in the property’s own history, guest signals, operational habits, and changing local conditions. Its outcome becomes knowledge for the next one.
 </p>
 
 <p align="center">
@@ -25,19 +28,19 @@
 ## The 5 agents
 
 - **Aetherix** – *Food & Beverage agent*  
-  Predicts operational F&B needs: staffing, covers, food waste management.
+  Turns covers, staffing, demand patterns, and outcomes into more reliable F&B decisions from preparation to food-waste reduction.
 
-- **Anima** – *Guest memory agent (idiosyncratic memory layer)*  
-  Anticipates guests’ needs, learns from every stay, and feeds operational improvements.
+- **Anima** – *Guest memory agent*  
+  Builds a richer understanding of guests across stays, helping teams anticipate needs without reducing hospitality to a generic profile.
 
-- **Peritia** – *Savoir‑faire agent*  
-  Encodes the house’s know‑how so it belongs to the property, not to whoever is on shift.
+- **Peritia** – *House knowledge agent*  
+  Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift.
 
-- **Tacet** – *Environmental agent*  
+- **Tacet** – *Environmental intelligence agent*  
   An environmental twin that turns street signals, weather, and local events into structured risk assessments and yield rules.
 
-- **Orchestrator** – *Supervisory node*  
-  Traffic controller of the Mesh: enforces business rules, sequences agent calls, and remains the sole decision maker.
+- **Orchestrator** – *Supervisory agent*  
+  Connects the agents, sequences their work, applies business rules, and keeps final operational decisions accountable.
 
 > **Mesh:** a network of microservices that only exchange structured messages.  
 > Agents remain strictly isolated for security, reliability, and clear bounded contexts. [web:2]
