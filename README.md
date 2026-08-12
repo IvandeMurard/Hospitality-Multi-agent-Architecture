@@ -78,27 +78,82 @@ This is the public meta‑repo of a multi‑agent system I’ve been building so
 ## The Mesh Architecture
 
 ```mermaid
-graph LR
-    subgraph Nodes["Perception Nodes (Bounded Contexts)"]
-        AN["Anima<br/>Guest Context & Cognition<br/>(4-layer temporal memory)"]
-        A["Aetherix<br/>F&B Operations<br/>(Forecast, staffing, waste)"]
-        T["Tacet<br/>Environmental Risk<br/>(Noise, events, transit)"]
+flowchart TB
+    %% Context sources
+    subgraph CONTEXT["Property context"]
+        PMS["PMS / POS<br/>stays, covers, transactions"]
+        GUEST["Guest signals<br/>preferences, feedback, interactions"]
+        OPS["Operational history<br/>decisions, overrides, outcomes"]
+        ENV["Local environment<br/>weather, events, street signals"]
     end
-    O["Bespoke Orchestrator<br/>(Event-driven, the only<br/>decision maker)"]
-    PMS["PMS / POS<br/>(Apaleo, Mews)"]
-    M["Hotel Manager<br/>(WhatsApp, 1-tap validation)"]
-    ML["Meta-Learner<br/>(Continuous improvement)"]
 
-    O <-->|MCP tools| A
-    O <-->|MCP tools| T
-    O <-->|MCP tools| AN
-    PMS --> O
-    O -->|curated recommendations| M
-    M -->|human feedback| ML
-    PMS -->|autonomous ground-truth| ML
-    ML -.->|recalibrates thresholds| O
+    %% Specialized, isolated agents
+    subgraph MESH["Hospitality Mesh — isolated domain agents"]
+        A["Aetherix<br/><i>F&B</i>"]
+        N["Anima<br/><i>Guest understanding</i>"]
+        P["Peritia<br/><i>House knowledge</i><br/><small>Design</small>"]
+        T["Tacet<br/><i>Environmental intelligence</i>"]
+    end
+
+    %% Coordination and human decision
+    O["Orchestrator<br/><i>coordination, business rules<br/>and audit trail</i>"]
+    H["Hotel manager / team<br/><i>final decision</i>"]
+    ACTION["Operational action<br/><i>service, staffing, preparation,<br/>guest interaction, yield</i>"]
+    OUTCOME["Measured outcome<br/><i>what happened in practice</i>"]
+
+    %% Continuous learning: prospective
+    subgraph LEARNING["Learning layer"]
+        ML["Meta-Learner<br/><small>Research</small>"]
+        HP["Hive priors<br/><small>Research · federated</small>"]
+    end
+
+    %% Context to agents
+    PMS --> A
+    PMS --> N
+    GUEST --> N
+    OPS --> A
+    OPS --> N
+    OPS --> P
+    ENV --> T
+
+    %% Agent output to orchestration
+    A -->|"structured recommendation"| O
+    N -->|"structured context"| O
+    P -->|"structured know-how"| O
+    T -->|"structured risk / rule"| O
+
+    %% Human-centred loop
+    O -->|"prioritized recommendation"| H
+    H -->|"approve, adapt or override"| ACTION
+    ACTION --> OUTCOME
+    OUTCOME -->|"recorded with decision context"| OPS
+
+    %% Prospectively learned layer
+    OPS -.->|"outcomes & feedback"| ML
+    ML -.->|"tuned thresholds"| O
+    OPS -.->|"anonymised patterns"| HP
+    HP -.->|"federated priors"| A
+    HP -.->|"federated priors"| N
+    HP -.->|"federated priors"| P
+    HP -.->|"federated priors"| T
+
+    %% Styling
+    classDef source fill:#F8FAFC,stroke:#64748B,color:#0F172A;
+    classDef agent fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B;
+    classDef orchestration fill:#FFF7ED,stroke:#EA580C,color:#431407;
+    classDef human fill:#F0FDF4,stroke:#16A34A,color:#14532D;
+    classDef outcome fill:#FEFCE8,stroke:#CA8A04,color:#422006;
+    classDef research fill:#FAF5FF,stroke:#A855F7,color:#581C87,stroke-dasharray: 5 5;
+
+    class PMS,GUEST,OPS,ENV source;
+    class A,N,P,T agent;
+    class O orchestration;
+    class H,ACTION human;
+    class OUTCOME outcome;
+    class ML,HP research;
 ```
 
+*Solid lines describe the intended operational loop. Dashed lines mark research-stage learning capabilities; Peritia is designed, not yet implemented.*
 ### Core Design Principles
 
 1. **Execution nodes never orchestrate.** Perception nodes (Anima, Aetherix, Tacet) interpret signals; the bespoke Orchestrator holds all decision logic.
