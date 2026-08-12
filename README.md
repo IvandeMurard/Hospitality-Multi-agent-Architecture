@@ -1,6 +1,15 @@
 <h1 align="center">The Hospitality Mesh</h1>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Status-Phase_3_·_Pilot-8b5cf6?style=flat" alt="Phase 3 Pilot" />
+  <img src="https://img.shields.io/badge/Staging-Live-22C55E?style=flat" alt="Staging live" />
+  <img src="https://img.shields.io/badge/MCP-Native-6366f1?style=flat" alt="MCP Native" />
+  <img src="https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white" alt="Python 3.12" />
+  <img src="https://img.shields.io/badge/FastAPI-0.115-009688?style=flat&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/License-MIT-22C55E?style=flat" alt="License MIT" />
+</p>
+
+<p align="center">
   <strong>
     A network of 5 specialized AI agents that learn from every feedback to continually improve decision-making, operations and guest experiences.
   </strong>
