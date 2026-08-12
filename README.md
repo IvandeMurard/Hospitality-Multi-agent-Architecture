@@ -144,10 +144,10 @@ On the human-centered row, [Manzano-Farray et al.](https://pmc.ncbi.nlm.nih.gov/
 
 ## What's built vs. what's vision
 
-This is a solo project — **built by one person, which is a real key-person (bus-factor) risk** for anyone relying on it. It is mitigated by tracked decisions (12 ADRs), synchronized recovery harnesses, and deterministic, reproducible pipelines — not by redundancy, and there is no SLA yet. The mesh narrative is a north star; the nodes below are built to de-risk the architecture, but every status uses one honest label, and **Built means the code runs, not that anyone uses it yet**:
+This is a solo project — **built by one person, which is a real key‑person (bus‑factor) risk** for anyone relying on it. It is mitigated by tracked decisions (12 ADRs), synchronized recovery harnesses, and deterministic, reproducible pipelines — not by redundancy, and there is no SLA yet. The mesh narrative is a north star; the nodes below are built to de‑risk the architecture, but every status uses one honest label, and **Built means the code runs, not that anyone uses it yet**:
 
-- **Built** — deployed and exercised end-to-end on the target environment.
-- **Shadow-mode** — runs on real data, but no decision is delivered to a human on that basis.
+- **Built** — deployed and exercised end‑to‑end on the target environment.
+- **Shadow‑mode** — runs on real data, but no decision is delivered to a human on that basis.
 - **Synthetic PoC** — validated on fabricated data only; never met the real world.
 - **Design** — specified (ADR, schema, contract), not implemented.
 - **Research** — open exploration, no delivery commitment.
@@ -155,11 +155,12 @@ This is a solo project — **built by one person, which is a real key-person (bu
 | Component | Status | Evidence |
 |---|---|---|
 | **Aetherix** (F&B Node) | **Built** (private, **0 real users**): ~16.5k LOC, staging on Fly.io, 12 ADRs | Case study; walkthrough on request |
-| **Aetherix — forecast** | **Shadow-mode**: benchmarked on real public data; no manager decision delivered on it yet | Recruit benchmark (see *Current focus*) |
-| **Anima** (Guest Node) | **Synthetic PoC**: 4-layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA-gated) | Local evals & synthetic data |
+| **Aetherix — forecast** | **Shadow‑mode**: benchmarked on real public data; no manager decision delivered on it yet | Recruit benchmark (see Current focus) |
+| **Anima** (Guest Node) | **Synthetic PoC**: 4‑layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA‑gated) | Local evals & synthetic data |
+| **Peritia** (House knowledge agent) | **Design**: adaptation of [Lore](https://github.com/IvandeMurard/Lore) (voice AI mentor for tacit expertise in aviation maintenance) to hospitality; domain & contracts specified, not implemented | ADRs & Lore codebase |
 | **Tacet** (Environment Node) | **Built** (public): live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
-| **Bespoke Orchestrator** | **Design**: event-driven decision engine specified in ADRs; proto-stub only, not built | Architectural ADRs |
-| **Meta-Learner & Hive priors** | **Research**: no substrate yet (the cohort-feature table does not exist). Outcome capture exists only inside the F&B node | — |
+| **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built | Architectural ADRs |
+| **Meta‑Learner & Hive priors** | **Research**: no substrate yet (the cohort‑feature table does not exist). Outcome capture exists only inside the F&B node | — |
 
 ## Engineering practices I'd bring to a team
 
