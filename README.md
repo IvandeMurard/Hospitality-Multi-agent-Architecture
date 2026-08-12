@@ -1,4 +1,4 @@
-<h1 align="center">Hospitality Agentic Mesh</h1>
+<h1 align="center">Hospitality Multi-agent Architecture</h1>
 <p align="center">
   <em>A network of specialized AI agents for hotel operations that store every recommendation next to what actually happened — then name the gap and recalibrate. Not a memory of conversations: a memory of a trade's decisions.</em>
 </p>
