@@ -1,6 +1,11 @@
 <h1 align="center">Hospitality Multi-agent Architecture</h1>
 <p align="center">
-  <em>A network of specialized AI agents for hotel operations that store every recommendation next to what actually happened — then name the gap and recalibrate. Not a memory of conversations: a memory of a trade's decisions.</em>
+  <em>A network of 5 specialized AI agents that learn and improve operations continually.
+    1. Aetherix = The food & beverage agent. It predicts operational f&b needs (staffing, covers, food waste management).
+    2. Anima = The guest memory agent. It anticipates customers' needs, learns from every stay, and improves operations. 
+    3. Peritia = The savoir-faire agent. A house's know-how, held by the house rather than by whoever is on shift.
+    4. Tacet = The environmental agent. An environmental twin turning street signals, weather, and local events into structured risk assessments and yield rules.
+    5. The orchestrator = The supervisory node of the Architecture. It acts as the traffic controller and holds the final business rules.Ea</em>
 </p>
 
 <p align="center">
