@@ -108,35 +108,19 @@ graph LR
 5. **Hive Memory (Federated Priors, Research).** A federated layer would share anonymized priors across properties to solve cold‑start, without leaking tenant data. No substrate exists yet.
 6. **Accountability wired in.** Every guardrail trip carries a machine‑readable reason; eval gates block merges on exit codes; DPIA gates the guest node; EU AI Act red lines are explicit; metric‑honesty and hygiene agents enforce truthfulness in the repo itself.
 
-## The Nodes
-
-### Anima: The Relational Core (Guest Context)
-Hospitality is fundamentally about the guest. Anima is the intelligence engine that allows the hotel to anticipate and personalize the experience as if every guest were a regular. It utilizes a **4-layer temporal memory** (Working, Episodic, Semantic, Segment) to prevent "over-fetching" context, ensuring the Orchestrator makes the *right gesture* for the *right guest* at the *right time*.
-
-### Aetherix: F&B Execution
-Aetherix anticipates staffing and F&B needs to cut food waste and control costs. It ingests historical data, weather, and local events to forecast operational pressure, issuing daily recommendations for kitchen prep and front-of-house staffing.
-
-### Tacet: Environmental Awareness
-Tacet listens to the city. It monitors external risks—construction noise, transit strikes, and local events—translating chaotic real-world data into structured risk scores so the hotel can act proactively.
-
 ## Where this sits in the digital twin landscape
 
-A map, not a claim — the status table below is what says what exists.
-
-Digital twins are mature elsewhere: market scenarios in banking, data centres at Google, warehouses at Amazon, decades of use in aerospace to retire risk before touching hardware. In hospitality they model the building — predictive maintenance, refurbishment, energy. Searching for one that simulates an **operational** decision before it is taken returns nothing. **The sector models its assets, not its arbitrations.**
+Digital twins are mature in banking, data centres, aerospace. In hospitality, they model buildings and energy — not operational decisions. **The sector models its assets, not its arbitrations.**
 
 | Layer | Models | Here |
 |---|---|---|
 | Asset | Building, HVAC, energy | Out of scope |
 | Process | Prep, staffing, service flows | Aetherix, **Built** |
-| Human-centered | Staff perception, effort, trust | Not a node. See [Lore](https://github.com/IvandeMurard/Lore), a separate system in aviation maintenance |
-| Decision | Policies, trade-offs, scenarios | **Not built** — nothing here simulates a scenario |
-| Guest experience | Reaction, friction, loyalty | A signal crossing every layer, not a branch. Anima owns its memory, **Synthetic PoC** |
+| Human‑centered | Staff perception, effort, trust | Not a node. See [Lore](https://github.com/IvandeMurard/Lore) |
+| Decision | Policies, trade‑offs, scenarios | **Not built** |
+| Guest experience | Reaction, friction, loyalty | Signal across the mesh. Anima owns its memory, **Synthetic PoC** |
 
-Two boundaries, stated plainly because both are easy to blur. The decision layer is the interesting one and it does not exist here, so none of this is a "decision twin". And guest experience is not a node: it is a signal that travels across the mesh rather than living behind one service.
-
-On the human-centered row, [Manzano-Farray et al.](https://pmc.ncbi.nlm.nih.gov/articles/PMC13078991/) (2026) model the employee to **support human judgement, not replace it** — the same guard applied here. It is an adoption study across 141 employees, not a deployed system.
-
+The decision layer is the interesting one and does not exist here, so none of this is a “decision twin”. Guest experience is not a node; it is a signal that travels across the mesh. [Manzano‑Farray et al. (2026)](https://pmc.ncbi.nlm.nih.gov/articles/PMC13078991/) model the employee to support human judgement, not replace it — the same guard applied here.
 ## What's built vs. what's vision
 
 This is a solo project — **built by one person, which is a real key‑person (bus‑factor) risk** for anyone relying on it. It is mitigated by tracked decisions (12 ADRs), synchronized recovery harnesses, and deterministic, reproducible pipelines — not by redundancy, and there is no SLA yet. The mesh narrative is a north star; the nodes below are built to de‑risk the architecture, but every status uses one honest label, and **Built means the code runs, not that anyone uses it yet**:
