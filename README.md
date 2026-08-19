@@ -26,6 +26,7 @@
 </p>
 
 <p align="center">
+  <a href="VISION.md">Vision</a> ·
   <a href="https://ivandemurard.com/aetherix">Case study</a> ·
   <a href="https://github.com/IvandeMurard/aetherix-hospitality-ai">Aetherix (access upon request)</a> ·
   <a href="https://github.com/IvandeMurard/tacet-app">Tacet (public repo)</a> ·
