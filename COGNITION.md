@@ -72,24 +72,76 @@ Nothing is built. What exists is a reserved place and a proven pattern:
   stricter regime, where a licensed technician signs the release and nothing else can.
 - **Deliberately unnamed.** A functional label beats a proper noun on something with no code.
 
+### What Peritia could answer
+
+Two different lists, because conflating them is how a scoping document quietly turns into a
+promise nobody can keep.
+
+**Unconstrained** — the kind of question the tool is meant to eventually close:
+- Why does the kitchen favor this supplier despite a higher price?
+- How does this particular oven run compared to its spec sheet, and what does the team do
+  about it?
+- Last time this exact problem came up with this supplier or this piece of equipment, what
+  happened and how was it resolved?
+- What is the unwritten protocol when a recurring situation happens on a full Saturday night?
+- What does an experienced host do for this type of recurring complaint, and why does it work?
+
+**Constrained by what exists today** — technical and regulatory:
+- *Technical*: Peritia inherits Lore's capture pattern, a voice interview after a bounded
+  intervention. Aviation maintenance has that boundary — the end of a job on a tail number.
+  Hospitality doesn't (open question 2, below). Until a trigger is defined, the tool can only
+  answer questions whose capture moment is already identifiable — the end of a named incident,
+  not continuous ambient capture.
+- *Regulatory*: knowledge that stays strictly professional and non‑nominative as to an
+  individual's performance — a recipe fix, a supplier quirk, a piece of equipment's behavior —
+  sits outside employee‑monitoring law the same way Lore's torque‑spec deviations do. The
+  moment captured knowledge shifts from "what is the trick" to "how did this specific employee
+  handle it," it becomes performance/behavior data and the constraint gets real. The answerable
+  set, today, is bounded to transferable procedural know‑how — not staff evaluation.
+
 ### Open questions, for whoever picks this up
 
-None of these is answered, and each blocks the next:
+None of these is settled, and each still blocks the next — but each now carries a working
+direction rather than a blank:
 
-1. **Who benefits?** Lore answers a junior asking a question. Here the consumer could be the
-   orchestrator, an incoming manager, or the property at handover — each implying a different
-   capture moment and retention rule.
-2. **What triggers capture?** Lore has a natural boundary: the end of an intervention. Hotel
-   operations have no equivalent. A departure is too late; a weekly prompt is abandoned by
-   week three.
-3. **Employee data is not lighter than guest data.** Modelling what a worker knows touches
-   performance and monitoring law, and a capture system read as surveillance is dead on
-   arrival whatever its architecture.
-4. **How does it avoid becoming a wiki nobody writes?** Every knowledge-management project
-   fails here. Voice capture is Lore's answer; whether it transfers from a hangar to a service
-   floor is untested.
-5. **What would falsify it?** Define the failure before building, as everything else here
-   does: what does a bad answer look like, and above what rate is it unacceptable?
+1. **Who benefits?** Working hypothesis: two consumers, not one. *The agents* — including the
+   orchestrator — get a continuously improving picture of the property's operating context,
+   which sharpens recommendations into something idiosyncratic rather than generic. *The
+   humans* — managers and operational teams, and through them the guests — get faster
+   onboarding, more automatic transmission of critical information, and an audit trail of who
+   knew what. This doesn't resolve the capture‑moment question below; it means the payload has
+   two destinations, which likely implies two different retention and access rules rather than
+   one pipe.
+2. **What triggers capture?** Candidates on the table: a fixed ritual (a recurring debrief), a
+   data‑driven comparative trigger (an anomaly or a recurring pattern surfaces and the system
+   asks about it), or an agent‑initiated request following a named business event. None chosen
+   — this is the one place the Lore pattern doesn't transfer cleanly, since hospitality has no
+   "end of intervention" boundary.
+3. **Is employee data actually the blocker?** Worth recording as a live pushback: this wasn't
+   blocking for Lore, so why would it be here? The comparison holds only if Peritia stays where
+   Lore stays — professional, transferable know‑how (a technique, a supplier relationship, an
+   equipment quirk), never a record of how a *named individual* performs. Lore arguably sits in
+   a *more* regulated domain — licensed, safety‑critical, signed release — and ships anyway,
+   because the captured knowledge is about the aircraft and the procedure, not about grading the
+   technician. The real risk in hospitality is scope creep: service work is more relational than
+   a torque spec, so "how do you handle a difficult guest" drifts toward behavior/performance
+   data in a way "how do you compensate for an oven running hot" doesn't. Read as a scope
+   discipline to hold — know‑how, not conduct — not a hard legal blocker, but it needs to be a
+   stated design constraint from day one, the same way "context, not surveillance" is stated for
+   Anima, and ideally checked with whoever represents staff before anything ships.
+4. **How does it avoid becoming a wiki nobody writes?** Agreed as a real risk, not a
+   hypothetical: this can look time‑consuming and low‑value to exactly the teams whose time is
+   scarcest. Still unanswered — Lore's answer (voice capture riding on an existing documentation
+   obligation) has no equivalent hook to attach to here.
+5. **What would falsify it?** Reframed rather than answered: hospitality isn't fully SOP‑free —
+   food safety, brand standards, and safety procedures exist — but the knowledge Peritia would
+   want is precisely what sits *outside* the written procedure, the exceptions and local
+   optimizations nobody wrote down. Which means there's no ground truth to check answers
+   against, SOP or otherwise. A more useful falsification criterion may not be "matches the
+   SOP" but "matches the outcome": log a captured answer next to what actually happened when a
+   junior followed it — the same predict‑versus‑outcome loop Aetherix already runs. That would
+   make Peritia's correctness measurable the same way the rest of the mesh is, instead of
+   needing a separate evaluation frame.
 
 ## Reading list in this repo
 
