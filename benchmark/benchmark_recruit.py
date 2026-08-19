@@ -30,9 +30,12 @@ Models:
                   for leads <= 7 since all lags >= 7).
 
 Usage:
-    python scripts/ops/benchmark_recruit.py \
-        --data-dir backend/data/benchmarks \
-        --out eval/benchmarks/recruit_results.json
+    python benchmark/benchmark_recruit.py \
+        --data-dir <path to extracted Kaggle data> \
+        --out benchmark/recruit_results.json
+
+See benchmark/README.md for exactly where to get the data and how to reproduce
+the published results.
 
 Decision rule (HOS-307 AC4): Prophet must beat the naive baseline by >= 5 MAPE
 points overall, otherwise a model-pivot decision is documented.
