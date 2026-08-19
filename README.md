@@ -211,7 +211,7 @@ I’m building this Mesh solo to master the full lifecycle of agentic AI systems
 ## Current focus (90‑day plan, started July 2026)
 
 1. **Proof:** real‑data forecast benchmark on 30 restaurants from the Kaggle Recruit dataset. Prophet beats a naive same‑weekday baseline on mean MAPE, but ties it on the median; a gradient‑boosted baseline wins the median. Both readings are published. Focus now: closed‑loop demo on the Apaleo sandbox, observability (Logfire traces, LLM cost per recommendation), and F&B manager interviews.
-2. **Visibility:** this repo, a technical write‑up on the blocking eval gate, and a demo video.
+2. **Visibility:** this repo, a technical write‑up on [the blocking eval gate](EVAL_GATE.md), and a demo video.
 
 ## Stack
 
