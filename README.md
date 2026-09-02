@@ -1,4 +1,5 @@
-<h1 align="center">The Hospitality Mesh</h1>
+<h1 align="center">Hospitality Multi-agent Architecture</h1>
+<p align="center"><em>aka "the Mesh"</em></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Phase_3_·_Pilot-8b5cf6?style=flat" alt="Phase 3 Pilot" />

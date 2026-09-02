@@ -1,0 +1,13 @@
+# Hospitality Multi-agent Architecture
+
+> A network of 5 specialized AI agents (Aetherix, Anima, Peritia, Tacet, Orchestrator) that turn hotel-operations data into decisions, then measure those decisions against real outcomes to keep improving. MCP-native, Python/FastAPI, built solo since late 2025. Public meta-repo — Aetherix and Tacet execution nodes live in separate repositories (Aetherix is private).
+
+## Docs
+
+- [README](README.md): agent roster, architecture, evaluation approach
+- [Vision](VISION.md): the closed-loop thesis behind the system
+
+## Related
+
+- [Tacet](https://github.com/IvandeMurard/tacet-app): environmental-intelligence agent, public repo
+- [Case study](https://ivandemurard.com/aetherix): Aetherix (F&B agent) walkthrough, since that repo is private
