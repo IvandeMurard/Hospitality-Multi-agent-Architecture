@@ -28,7 +28,7 @@
 <p align="center">
   <a href="VISION.md">Vision</a> ·
   <a href="https://ivandemurard.com/aetherix">Case study</a> ·
-  <a href="https://github.com/IvandeMurard/aetherix-hospitality-ai">Aetherix (access upon request)</a> ·
+  Aetherix (private repo — access upon request) ·
   <a href="https://github.com/IvandeMurard/tacet-app">Tacet (public repo)</a> ·
   <a href="https://www.linkedin.com/in/ivandemurard/">Contact</a>
 </p>
@@ -53,7 +53,7 @@
   Connects the agents, sequences their work, applies business rules, and keeps final operational decisions accountable.
 
 > **Mesh:** a network of microservices that only exchange structured messages.  
-> Agents remain strictly isolated for security, reliability, and clear bounded contexts. [web:2]
+> Agents remain strictly isolated for security, reliability, and clear bounded contexts.
 
 ---
 
