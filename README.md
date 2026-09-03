@@ -208,6 +208,7 @@ I’m building this Mesh solo to master the full lifecycle of agentic AI systems
 - **Typed failure reasons:** every guardrail trip carries a machine‑readable reason; “it degraded gracefully” is verifiable, not folklore.
 - **Continuous discovery as a routine:** weekly PM reviews with explicit watchlists, triggers and pre‑framed mitigations; dead monitors are removed and replaced with observable triggers.
 - **Incident response, practiced:** handled a real leaked‑secrets incident end‑to‑end (history rewrite, full credential rotation, GitHub Support purge, post‑mortem).
+- **Machine‑readable by default:** this repo ships an [`llms.txt`](llms.txt); the [portfolio](https://ivandemurard.com) exposes the same case studies through a live MCP server and an [`llms-full.txt`](https://ivandemurard.com/llms-full.txt) corpus, and [`paris-compass-mcp`](https://www.npmjs.com/package/paris-compass-mcp) is published on npm (`npx -y paris-compass-mcp`, six tools, anonymous read‑only). An agent can consume this work without scraping it.
 - **Tests outweigh code:** 1.13:1 test‑to‑app LOC ratio on the main node.
 
 ## Current focus (90‑day plan, started July 2026)
