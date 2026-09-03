@@ -2,12 +2,35 @@
 
 > A network of 5 specialized AI agents (Aetherix, Anima, Peritia, Tacet, Orchestrator) that turn hotel-operations data into decisions, then measure those decisions against real outcomes to keep improving. MCP-native, Python/FastAPI, built solo since late 2025. Public meta-repo — Aetherix and Tacet execution nodes live in separate repositories (Aetherix is private).
 
+## Status vocabulary
+
+Canonical across this repo, the execution-node repos and https://ivandemurard.com. Every component status uses exactly one of these five labels. "Built" means the code runs, not that anyone uses it yet.
+
+- Built — deployed and exercised end-to-end on the target environment.
+- Shadow-mode — runs on real data, but no decision is delivered to a human on that basis.
+- Synthetic PoC — validated on fabricated data only; never met the real world.
+- Design — specified (ADR, schema, contract), not implemented.
+- Research — open exploration, no delivery commitment.
+
+## Current component status
+
+- Aetherix (F&B node): Built — private repo, 0 real users, staging on Fly.io.
+- Aetherix forecast: Shadow-mode — benchmarked on real public data, no manager decision delivered on it yet.
+- Tacet (environment node): Built — public repo, paused / maintenance mode since July 2026.
+- Anima (guest node): Synthetic PoC — DPIA-gated, never run on a real guest.
+- Peritia (house-knowledge node): Design — contracts specified, not implemented.
+- Bespoke Orchestrator: Design — proto-stub only.
+- Meta-Learner & Hive priors: Research — no substrate yet.
+
 ## Docs
 
 - [README](README.md): agent roster, architecture, evaluation approach
 - [Vision](VISION.md): the closed-loop thesis behind the system
+- [Eval gate](EVAL_GATE.md): why a failing eval blocks a merge
+- [MCP contract](MCP.md): the tool surface the nodes expose
 
 ## Related
 
 - [Tacet](https://github.com/IvandeMurard/tacet-app): environmental-intelligence agent, public repo
 - [Case study](https://ivandemurard.com/aetherix): Aetherix (F&B agent) walkthrough, since that repo is private
+- [Portfolio corpus](https://ivandemurard.com/llms-full.txt): all case studies as one machine-readable file
