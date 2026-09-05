@@ -154,3 +154,9 @@ actually enforced promise.
 - [benchmark/](benchmark/) — the real-data benchmark this gate protects
   against regressing on
 - [README](README.md) — what's built versus what's still design or research
+- [articles/eval-gate.md](articles/eval-gate.md) — the short, publication-shaped
+  version: making Prophet deterministic in GitHub Actions, and the canary that
+  proved it
+- [Evaluating LLM agents: how would you know it had stopped working?](https://ivandemurard.com/journal/harnesses-graders-closed-loops) —
+  the vocabulary this gate is built on: graders, harnesses, protocols, the three
+  arms of evaluation, and why 52 out of 53 can still be a failure
