@@ -100,3 +100,7 @@ This is the short version. The full mechanics — trigger-path detection, the go
 taxonomy, coverage math, the offline-vs-runtime split that decides what even needs a scenario —
 are in [`EVAL_GATE.md`](../EVAL_GATE.md). The rest of the system this gate protects is in the
 [meta-repo README](../README.md).
+
+For the vocabulary underneath all of it — what a grader is, what a harness is, what a protocol
+decides, and the three arms of evaluation worked through on two real systems — see
+[Evaluating LLM agents: how would you know it had stopped working?](https://ivandemurard.com/journal/harnesses-graders-closed-loops)
