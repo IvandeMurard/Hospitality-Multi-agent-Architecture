@@ -12,10 +12,16 @@ methodology is in the script's own docstring — this file is just "how to actua
 | **Prophet** (Aetherix config) | **49.71%** | **27.01%** |
 | LightGBM (global, lag features) | 52.41% | 25.56% |
 
-Prophet beats the naive baseline by 6.15 points on mean MAPE (passes the pre-registered ≥5pt
-decision rule) but only 0.56 points on the median — and a plain LightGBM model beats Prophet on
-the median. Both readings are published because only reporting the mean would be the flattering
-half of the same result.
+Prophet beats the naive baseline by 6.15 points on mean MAPE (passes the ≥5pt decision rule, which
+was coded into the script before the run) but only 0.56 points on the median — and a plain LightGBM
+model beats Prophet on the median. Both readings are published because only reporting the mean would
+be the flattering half of the same result.
+
+To be precise about what "fixed in advance" covers here: the metric and the threshold were written
+into `benchmark_recruit.py` before the benchmark ran, so the verdict was not picked after seeing
+which reading was kinder. But there was no frozen protocol document for *this* run — that discipline
+was adopted afterwards, and it governs the measurements that come after this one rather than
+applying to it retroactively. Calling this benchmark "pre-registered" would overstate it.
 
 ## Reproduce it
 
