@@ -165,4 +165,9 @@ actually enforced promise.
   proved it
 - [Evaluating LLM agents: how would you know it had stopped working?](https://ivandemurard.com/journal/harnesses-graders-closed-loops) —
   the vocabulary this gate is built on: graders, harnesses, protocols, the three
-  arms of evaluation, and why 52 out of 53 can still be a failure
+  arms of evaluation, and why 52 out of 53 can still be a failure. Note the sense
+  of *harness* there: the machinery that runs the exam — case set, graders,
+  thresholds, verdict — not the agent harness of the 2026 write-ups, which is the
+  runtime environment around a model. This repo uses both senses, so they are
+  named once here: [`CLAUDE.md`](CLAUDE.md) is an agent harness, this gate is part
+  of an evaluation harness, and a system needs both for opposite reasons.

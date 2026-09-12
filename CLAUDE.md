@@ -1,8 +1,12 @@
 # Working on this repo
 
-A map, not a manual. This file is the harness for whoever — or whatever — edits here.
-It exists because this repo holds no application code: a change here is a change to a
-**claim**, so the rules below are about evidence, not style.
+A map, not a manual. This file is the *agent* harness for whoever — or whatever — edits
+here: the environment, the permissions, and what counts as done. The *evaluation*
+harness is a different object and lives in [`EVAL_GATE.md`](EVAL_GATE.md); the two
+senses of the word are disambiguated there.
+
+This file exists because this repo holds no application code: a change here is a change
+to a **claim**, so the rules below are about evidence, not style.
 
 ## What this repo is, and is not
 
