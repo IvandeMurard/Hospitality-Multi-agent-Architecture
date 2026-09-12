@@ -28,6 +28,7 @@ Canonical across this repo, the execution-node repos and https://ivandemurard.co
 - [Vision](VISION.md): the closed-loop thesis behind the system
 - [Eval gate](EVAL_GATE.md): why a failing eval blocks a merge
 - [MCP contract](MCP.md): the tool surface the nodes expose
+- [CLAUDE.md](CLAUDE.md): the working rules for editing this repo — status-label discipline, the three published/unpublished boundaries, and what a repeated failure must turn into
 
 ## Related
 

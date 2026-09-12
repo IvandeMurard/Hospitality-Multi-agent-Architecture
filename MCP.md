@@ -72,6 +72,14 @@ what was recommended, and how the manager responded.
 `outcome` is one of `accepted`, `rejected`, `modified`, `ignored`. This is the
 call that closes the loop: without it the system predicts into the void.
 
+The four values are not interchangeable grades on one scale. `accepted` and
+`modified` say the recommendation was worth reading; `rejected` is a manager
+engaging with the system and disagreeing, which is the most informative outcome
+it can receive; `ignored` is a manager routing around it, and is the one to
+watch hardest, because a system can raise its acceptance rate indefinitely by
+being ignored more selectively. These are the inputs to the loop metric stated
+in [VISION.md](VISION.md).
+
 ## Multi-tenancy is not a parameter
 
 `hotel_id` is resolved **server-side from the bearer token**. No tool schema
