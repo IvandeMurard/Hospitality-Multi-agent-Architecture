@@ -23,6 +23,36 @@ that anyone uses it.
    no accumulated corpus.** A moat claimed on a built-but-unused mechanism is a specification with
    good production values, not an advantage yet. It becomes one only by running in production
    long enough to accumulate outcomes a competitor can't copy by installing the same libraries.
+
+   **The second return path, which isn't built.** Those four steps are one loop: they correct the
+   *parameters* of the next forecast. They do not change *which* recommendations get made, or
+   which ones are judged worth interrupting a manager for. A manager who overrides the same class
+   of recommendation five times is not reporting a calibration error — they are reporting that the
+   class shouldn't have been surfaced. Turning that into a standing constraint on what the
+   orchestrator emits, rather than into another nudged threshold, is a different mechanism from
+   recalibration, and this system does not have it. **Status: Design.** Naming it here because a
+   loop that only ever tunes its own numbers gets more accurate and never gets wiser, and the
+   override corpus — the thing ranked first on this page — is exactly the input the missing
+   mechanism would consume.
+
+   What that mechanism has to do is route the correction, because an override is not one kind of
+   error. The manager who overrides is reporting that *some layer* was wrong, and which layer
+   decides what the fix is:
+
+   | What the override reveals | Where the fix has to land |
+   |---|---|
+   | A fact the system held and reality has since changed | The property's memory |
+   | A choice the house made and nobody encoded | A recorded decision, with its owner |
+   | A preference that has now recurred three times | A rule, not a nudged weight |
+   | A pattern the model has never seen | The training corpus and the golden dataset |
+   | A recommendation that should never have been surfaced | The significance filter upstream |
+   | An action that should not have been offered at all | A closed lane |
+
+   Only the fourth row is recalibration. The other five change something a retrain cannot reach,
+   which is the whole distinction this section exists to make. **Status: Design** — and the routing
+   question is the cheap part; the expensive part is that `submit_feedback_to_memory` records the
+   override as free text today, so nothing currently distinguishes row one from row five
+   ([MCP.md](MCP.md)).
 2. **Compliance wired into the product, not bolted on.** Typed guardrail trips, a blocking CI eval
    gate (see [EVAL_GATE.md](EVAL_GATE.md)), an audited incident history. **Status: Built.** Treated
    internally as a cost for a long time — freezes, blocked merges, engineering hours. That was a
@@ -97,3 +127,24 @@ already shows the forecast model itself is not defensible — Prophet ties a nai
 median day, and any competitor retrains a comparable model in a week. Leading with "our AI
 predicts better" was always the losing argument here; leading with the loop and the compliance
 wired around it is the only version of this thesis that survives a demo.
+
+## The number the loop has to be judged on
+
+A thesis that says the loop matters more than the accuracy needs a loop metric, or the accuracy
+metric wins by default — it's the one that exists. MAPE per category is measured and gated
+([EVAL_GATE.md](EVAL_GATE.md)); nothing yet measures whether the loop is working.
+
+Two numbers, both computable from fields the MCP contract already carries — the `outcome` enum on
+`submit_feedback_to_memory` ([MCP.md](MCP.md)) — and neither collectable before the pilot:
+
+- **Acceptance rate**: accepted or modified recommendations over recommendations delivered. The
+  `ignored` value is the one to watch hardest: an override is a manager engaging with the system,
+  an ignore is a manager routing around it, and only the first is a learning signal.
+- **Manager minutes per accepted recommendation.** This is the direct measurement of the
+  interruption budget that the README calls the hard part. A system that raises acceptance by
+  asking more often has not improved; it has spent someone else's attention to buy its own score.
+
+**Status: Design** — the enum is Built, the measurement is not, and the pilot is where both become
+real. The pairing is the point: acceptance rate alone is a Goodhart target, and a system optimized
+on it learns to emit bland, agreeable recommendations that cost nothing to approve. Either number
+read without the other is worse than neither.

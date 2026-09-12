@@ -140,7 +140,13 @@ Stated plainly, because a gate is only as trustworthy as its stated limits:
   accepting it actually help — sits outside this gate entirely. That's the
   trust signal the closed loop is built to produce (see
   [COGNITION.md](COGNITION.md)), and it's a downstream measurement, not a
-  pre-merge check.
+  pre-merge check. It is now at least a *named* gap rather than an open one:
+  the pair it will be measured on — acceptance rate read against manager
+  minutes per accepted recommendation — is stated in
+  [VISION.md](VISION.md). Naming the metric before the pilot is deliberate,
+  for the same reason each golden scenario carries a `failure_trigger`:
+  a measurement chosen after seeing the first results is a measurement
+  chosen to flatter them.
 
 None of that makes the gate decorative. It means the gate's honest claim is
 narrower than "the AI is good": it's "this PR didn't make the model worse on
@@ -159,4 +165,9 @@ actually enforced promise.
   proved it
 - [Evaluating LLM agents: how would you know it had stopped working?](https://ivandemurard.com/journal/harnesses-graders-closed-loops) —
   the vocabulary this gate is built on: graders, harnesses, protocols, the three
-  arms of evaluation, and why 52 out of 53 can still be a failure
+  arms of evaluation, and why 52 out of 53 can still be a failure. Note the sense
+  of *harness* there: the machinery that runs the exam — case set, graders,
+  thresholds, verdict — not the agent harness of the 2026 write-ups, which is the
+  runtime environment around a model. This repo uses both senses, so they are
+  named once here: [`CLAUDE.md`](CLAUDE.md) is an agent harness, this gate is part
+  of an evaluation harness, and a system needs both for opposite reasons.

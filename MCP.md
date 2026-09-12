@@ -72,6 +72,23 @@ what was recommended, and how the manager responded.
 `outcome` is one of `accepted`, `rejected`, `modified`, `ignored`. This is the
 call that closes the loop: without it the system predicts into the void.
 
+The four values are not interchangeable grades on one scale. `accepted` and
+`modified` say the recommendation was worth reading; `rejected` is a manager
+engaging with the system and disagreeing, which is the most informative outcome
+it can receive; `ignored` is a manager routing around it, and is the one to
+watch hardest, because a system can raise its acceptance rate indefinitely by
+being ignored more selectively. These are the inputs to the loop metric stated
+in [VISION.md](VISION.md).
+
+`notes` is free text today, which makes the override corpus a pile of prose:
+"banquet booked late" records *that* the system was wrong, not *which layer*
+was wrong — a stale fact, a rule nobody encoded, or a pattern the model has
+never seen. The return path described in [VISION.md](VISION.md) needs that
+distinction, so `notes` is expected to gain a typed reason class alongside the
+free text rather than in place of it. **Status: Design** — the field is Built,
+the taxonomy is not, and inventing it before real managers have overridden
+anything would be guessing at the categories.
+
 ## Multi-tenancy is not a parameter
 
 `hotel_id` is resolved **server-side from the bearer token**. No tool schema

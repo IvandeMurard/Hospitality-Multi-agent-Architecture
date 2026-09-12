@@ -45,7 +45,7 @@
   Builds a richer understanding of guests across stays, helping teams anticipate needs without reducing hospitality to a generic profile.
 
 - **Peritia** – *House knowledge agent*  
-  Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift.
+  Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift — the memory that leaves fastest, when a head concierge leaves and a decade of context about this neighbourhood, these suppliers, this Tuesday walks out with them. Adapted from [Lore](https://github.com/IvandeMurard/Lore), which does this in aviation maintenance under a stricter regime.
 
 - **Tacet** – *Environmental intelligence agent*  
   An environmental twin that turns street signals, weather, and local events into structured risk assessments and yield rules.
@@ -53,8 +53,15 @@
 - **Orchestrator** – *Supervisory agent*  
   Connects the agents, sequences their work, applies business rules, and keeps final operational decisions accountable.
 
+*Two of the five — Peritia and the Orchestrator — are **Design**, not code. The [status table](#whats-built-vs-whats-vision) below is the authority; these five lines are the roster, not the inventory.*
+
 > **Mesh:** a network of microservices that only exchange structured messages.  
-> Agents remain strictly isolated for security, reliability, and clear bounded contexts.
+> Agents remain strictly isolated for security, reliability, and clear bounded contexts.  
+> The boundaries are drawn where the **legal regimes** differ, not where the capabilities do:
+> guest inference is DPIA‑gated personal data, staff know‑how runs into employment law, F&B and
+> environmental signals into neither. Splitting a system into agents that share a data regime
+> buys coordination cost and nothing else; splitting it where retention, consent and audit rules
+> diverge is what a bounded context is for.
 
 ---
 
@@ -67,6 +74,8 @@ Rather than generating a static F&B forecast or a daily report, the Mesh closes 
 - **Learns, like a network:** Per-property memory today, federated priors next, leveraging shared intelligence to give independent hotels the power of a hive.
 
 What compounds is the **record of decisions and their outcomes** — including which manager overrode which recommendation, and who turned out to be right.
+
+And an override is not one kind of error, which is why it gets **routed rather than averaged**: a stale fact belongs in memory, an unwritten house rule belongs in a recorded decision, a preference seen three times belongs in a policy, an unseen pattern belongs in the training corpus, and a recommendation that should never have been surfaced belongs in the filter upstream. Only one of those five is a retrain. The other four are how a system stops making the same class of mistake instead of getting better at apologizing for it — [the routing table, and its Design status, are in VISION](VISION.md).
 
 > **Operational memory, precisely:** persistent agent memory is now commodity infrastructure. The differentiator is the loop: what a human does with each recommendation, what outcome follows, and how the system autonomously learns from it. That takes deployment, not architecture. **This system has zero real users -yet (interested?), so the asset is a mechanism in place, not an accumulated advantage.**
 
@@ -92,13 +101,13 @@ flowchart TB
     %% Specialized, isolated agents
     subgraph MESH["Hospitality Mesh — isolated domain agents"]
         A["Aetherix<br/><i>F&B</i>"]
-        N["Anima<br/><i>Guest understanding</i>"]
+        N["Anima<br/><i>Guest understanding</i><br/><small>Synthetic PoC</small>"]
         P["Peritia<br/><i>House knowledge</i><br/><small>Design</small>"]
         T["Tacet<br/><i>Environmental intelligence</i>"]
     end
 
     %% Coordination and human decision
-    O["Orchestrator<br/><i>coordination, business rules<br/>and audit trail</i>"]
+    O["Orchestrator<br/><i>coordination, business rules<br/>and audit trail</i><br/><small>Design</small>"]
     H["Hotel manager / team<br/><i>final decision</i>"]
     ACTION["Operational action<br/><i>service, staffing, preparation,<br/>guest interaction, yield</i>"]
     OUTCOME["Measured outcome<br/><i>what happened in practice</i>"]
@@ -111,17 +120,17 @@ flowchart TB
 
     %% Context to agents
     PMS --> A
-    PMS --> N
-    GUEST --> N
+    PMS -.-> N
+    GUEST -.-> N
     OPS --> A
-    OPS --> N
-    OPS --> P
+    OPS -.-> N
+    OPS -.-> P
     ENV --> T
 
     %% Agent output to orchestration
     A -->|"structured recommendation"| O
-    N -->|"structured context"| O
-    P -->|"structured know-how"| O
+    N -.->|"structured context"| O
+    P -.->|"structured know-how"| O
     T -->|"structured risk / rule"| O
 
     %% Human-centred loop
@@ -146,24 +155,35 @@ flowchart TB
     classDef human fill:#F0FDF4,stroke:#16A34A,color:#14532D;
     classDef outcome fill:#FEFCE8,stroke:#CA8A04,color:#422006;
     classDef research fill:#FAF5FF,stroke:#A855F7,color:#581C87,stroke-dasharray: 5 5;
+    classDef notlive fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-dasharray: 5 5;
 
     class PMS,GUEST,OPS,ENV source;
-    class A,N,P,T agent;
+    class A,T agent;
+    class N,P notlive;
     class O orchestration;
     class H,ACTION human;
     class OUTCOME outcome;
     class ML,HP research;
 ```
 
-*Solid lines describe the intended operational loop. Dashed lines mark research-stage learning capabilities; Peritia is designed, not yet implemented.*
+*Solid lines carry traffic today. Dashed lines do not: Anima is a Synthetic PoC and Peritia has no code,
+so every edge touching them is prospective, as is the whole learning layer. The Orchestrator they point at is
+itself Design — which makes the honest reading of this diagram one Built node (Aetherix) feeding a coordination
+layer that is specified and not written.*
+
+**The Orchestrator is Design by decision, not by delay.** Building a routing layer for a single live node is the
+over-engineering that the agent-architecture literature describes as the default failure mode: a graph earns its
+cost through routing, parallelism or durability, and with one node answering there is nothing to route. It gets
+built when a second node has users — not before. The sequencing is the claim; if this repo ever shows an
+Orchestrator with one live node behind it, that claim was wrong.
 ### Core Design Principles
 
 1. **Execution nodes never orchestrate.** Perception nodes (Anima, Aetherix, Tacet) interpret signals; the bespoke Orchestrator holds all decision logic.
 2. **Glue, not replacement.** The Mesh uses a PMS‑agnostic canonical schema behind adapters. Intelligence is delivered inside existing tools (e.g., 1‑tap WhatsApp receipts), with zero new dashboards.
-3. **Preventing HITL fatigue.** The Orchestrator filters noise and sends only high‑significance, composite recommendations. Human approval is a prerequisite, not a differentiator; the hard part is deciding what is worth interrupting a human for.
-4. **Continuous Improvement (Meta‑Learner, Research).** A dual loop would optimize decision thresholds via manager feedback and autonomous comparison of predictions vs ground truth. Today, outcome capture exists only inside the F&B node.
+3. **Preventing HITL fatigue.** The Orchestrator filters noise and sends only high‑significance, composite recommendations. Human approval is a prerequisite, not a differentiator; the hard part is deciding what is worth interrupting a human for. The filter sorts on **how expensive the mistake is to undo, not on the model's confidence** — confidence is the only input in that decision the model itself can influence. A prep quantity is reversible and cheap; a staffing call costs money; anything touching guest personal data cannot be un‑inferred.
+4. **Continuous Improvement (Meta‑Learner, Research).** A dual loop would optimize decision thresholds via manager feedback and autonomous comparison of predictions vs ground truth. Today, outcome capture exists only inside the F&B node. **What it must never be allowed to tune:** guardrail bounds, the red lines below, and DPIA scope. An optimizer pointed at acceptance will eventually find that the cheapest way to raise it is to widen the constraint that rejected the work — so the constraints it could weaken are the ones held outside its reach by construction, not by policy.
 5. **Hive Memory (Federated Priors, Research).** A federated layer would share anonymized priors across properties to solve cold‑start, without leaking tenant data. No substrate exists yet.
-6. **Accountability wired in.** Every guardrail trip carries a machine‑readable reason; eval gates block merges on exit codes; DPIA gates the guest node; EU AI Act red lines are explicit; metric‑honesty and hygiene agents enforce truthfulness in the repo itself.
+6. **Accountability wired in.** Every guardrail trip carries a machine‑readable reason; eval gates block merges on exit codes; DPIA gates the guest node; EU AI Act red lines are explicit; metric‑honesty and hygiene agents enforce truthfulness in the repo itself. A red line is a **lane that does not open, not a threshold set very high** — the distinction is operational rather than semantic, because thresholds get adjusted under pressure and closed lanes do not.
 
 ## Where this sits in the digital twin landscape
 
@@ -195,7 +215,7 @@ This is a solo project — **built by one person, which is a real key‑person (
 | **Anima** (Guest Node) | **Synthetic PoC**: 4‑layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA‑gated) | Local evals & synthetic data |
 | **Peritia** (House knowledge agent) | **Design**: adaptation of [Lore](https://github.com/IvandeMurard/Lore) (voice AI mentor for tacit expertise in aviation maintenance) to hospitality; domain & contracts specified, not implemented | ADRs & Lore codebase |
 | **Tacet** (Environment Node) | **Built** (public): live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
-| **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built | Architectural ADRs |
+| **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built — and deliberately so while one node is live, see the note under the diagram | Architectural ADRs |
 | **Meta‑Learner & Hive priors** | **Research**: no substrate yet (the cohort‑feature table does not exist). Outcome capture exists only inside the F&B node | — |
 
 ## Engineering practices I’d bring to a team
@@ -210,10 +230,11 @@ I’m building this Mesh solo to master the full lifecycle of agentic AI systems
 - **Incident response, practiced:** handled a real leaked‑secrets incident end‑to‑end (history rewrite, full credential rotation, GitHub Support purge, post‑mortem).
 - **Machine‑readable by default:** this repo ships an [`llms.txt`](llms.txt); the [portfolio](https://ivandemurard.com) exposes the same case studies through a live MCP server and an [`llms-full.txt`](https://ivandemurard.com/llms-full.txt) corpus, and [`paris-compass-mcp`](https://www.npmjs.com/package/paris-compass-mcp) is published on npm (`npx -y paris-compass-mcp`, six tools, anonymous read‑only). An agent can consume this work without scraping it.
 - **Tests outweigh code:** 1.13:1 test‑to‑app LOC ratio on the main node.
+- **A written harness for the build loop itself:** [`CLAUDE.md`](CLAUDE.md) holds the task contract, the scope rule for corrections, and the requirement that a repeated failure become a permanent artifact — a detector, a documented convention, or a stated check — rather than a firmer prompt.
 
 ## Current focus (90‑day plan, started July 2026)
 
-1. **Proof:** real‑data forecast benchmark on 30 restaurants from the Kaggle Recruit dataset. Prophet beats a naive same‑weekday baseline on mean MAPE, but ties it on the median; a gradient‑boosted baseline wins the median. Both readings are published. Focus now: closed‑loop demo on the Apaleo sandbox, observability (Logfire traces, LLM cost per recommendation), and F&B manager interviews.
+1. **Proof:** real‑data forecast benchmark on 30 restaurants from the Kaggle Recruit dataset. Prophet beats a naive same‑weekday baseline on mean MAPE, but ties it on the median; a gradient‑boosted baseline wins the median. Both readings are published. Focus now: closed‑loop demo on the Apaleo sandbox, observability (Logfire traces, LLM cost per recommendation), and F&B manager interviews. The pilot's success criterion is not a MAPE target: it is **acceptance rate read against manager minutes per accepted recommendation** ([VISION.md](VISION.md)), because a thesis that says the loop outranks the accuracy has to be judged on a number that measures the loop.
 2. **Visibility:** this repo, a technical write‑up on [the blocking eval gate](EVAL_GATE.md), and a demo video.
 
 ## Stack

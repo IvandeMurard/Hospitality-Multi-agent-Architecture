@@ -22,6 +22,18 @@ what happened, which human overrode it, and who was right. That is a memory of a
 decisions rather than of its conversations, and the only way to get one is to run in production
 for months. This system has not done that yet.
 
+**The general form of this argument stopped being a differentiator too.** Through 2026 the
+industry converged on it under the name harness engineering: the model is not the agent, the
+environment around it is where reliability comes from, and the harness — not the weights — is
+where operating knowledge compounds. That is the same shape as the claim above, one level up the
+stack, and it is consensus now rather than insight. It cuts both ways, so both get said. It is
+evidence the shape is right, since it was arrived at independently by teams building coding
+agents with nothing hospitality-specific in view. And it strips this page of any claim to
+originality: what stays specific is not the shape but the filling — a memory whose unit is a
+*decision and its outcome*, in a trade where the outcome is legible the next morning and the
+person who overrode the system is on the payroll. The general argument is free to copy. The
+corpus is not.
+
 Aetherix, the F&B node, implements this loop today. The demo artifacts in
 [`demo/closed-loop/`](demo/closed-loop/) show it end to end: the agent citing its drivers the
 evening before, flagging a corrupted POS export, naming its own drift after three consecutive
@@ -116,7 +128,13 @@ direction rather than a blank:
    data‑driven comparative trigger (an anomaly or a recurring pattern surfaces and the system
    asks about it), or an agent‑initiated request following a named business event. None chosen
    — this is the one place the Lore pattern doesn't transfer cleanly, since hospitality has no
-   "end of intervention" boundary.
+   "end of intervention" boundary. **A fourth candidate, added late and currently the strongest:**
+   the capture moment is the *correction*. A manager who overrides a recommendation is already
+   telling the system it was wrong about something, and doing it for their own reasons rather than
+   as a favour to a knowledge base. Asking one routing question at that moment — was the fact
+   stale, was there a rule nobody recorded, is there a technique the system doesn't have — rides on
+   work that happens anyway. Unlike the three candidates above, it asks the human for nothing
+   extra, which is why it should be the one tested first.
 3. **Is employee data actually the blocker?** Worth recording as a live pushback: this wasn't
    blocking for Lore, so why would it be here? The comparison holds only if Peritia stays where
    Lore stays — professional, transferable know‑how (a technique, a supplier relationship, an
@@ -132,7 +150,14 @@ direction rather than a blank:
 4. **How does it avoid becoming a wiki nobody writes?** Agreed as a real risk, not a
    hypothetical: this can look time‑consuming and low‑value to exactly the teams whose time is
    scarcest. Still unanswered — Lore's answer (voice capture riding on an existing documentation
-   obligation) has no equivalent hook to attach to here.
+   obligation) has no equivalent hook to attach to here. **Partially superseded by the fourth
+   candidate in question 2:** the override is the hook. It is not a documentation obligation, but it
+   has the property that matters — the human is already motivated to perform it, because the
+   alternative is living with an output they disagree with. That converts the problem from "get
+   busy people to write things down" to "ask one well-placed question at a moment they were going
+   to act anyway", which is a materially easier problem. It does not close the question: an
+   override tells you a *recommendation* was wrong, and Peritia wants know-how that no
+   recommendation touched.
 5. **What would falsify it?** Reframed rather than answered: hospitality isn't fully SOP‑free —
    food safety, brand standards, and safety procedures exist — but the knowledge Peritia would
    want is precisely what sits *outside* the written procedure, the exceptions and local
