@@ -34,6 +34,25 @@ that anyone uses it.
    loop that only ever tunes its own numbers gets more accurate and never gets wiser, and the
    override corpus — the thing ranked first on this page — is exactly the input the missing
    mechanism would consume.
+
+   What that mechanism has to do is route the correction, because an override is not one kind of
+   error. The manager who overrides is reporting that *some layer* was wrong, and which layer
+   decides what the fix is:
+
+   | What the override reveals | Where the fix has to land |
+   |---|---|
+   | A fact the system held and reality has since changed | The property's memory |
+   | A choice the house made and nobody encoded | A recorded decision, with its owner |
+   | A preference that has now recurred three times | A rule, not a nudged weight |
+   | A pattern the model has never seen | The training corpus and the golden dataset |
+   | A recommendation that should never have been surfaced | The significance filter upstream |
+   | An action that should not have been offered at all | A closed lane |
+
+   Only the fourth row is recalibration. The other five change something a retrain cannot reach,
+   which is the whole distinction this section exists to make. **Status: Design** — and the routing
+   question is the cheap part; the expensive part is that `submit_feedback_to_memory` records the
+   override as free text today, so nothing currently distinguishes row one from row five
+   ([MCP.md](MCP.md)).
 2. **Compliance wired into the product, not bolted on.** Typed guardrail trips, a blocking CI eval
    gate (see [EVAL_GATE.md](EVAL_GATE.md)), an audited incident history. **Status: Built.** Treated
    internally as a cost for a long time — freezes, blocked merges, engineering hours. That was a

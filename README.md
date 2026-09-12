@@ -45,13 +45,15 @@
   Builds a richer understanding of guests across stays, helping teams anticipate needs without reducing hospitality to a generic profile.
 
 - **Peritia** – *House knowledge agent*  
-  Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift.
+  Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift — the memory that leaves fastest, when a head chef retires and a decade of context about this kitchen, these suppliers, this Tuesday walks out with them. Adapted from [Lore](https://github.com/IvandeMurard/Lore), which does this in aviation maintenance under a stricter regime.
 
 - **Tacet** – *Environmental intelligence agent*  
   An environmental twin that turns street signals, weather, and local events into structured risk assessments and yield rules.
 
 - **Orchestrator** – *Supervisory agent*  
   Connects the agents, sequences their work, applies business rules, and keeps final operational decisions accountable.
+
+*Two of the five — Peritia and the Orchestrator — are **Design**, not code. The [status table](#whats-built-vs-whats-vision) below is the authority; these five lines are the roster, not the inventory.*
 
 > **Mesh:** a network of microservices that only exchange structured messages.  
 > Agents remain strictly isolated for security, reliability, and clear bounded contexts.  
@@ -72,6 +74,8 @@ Rather than generating a static F&B forecast or a daily report, the Mesh closes 
 - **Learns, like a network:** Per-property memory today, federated priors next, leveraging shared intelligence to give independent hotels the power of a hive.
 
 What compounds is the **record of decisions and their outcomes** — including which manager overrode which recommendation, and who turned out to be right.
+
+And an override is not one kind of error, which is why it gets **routed rather than averaged**: a stale fact belongs in memory, an unwritten house rule belongs in a recorded decision, a preference seen three times belongs in a policy, an unseen pattern belongs in the training corpus, and a recommendation that should never have been surfaced belongs in the filter upstream. Only one of those five is a retrain. The other four are how a system stops making the same class of mistake instead of getting better at apologizing for it — [the routing table, and its Design status, are in VISION](VISION.md).
 
 > **Operational memory, precisely:** persistent agent memory is now commodity infrastructure. The differentiator is the loop: what a human does with each recommendation, what outcome follows, and how the system autonomously learns from it. That takes deployment, not architecture. **This system has zero real users -yet (interested?), so the asset is a mechanism in place, not an accumulated advantage.**
 
