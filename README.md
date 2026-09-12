@@ -45,7 +45,7 @@
   Builds a richer understanding of guests across stays, helping teams anticipate needs without reducing hospitality to a generic profile.
 
 - **Peritia** – *House knowledge agent*  
-  Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift — the memory that leaves fastest, when a head chef retires and a decade of context about this kitchen, these suppliers, this Tuesday walks out with them. Adapted from [Lore](https://github.com/IvandeMurard/Lore), which does this in aviation maintenance under a stricter regime.
+  Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift — the memory that leaves fastest, when a head concierge leaves and a decade of context about this neighbourhood, these suppliers, this Tuesday walks out with them. Adapted from [Lore](https://github.com/IvandeMurard/Lore), which does this in aviation maintenance under a stricter regime.
 
 - **Tacet** – *Environmental intelligence agent*  
   An environmental twin that turns street signals, weather, and local events into structured risk assessments and yield rules.
@@ -101,13 +101,13 @@ flowchart TB
     %% Specialized, isolated agents
     subgraph MESH["Hospitality Mesh — isolated domain agents"]
         A["Aetherix<br/><i>F&B</i>"]
-        N["Anima<br/><i>Guest understanding</i>"]
+        N["Anima<br/><i>Guest understanding</i><br/><small>Synthetic PoC</small>"]
         P["Peritia<br/><i>House knowledge</i><br/><small>Design</small>"]
         T["Tacet<br/><i>Environmental intelligence</i>"]
     end
 
     %% Coordination and human decision
-    O["Orchestrator<br/><i>coordination, business rules<br/>and audit trail</i>"]
+    O["Orchestrator<br/><i>coordination, business rules<br/>and audit trail</i><br/><small>Design</small>"]
     H["Hotel manager / team<br/><i>final decision</i>"]
     ACTION["Operational action<br/><i>service, staffing, preparation,<br/>guest interaction, yield</i>"]
     OUTCOME["Measured outcome<br/><i>what happened in practice</i>"]
@@ -120,17 +120,17 @@ flowchart TB
 
     %% Context to agents
     PMS --> A
-    PMS --> N
-    GUEST --> N
+    PMS -.-> N
+    GUEST -.-> N
     OPS --> A
-    OPS --> N
-    OPS --> P
+    OPS -.-> N
+    OPS -.-> P
     ENV --> T
 
     %% Agent output to orchestration
     A -->|"structured recommendation"| O
-    N -->|"structured context"| O
-    P -->|"structured know-how"| O
+    N -.->|"structured context"| O
+    P -.->|"structured know-how"| O
     T -->|"structured risk / rule"| O
 
     %% Human-centred loop
@@ -155,16 +155,27 @@ flowchart TB
     classDef human fill:#F0FDF4,stroke:#16A34A,color:#14532D;
     classDef outcome fill:#FEFCE8,stroke:#CA8A04,color:#422006;
     classDef research fill:#FAF5FF,stroke:#A855F7,color:#581C87,stroke-dasharray: 5 5;
+    classDef notlive fill:#EEF2FF,stroke:#6366F1,color:#1E1B4B,stroke-dasharray: 5 5;
 
     class PMS,GUEST,OPS,ENV source;
-    class A,N,P,T agent;
+    class A,T agent;
+    class N,P notlive;
     class O orchestration;
     class H,ACTION human;
     class OUTCOME outcome;
     class ML,HP research;
 ```
 
-*Solid lines describe the intended operational loop. Dashed lines mark research-stage learning capabilities; Peritia is designed, not yet implemented.*
+*Solid lines carry traffic today. Dashed lines do not: Anima is a Synthetic PoC and Peritia has no code,
+so every edge touching them is prospective, as is the whole learning layer. The Orchestrator they point at is
+itself Design — which makes the honest reading of this diagram one Built node (Aetherix) feeding a coordination
+layer that is specified and not written.*
+
+**The Orchestrator is Design by decision, not by delay.** Building a routing layer for a single live node is the
+over-engineering that the agent-architecture literature describes as the default failure mode: a graph earns its
+cost through routing, parallelism or durability, and with one node answering there is nothing to route. It gets
+built when a second node has users — not before. The sequencing is the claim; if this repo ever shows an
+Orchestrator with one live node behind it, that claim was wrong.
 ### Core Design Principles
 
 1. **Execution nodes never orchestrate.** Perception nodes (Anima, Aetherix, Tacet) interpret signals; the bespoke Orchestrator holds all decision logic.
@@ -204,7 +215,7 @@ This is a solo project — **built by one person, which is a real key‑person (
 | **Anima** (Guest Node) | **Synthetic PoC**: 4‑layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA‑gated) | Local evals & synthetic data |
 | **Peritia** (House knowledge agent) | **Design**: adaptation of [Lore](https://github.com/IvandeMurard/Lore) (voice AI mentor for tacit expertise in aviation maintenance) to hospitality; domain & contracts specified, not implemented | ADRs & Lore codebase |
 | **Tacet** (Environment Node) | **Built** (public): live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
-| **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built | Architectural ADRs |
+| **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built — and deliberately so while one node is live, see the note under the diagram | Architectural ADRs |
 | **Meta‑Learner & Hive priors** | **Research**: no substrate yet (the cohort‑feature table does not exist). Outcome capture exists only inside the F&B node | — |
 
 ## Engineering practices I’d bring to a team
