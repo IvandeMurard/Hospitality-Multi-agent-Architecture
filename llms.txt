@@ -15,6 +15,7 @@ Canonical across this repo, the execution-node repos and https://ivandemurard.co
 ## Current component status
 
 - Aetherix (F&B node): Built — private repo, 0 real users, staging on Fly.io.
+- Decision Ledger (recommendation → manager response → measured outcome, one auditable record): Built — inside the F&B node. Say "outcome-tracked operational history", never "self-improving memory": the record is Built, the learning is not demonstrated.
 - Aetherix forecast: Shadow-mode — benchmarked on real public data, no manager decision delivered on it yet.
 - Tacet (environment node): Built — public repo, paused / maintenance mode since July 2026.
 - Anima (guest node): Synthetic PoC — DPIA-gated, never run on a real guest.

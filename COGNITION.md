@@ -18,7 +18,18 @@ day, on real restaurant data. What does not commoditize is what sits around the 
 The order matters. Persistent agent memory became commodity infrastructure during 2026 — the
 storage is not the asset, and a claim resting on "we have memory" would be resting on a library
 anyone can install. The asset is the four bullets above it: a record of what was recommended,
-what happened, which human overrode it, and who was right. That is a memory of a trade's
+what happened, which human overrode it, and who was right.
+
+That object has a name here: the **Decision Ledger**. The rename was not cosmetic. "Memory"
+names the storage, which is the commodity; the ledger names the *linkage* — each recommendation
+tied to the response it got and the outcome that followed — which is the part a competitor
+cannot install. It also retires a phrase this project used to use: not "self-improving memory",
+which claims a result, but **outcome-tracked operational history**, which claims a mechanism.
+The first is only earnable by demonstrating that the system learned; the second is checkable
+today. **Status: Built** — the ledger consolidates records that were previously spread across
+several tables, so what shipped is traceability over existing data, not a new store.
+
+That is a memory of a trade's
 decisions rather than of its conversations, and the only way to get one is to run in production
 for months. This system has not done that yet.
 

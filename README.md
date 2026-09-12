@@ -73,11 +73,11 @@ Rather than generating a static F&B forecast or a daily report, the Mesh closes 
 - **Understands, like a human:** Contextual reasoning grounded in each property's history, powered by a unified signal ontology that translates chaotic real-world events into structured, cross-domain context.
 - **Learns, like a network:** Per-property memory today, federated priors next, leveraging shared intelligence to give independent hotels the power of a hive.
 
-What compounds is the **record of decisions and their outcomes** — including which manager overrode which recommendation, and who turned out to be right.
+What compounds is the **Decision Ledger** — the record of decisions and their outcomes, including which manager overrode which recommendation, and who turned out to be right. **Built**: it links each recommendation to the response it got and the outcome that followed, in one auditable object rather than across several tables. The project says *outcome-tracked operational history*, never *self-improving memory* — the first is checkable today, the second would have to be demonstrated. See [COGNITION](COGNITION.md).
 
 And an override is not one kind of error, which is why it gets **routed rather than averaged**: a stale fact belongs in memory, an unwritten house rule belongs in a recorded decision, a preference seen three times belongs in a policy, an unseen pattern belongs in the training corpus, and a recommendation that should never have been surfaced belongs in the filter upstream. Only one of those five is a retrain. The other four are how a system stops making the same class of mistake instead of getting better at apologizing for it — [the routing table, and its Design status, are in VISION](VISION.md).
 
-> **Operational memory, precisely:** persistent agent memory is now commodity infrastructure. The differentiator is the loop: what a human does with each recommendation, what outcome follows, and how the system autonomously learns from it. That takes deployment, not architecture. **This system has zero real users -yet (interested?), so the asset is a mechanism in place, not an accumulated advantage.**
+> **Operational memory, precisely:** persistent agent memory is now commodity infrastructure. The differentiator is the loop: what a human does with each recommendation, what outcome follows, and whether the gap between the two is captured against the recommendation that preceded it. Whether the system then *learns* from that record is a separate claim, and a later one — it takes deployment, not architecture. **This system has zero real users -yet (interested?), so the asset is a mechanism in place, not an accumulated advantage.**
 
 ## What this is
 
