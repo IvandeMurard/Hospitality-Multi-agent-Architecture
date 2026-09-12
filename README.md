@@ -12,7 +12,7 @@
 
 <p align="center">
   <strong>
-    A network of 5 specialized AI agents that learn from every feedback to continually improve decision-making, operations and guest experiences.
+    A 5-node architecture for hotel operations, built node by node around one mechanism: every recommendation is measured against what actually happened.
   </strong>
 </p>
 
