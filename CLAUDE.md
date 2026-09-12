@@ -22,6 +22,25 @@ Design or Research in the same sentence that describes it, not three paragraphs 
 The corollary, which is the easier one to break: a claim repeated across README,
 VISION, COGNITION and the portfolio is still one claim. Repetition is not evidence.
 
+## Source order, for when two documents disagree
+
+The hygiene agent detects drift between files. This is how to resolve it, so that a
+detected conflict has a right answer instead of an argument:
+
+1. **What runs in the node repos** — above every document here. A doc that contradicts
+   the code is wrong, even when it is better written.
+2. **[`llms.txt`](llms.txt)** for status labels and current component status.
+3. **The specialist document** for its own subject: [`MCP.md`](MCP.md) for the tool
+   contract, [`EVAL_GATE.md`](EVAL_GATE.md) for CI and eval mechanics,
+   [`VISION.md`](VISION.md) and [`COGNITION.md`](COGNITION.md) for the thesis and what
+   would falsify it.
+4. **[`README.md`](README.md)** last on any detail. It summarizes the others, so on a
+   conflict it is the derived copy and it is the one that gets corrected.
+
+And when the answer is in none of them: say what could not be found. An unstated gap
+is the one failure this repo's whole argument cannot survive — the documents earn their
+credibility from [`EVAL_GATE.md`](EVAL_GATE.md)'s habit of publishing its own limits.
+
 ## Three boundaries that are not negotiable
 
 1. **The loop's wiring stays unpublished.** The decision-emission schema, the signal
