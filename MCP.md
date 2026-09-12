@@ -70,7 +70,10 @@ what was recommended, and how the manager responded.
 ```
 
 `outcome` is one of `accepted`, `rejected`, `modified`, `ignored`. This is the
-call that closes the loop: without it the system predicts into the void.
+call that closes the loop: without it the system predicts into the void. What it
+writes to is the **Decision Ledger** — one auditable record linking the
+recommendation, the response it got, and the outcome that followed
+([COGNITION.md](COGNITION.md)).
 
 The four values are not interchangeable grades on one scale. `accepted` and
 `modified` say the recommendation was worth reading; `rejected` is a manager

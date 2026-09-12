@@ -59,11 +59,19 @@ that anyone uses it.
    misreading: once compliance is wired into supervision and the audit trail rather than added
    after the fact, switching providers means revalidating all of it. That switching cost is the
    point.
-3. **Per-property operational memory.** What *this* property does when it rains during a trade
-   fair. Composes over time — eight months of captured outcomes aren't copied, they're lived.
-   **Status: Synthetic PoC on the corpus that exists today.** The capability to store and retrieve
-   this kind of memory is not the differentiator anymore (see below); what's not copyable is what
-   the memory is *made of*, and how long it takes to accumulate.
+3. **Per-property operational memory — the Decision Ledger.** What *this* property does when it
+   rains during a trade fair, and what happened the last time someone overrode the system about it.
+   The name matters because "memory" describes the storage, which is commodity, while the ledger
+   describes the linkage from recommendation to response to outcome, which is not
+   ([COGNITION.md](COGNITION.md)). Composes over time — eight months of captured outcomes aren't
+   copied, they're lived.
+
+   Two statuses, because conflating them is how this bet gets oversold. **The ledger itself:
+   Built** — the linkage runs, recommendation to response to outcome, in one auditable record.
+   **The corpus inside it: Synthetic PoC** — everything it currently holds came from sandbox
+   data. The capability to store and retrieve this kind of record is not the differentiator
+   anymore (see below); what's not copyable is what the corpus is *made of*, and how long it
+   takes to accumulate. A Built mechanism holding synthetic rows is a mechanism, not a moat.
 4. **PMS-agnosticism.** The memory lives above Apaleo and Mews, not inside either. A group running
    both has one memory; a PMS-native tool only ever sees its own properties. **Status: Design** for
    the canonical schema behind this; Aetherix runs on Apaleo today.
