@@ -90,7 +90,10 @@ never seen. The return path described in [VISION.md](VISION.md) needs that
 distinction, so `notes` is expected to gain a typed reason class alongside the
 free text rather than in place of it. **Status: Design** — the field is Built,
 the taxonomy is not, and inventing it before real managers have overridden
-anything would be guessing at the categories.
+anything would be guessing at the categories. One candidate axis is written
+down as **Research** in [COGNITION.md](COGNITION.md), under "What a guest-side
+ledger would have to distinguish". It is recorded there, not adopted here: the
+restraint in this paragraph is why it carries no stronger label.
 
 ## Multi-tenancy is not a parameter
 
