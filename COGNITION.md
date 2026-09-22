@@ -51,10 +51,12 @@ evening before, flagging a corrupted POS export, naming its own drift after thre
 misses, and recovering from a +25% regime shift through weekly recalibration. Sandbox data,
 real mechanics, deterministic reruns.
 
-## Extending the thesis to guests: Anima (design stage)
+## Extending the thesis to guests: Anima (Synthetic PoC)
 
-Anima applies the same cognitive architecture to the guest relationship. It is a **design
-thesis, not a shipped system**, and we say so plainly. The published outline:
+Anima applies the same cognitive architecture to the guest relationship. **Status: Synthetic
+PoC** — the four layers, a synthetic-cohort eval and a working MCP server exist; none of it has
+met a real guest ([`llms.txt`](llms.txt)). So what is unproven here is not the code but the
+claim, which is why the outline below is stated as a thesis and not as a result:
 
 - **Four memory layers with different lifetimes.** Working memory (the current stay, expires),
   episodic memory (stay + a short tail), semantic memory (durable preferences), and an
@@ -65,14 +67,61 @@ thesis, not a shipped system**, and we say so plainly. The published outline:
 - **Cognition informs; it never decides.** Anima answers "who is this guest, right now?".
   A separate orchestrator, with human validation, decides what to do about it. Same boundary
   Aetherix enforces between perception and decision.
-- **Privacy first, structurally.** Inferred guest state is sensitive personal data. The
-  non-negotiable gate before any build: formal GDPR/CNIL analysis and a DPIA. We consider the
-  privacy posture part of the product, not a compliance tax: a guest-cognition system a hotel
-  cannot legally deploy is worthless.
+- **Privacy first, structurally — context, not surveillance.** Inferred guest state is
+  sensitive personal data. The non-negotiable gate is not before any build, since the PoC above
+  is already built; it is before any *real guest datum* enters it: formal GDPR/CNIL analysis and
+  a DPIA. Stating it the looser way made this page read as stricter than the project actually
+  is, which is its own kind of inaccuracy. We consider the privacy posture part of the product,
+  not a compliance tax: a guest-cognition system a hotel cannot legally deploy is worthless.
 
 The detailed schemas (signal contracts, confidence weighting, federation design) are
 deliberately private. This page states the thesis; the proof will follow the same path
 Aetherix took: build, instrument, benchmark honestly, publish the loop.
+
+### What a guest-side ledger would have to distinguish
+
+**Status: Research.** The Decision Ledger is Built on the F&B node, where the loop closes because
+the outcome is arithmetic — the POS counts the covers by the end of service. Asking what the
+equivalent object would be on the guest node produces six candidate terms: what the system
+*inferred*, what the guest *said*, what actually *happened*, what could or should have happened
+instead, what went well or badly, and what deserves to be kept. They are worth writing down
+because they are not one list. They are three kinds of object, and treating them as one is the
+shortest path back to the omniscient-concierge framing this page exists to refuse.
+
+| Term | Kind of object | Observable? |
+|---|---|---|
+| What was inferred / what was said | Provenance of a claim | Yes — the cheapest of the six, and the outline above omits it; it is carried on the published [Anima page](https://ivandemurard.com/anima) instead |
+| What happened | Trace of an event | Only as guest *actions*. Never as guest state |
+| What could or should have happened | Counterfactual | No. The room that was not assigned left no trace |
+| What went well or badly | Judgement | Not without a named grader, and there is none |
+| What deserves to be kept | Decision | Not a record at all — and the one act that manufactures the sensitive data |
+
+Three consequences, which are why this is a Research note and not a paragraph of ambition:
+
+- **The counterfactual is not recordable, but it is elicitable — at the override.** A manager who
+  rejects a suggestion is already stating what should have happened instead, for their own
+  reasons, at the one moment it is legible. The Peritia section below reaches the same conclusion
+  for a different node (open question 2, fourth candidate); one author reaching it twice is not
+  independent evidence, but it does mean the argument is not specific to guests. It also bounds
+  the claim: an override reveals a counterfactual about a *recommendation*, and says nothing about
+  the stays for which nothing was recommended.
+- **"What happened" has one honest measurement, and it is not satisfaction.** A guest who does
+  not complain is not a guest who was served well, which is why the well/badly row stays empty.
+  What can be counted without inferring anything is the **repeat rate** — how often a preference
+  the system already held failed to be applied; the guest who asked for a quiet room on three
+  consecutive stays and had to ask again on the fourth. It needs no new personal data and no
+  grader, and it embarrasses the property rather than flattering it, which is the property a real
+  metric has to have. Not measured today: there is no property to measure it on.
+- **"What deserves to be kept" is where the DPIA actually bites.** Promoting an inference into
+  durable memory is the act that creates sensitive personal data. The four layers currently settle
+  retention by rule and decay rather than by judgement, and installing a judge there reopens
+  exactly the permanent-label failure the layers exist to prevent.
+
+This is an axis of *input*, and it does not replace the override-routing table in
+[VISION.md](VISION.md), which is an axis of *output* — where a correction has to land. The two
+compose rather than compete. Neither is a candidate for the typed reason class that
+[MCP.md](MCP.md) still declines to invent until real managers have overridden something: that
+restraint stands, and nothing in this subsection is adopted or upgrades a label.
 
 ## Extending the thesis to staff: institutional knowledge (not started)
 
