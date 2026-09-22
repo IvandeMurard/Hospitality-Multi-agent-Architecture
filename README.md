@@ -43,6 +43,7 @@
 
 - **Anima** – *Guest memory agent*  
   Builds a richer understanding of guests across stays, helping teams anticipate needs without reducing hospitality to a generic profile.
+  _(Human-centered Digital Twin (HDT))_
 
 - **Peritia** – *House knowledge agent*  
   Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift — the memory that leaves fastest, when a head concierge leaves and a decade of context about this neighbourhood, these suppliers, this Tuesday walks out with them. Adapted from [Lore](https://github.com/IvandeMurard/Lore), which does this in aviation maintenance under a stricter regime.
