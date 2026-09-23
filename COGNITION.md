@@ -79,9 +79,12 @@ what was said and what happened, not a model of the person. *During* the stay, r
 interactions and events stated or recorded while the guest is in house live in working memory.
 *After* it, a short episodic tail remains, and only preferences stated or repeatedly confirmed
 reach semantic memory. *Before* arrival — **Design**, not in the PoC — anticipation draws on
-booking data and situational context only (travel disruption, local events, weather: the kind
-of signal Tacet produces). No external data about the person, and no profiling: a first-time
-guest is not recognised, but can still be anticipated from the situation they are arriving into.
+booking data and situational context only: local transit disruption, events, weather. Tacet
+produces those signals keyed by place and time, never by person; Anima links them to the booking,
+so the personal-data processing stays in the one node the DPIA covers. Signals on the routes into
+the property would be a Tacet extension, also **Design**. No external data about the person, and
+no profiling: a first-time guest is not recognised, but can still be anticipated from the
+situation they are arriving into.
 
 **Health data stays in the stay — Design.** An allergy, or a dietary restriction that reveals a health condition, is health data
 (GDPR art. 9), not a preference. It is used only when the guest states it for a concrete service,
