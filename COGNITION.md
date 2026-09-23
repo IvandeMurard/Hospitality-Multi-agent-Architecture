@@ -18,7 +18,7 @@ day, on real restaurant data. What does not commoditize is what sits around the 
 The order matters. Persistent agent memory became commodity infrastructure during 2026 — the
 storage is not the asset, and a claim resting on "we have memory" would be resting on a library
 anyone can install. The asset is the four bullets above it: a record of what was recommended,
-what happened, which human overrode it, and who was right.
+which role overrode it and why, and what actually happened.
 
 That object has a name here: the **Decision Ledger**. The rename was not cosmetic. "Memory"
 names the storage, which is the commodity; the ledger names the *linkage* — each recommendation
