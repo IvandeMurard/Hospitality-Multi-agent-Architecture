@@ -71,7 +71,7 @@ Rather than generating a static F&B forecast or a daily report, the architecture
 
 - **Measures, like a machine:** Every recommendation is stored next to its real outcome, so the system explicitly knows what it said versus what actually happened — and says so to the manager the next morning, in plain language, including when it was wrong.
 - **Understands, like a human:** Contextual reasoning grounded in each property's history, powered by a unified signal ontology that translates chaotic real-world events into structured, cross-domain context.
-- **Learns, like a network:** Per-property memory today, federated priors next, leveraging shared intelligence to give independent hotels the power of a hive.
+- **Learns, like a network:** Per-property memory today; federated priors are **Research**, with no substrate yet — the aim is to give independent hotels the power of a hive without sharing raw data.
 
 What compounds is the **Decision Ledger** — the record of decisions and their outcomes, including which role overrode which recommendation, why, and what happened. The rule is a role, not a named person — the ledger judges recommendations, never the people who answer them. **Design**: which responder identifier the Built ledger stores today lives in the private node and is not verifiable here. **Built**: it links each recommendation to the response it got and the outcome that followed, in one auditable object rather than across several tables. The project says *outcome-tracked operational history*, never *self-improving memory* — the first is checkable today, the second would have to be demonstrated. See [COGNITION](COGNITION.md).
 
