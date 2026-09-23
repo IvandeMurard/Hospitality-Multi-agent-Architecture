@@ -74,6 +74,21 @@ claim, which is why the outline below is stated as a thesis and not as a result:
   is, which is its own kind of inaccuracy. We consider the privacy posture part of the product,
   not a compliance tax: a guest-cognition system a hotel cannot legally deploy is worthless.
 
+**What the layers cover across a stay.** Anima is a guest memory, not a digital twin: it holds
+what was said and what happened, not a model of the person. *During* the stay, requests,
+interactions and events stated or recorded while the guest is in house live in working memory.
+*After* it, a short episodic tail remains, and only preferences stated or repeatedly confirmed
+reach semantic memory. *Before* arrival — **Design**, not in the PoC — anticipation draws on
+booking data and situational context only (travel disruption, local events, weather: the kind
+of signal Tacet produces). No external data about the person, and no profiling: a first-time
+guest is not recognised, but can still be anticipated from the situation they are arriving into.
+
+**Health data stays in the stay — Design.** An allergy, or a dietary restriction that reveals a health condition, is health data
+(GDPR art. 9), not a preference. It is used only when the guest states it for a concrete service,
+on explicit consent, held in working memory, and never promoted to a durable preference or used
+for inference. Keeping it for a future stay would need its own explicit, separate consent. The
+layer's expiry is a minimisation measure; it is not the legal basis, and the DPIA decides.
+
 The detailed schemas (signal contracts, confidence weighting, federation design) are
 deliberately private. This page states the thesis; the proof will follow the same path
 Aetherix took: build, instrument, benchmark honestly, publish the loop.

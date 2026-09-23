@@ -42,8 +42,8 @@
   Turns covers, staffing, demand patterns, and outcomes into more reliable F&B decisions from preparation to food-waste reduction.
 
 - **Anima** – *Guest memory agent*  
-  Builds a richer understanding of guests across stays, helping teams anticipate needs without reducing hospitality to a generic profile.
-  _(Human-centered Digital Twin (HDT))_
+  Remembers what a guest said and what happened during their stays, so teams can anticipate needs without reducing hospitality to a generic profile.
+  _Not a digital twin: it borrows the human-centered twin's design rule — support human judgement, don't replace it — without claiming the fidelity a twin implies. Canonical definition in [llms.txt](llms.txt)._
 
 - **Peritia** – *House knowledge agent*  
   Captures the house’s savoir-faire so it belongs to the property, not to whoever is on shift — the memory that leaves fastest, when a head concierge leaves and a decade of context about this neighbourhood, these suppliers, this Tuesday walks out with them. Adapted from [Lore](https://github.com/IvandeMurard/Lore), which does this in aviation maintenance under a stricter regime.
@@ -102,7 +102,7 @@ flowchart TB
     %% Specialized, isolated agents
     subgraph MESH["Hospitality Mesh — isolated domain agents"]
         A["Aetherix<br/><i>F&B</i>"]
-        N["Anima<br/><i>Guest understanding</i><br/><small>Synthetic PoC</small>"]
+        N["Anima<br/><i>Guest memory</i><br/><small>Synthetic PoC</small>"]
         P["Peritia<br/><i>House knowledge</i><br/><small>Design</small>"]
         T["Tacet<br/><i>Environmental intelligence</i>"]
     end
@@ -198,7 +198,7 @@ Digital twins are mature in banking, data centres, aerospace. In hospitality, th
 | Decision | Policies, trade‑offs, scenarios | **Not built** |
 | Guest experience | Reaction, friction, loyalty | Signal across the mesh. Anima owns its memory, **Synthetic PoC** |
 
-The decision layer is the interesting one and does not exist here, so none of this is a “decision twin”. Guest experience is not a node; it is a signal that travels across the mesh. [Manzano‑Farray et al. (2026)](https://pmc.ncbi.nlm.nih.gov/articles/PMC13078991/) model the employee to support human judgement, not replace it — the same guard applied here.
+The decision layer is the interesting one and does not exist here, so none of this is a “decision twin”. Guest experience is not a node; it is a signal that travels across the mesh. Anima is the node that holds guest memory, which is a different thing from the experience itself. [Manzano‑Farray et al. (2026)](https://pmc.ncbi.nlm.nih.gov/articles/PMC13078991/) model the employee to support human judgement, not replace it — the same guard applied here.
 ## What's built vs. what's vision
 
 This is a solo project — **built by one person, which is a real key‑person (bus‑factor) risk** for anyone relying on it. It is mitigated by tracked decisions (12 ADRs), synchronized recovery harnesses, and deterministic, reproducible pipelines — not by redundancy, and there is no SLA yet. The mesh narrative is a north star; the nodes below are built to de‑risk the architecture, but every status uses one honest label, and **Built means the code runs, not that anyone uses it yet**:
@@ -213,7 +213,7 @@ This is a solo project — **built by one person, which is a real key‑person (
 |---|---|---|
 | **Aetherix** (F&B Node) | **Built** (private, **0 real users**): ~16.5k LOC, staging on Fly.io, 12 ADRs | Case study; walkthrough on request |
 | **Aetherix — forecast** | **Shadow‑mode**: benchmarked on real public data; no manager decision delivered on it yet | Recruit benchmark (see Current focus) |
-| **Anima** (Guest Node) | **Synthetic PoC**: 4‑layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA‑gated) | Local evals & synthetic data |
+| **Anima** (Guest memory node) | **Synthetic PoC**: 4‑layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA‑gated) | Local evals & synthetic data |
 | **Peritia** (House knowledge agent) | **Design**: adaptation of [Lore](https://github.com/IvandeMurard/Lore) (voice AI mentor for tacit expertise in aviation maintenance) to hospitality; domain & contracts specified, not implemented | ADRs & Lore codebase |
 | **Tacet** (Environment Node) | **Built** (public): live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
 | **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built — and deliberately so while one node is live, see the note under the diagram | Architectural ADRs |
