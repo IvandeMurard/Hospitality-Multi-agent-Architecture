@@ -1,5 +1,4 @@
 <h1 align="center">Hospitality Multi-agent Architecture</h1>
-<p align="center"><em>aka "the Mesh"</em></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Phase_3_·_Pilot-8b5cf6?style=flat" alt="Phase 3 Pilot" />
@@ -18,7 +17,7 @@
 
 <p align="center">
   <em>
-    The Mesh closes the loop between prediction and outcome: every recommendation is measured against reality, so the system learns what actually works in each hotel.
+    The architecture closes the loop between prediction and outcome: every recommendation is measured against reality, so the system learns what actually works in each hotel.
   </em>
 </p>
 
@@ -56,7 +55,7 @@
 
 *Two of the five — Peritia and the Orchestrator — are **Design**, not code. The [status table](#whats-built-vs-whats-vision) below is the authority; these five lines are the roster, not the inventory.*
 
-> **Mesh:** a network of microservices that only exchange structured messages.  
+> **Architecture:** a network of microservices that only exchange structured messages.  
 > Agents remain strictly isolated for security, reliability, and clear bounded contexts.  
 > The boundaries are drawn where the **legal regimes** differ, not where the capabilities do:
 > guest inference is DPIA‑gated personal data, staff know‑how runs into employment law, F&B and
@@ -68,7 +67,7 @@
 
 ## The Vision: A Closed Loop, Not a Smarter Model
 
-Rather than generating a static F&B forecast or a daily report, the Mesh closes the loop between what it said and what happened:
+Rather than generating a static F&B forecast or a daily report, the architecture closes the loop between what it said and what happened:
 
 - **Measures, like a machine:** Every recommendation is stored next to its real outcome, so the system explicitly knows what it said versus what actually happened — and says so to the manager the next morning, in plain language, including when it was wrong.
 - **Understands, like a human:** Contextual reasoning grounded in each property's history, powered by a unified signal ontology that translates chaotic real-world events into structured, cross-domain context.
@@ -87,7 +86,7 @@ This is the public meta‑repo of a multi‑agent system I’ve been building so
 - **Perception nodes:** domain‑specific agents that expose capabilities as [MCP](https://modelcontextprotocol.io/) tools and never decide.
 - **Bespoke Orchestrator:** a central decision engine that holds 100% of the reasoning loop, keeping a human manager as final authority.
 
-## The Mesh Architecture
+## The Architecture
 
 ```mermaid
 flowchart TB
@@ -100,7 +99,7 @@ flowchart TB
     end
 
     %% Specialized, isolated agents
-    subgraph MESH["Hospitality Mesh — isolated domain agents"]
+    subgraph MESH["Hospitality Multi-agent Architecture — isolated domain agents"]
         A["Aetherix<br/><i>F&B</i>"]
         N["Anima<br/><i>Guest memory</i><br/><small>Synthetic PoC</small>"]
         P["Peritia<br/><i>House knowledge</i><br/><small>Design</small>"]
@@ -180,7 +179,7 @@ Orchestrator with one live node behind it, that claim was wrong.
 ### Core Design Principles
 
 1. **Execution nodes never orchestrate.** Perception nodes (Anima, Aetherix, Tacet) interpret signals; the bespoke Orchestrator holds all decision logic.
-2. **Glue, not replacement.** The Mesh uses a PMS‑agnostic canonical schema behind adapters. Intelligence is delivered inside existing tools (e.g., 1‑tap WhatsApp receipts), with zero new dashboards.
+2. **Glue, not replacement.** The architecture uses a PMS‑agnostic canonical schema behind adapters. Intelligence is delivered inside existing tools (e.g., 1‑tap WhatsApp receipts), with zero new dashboards.
 3. **Preventing HITL fatigue.** The Orchestrator filters noise and sends only high‑significance, composite recommendations. Human approval is a prerequisite, not a differentiator; the hard part is deciding what is worth interrupting a human for. The filter sorts on **how expensive the mistake is to undo, not on the model's confidence** — confidence is the only input in that decision the model itself can influence. A prep quantity is reversible and cheap; a staffing call costs money; anything touching guest personal data cannot be un‑inferred.
 4. **Continuous Improvement (Meta‑Learner, Research).** A dual loop would optimize decision thresholds via manager feedback and autonomous comparison of predictions vs ground truth. Today, outcome capture exists only inside the F&B node. **What it must never be allowed to tune:** guardrail bounds, the red lines below, and DPIA scope. An optimizer pointed at acceptance will eventually find that the cheapest way to raise it is to widen the constraint that rejected the work — so the constraints it could weaken are the ones held outside its reach by construction, not by policy.
 5. **Hive Memory (Federated Priors, Research).** A federated layer would share anonymized priors across properties to solve cold‑start, without leaking tenant data. No substrate exists yet.
@@ -196,12 +195,12 @@ Digital twins are mature in banking, data centres, aerospace. In hospitality, th
 | Process | Prep, staffing, service flows | Aetherix, **Built** |
 | Human‑centered | Staff perception, effort, trust | Not a node. See [Lore](https://github.com/IvandeMurard/Lore) |
 | Decision | Policies, trade‑offs, scenarios | **Not built** |
-| Guest experience | Reaction, friction, loyalty | Signal across the mesh. Anima owns its memory, **Synthetic PoC** |
+| Guest experience | Reaction, friction, loyalty | Signal across the architecture. Anima owns its memory, **Synthetic PoC** |
 
-The decision layer is the interesting one and does not exist here, so none of this is a “decision twin”. Guest experience is not a node; it is a signal that travels across the mesh. Anima is the node that holds guest memory, which is a different thing from the experience itself. [Manzano‑Farray et al. (2026)](https://pmc.ncbi.nlm.nih.gov/articles/PMC13078991/) model the employee to support human judgement, not replace it — the same guard applied here.
+The decision layer is the interesting one and does not exist here, so none of this is a “decision twin”. Guest experience is not a node; it is a signal that travels across the architecture. Anima is the node that holds guest memory, which is a different thing from the experience itself. [Manzano‑Farray et al. (2026)](https://pmc.ncbi.nlm.nih.gov/articles/PMC13078991/) model the employee to support human judgement, not replace it — the same guard applied here.
 ## What's built vs. what's vision
 
-This is a solo project — **built by one person, which is a real key‑person (bus‑factor) risk** for anyone relying on it. It is mitigated by tracked decisions (12 ADRs), synchronized recovery harnesses, and deterministic, reproducible pipelines — not by redundancy, and there is no SLA yet. The mesh narrative is a north star; the nodes below are built to de‑risk the architecture, but every status uses one honest label, and **Built means the code runs, not that anyone uses it yet**:
+This is a solo project — **built by one person, which is a real key‑person (bus‑factor) risk** for anyone relying on it. It is mitigated by tracked decisions (12 ADRs), synchronized recovery harnesses, and deterministic, reproducible pipelines — not by redundancy, and there is no SLA yet. The architecture narrative is a north star; the nodes below are built to de‑risk the architecture, but every status uses one honest label, and **Built means the code runs, not that anyone uses it yet**:
 
 - **Built** — deployed and exercised end‑to‑end on the target environment.
 - **Shadow‑mode** — runs on real data, but no decision is delivered to a human on that basis.
@@ -221,7 +220,7 @@ This is a solo project — **built by one person, which is a real key‑person (
 
 ## Engineering practices I’d bring to a team
 
-I’m building this Mesh solo to master the full lifecycle of agentic AI systems. Beyond wiring API calls, this project demonstrates:
+I’m building this architecture solo to master the full lifecycle of agentic AI systems. Beyond wiring API calls, this project demonstrates:
 
 - **Full Ownership & Bespoke Control:** I build critical paths (like the Orchestrator) from scratch to keep logic transparent and deterministic.
 - **Evals as merge gates, not dashboards:** golden datasets plus offline CI gates (exit codes block merges), separated from runtime guardrails.

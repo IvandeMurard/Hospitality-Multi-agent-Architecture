@@ -76,7 +76,7 @@ reads better" is not a stop condition. "VISION bet 1 names the return path and l
 it Design" is.
 
 `escalate_when` earns its line here specifically: most changes to this repo are
-positioning decisions wearing documentation clothes. Reframing what the mesh is *for*,
+positioning decisions wearing documentation clothes. Reframing what the architecture is *for*,
 changing which argument leads, or promoting a component's label are the owner's calls,
 not an editing pass's.
 

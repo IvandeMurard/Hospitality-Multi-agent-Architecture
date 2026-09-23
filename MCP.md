@@ -121,7 +121,7 @@ link in the [README](README.md), and say which tools you need and why.
 
 ## Related
 
-- [README](README.md): the mesh, and what is built versus what is not
+- [README](README.md): the architecture, and what is built versus what is not
 - [COGNITION.md](COGNITION.md): why the memory matters more than the forecast
 - [benchmark/](benchmark/): how the forecast actually performs on real data,
   including where it does not beat a naive baseline

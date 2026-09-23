@@ -1,6 +1,6 @@
 # Cognition, not just prediction
 
-*The design thesis behind the mesh. Aetherix is the proof; Anima is the promise.*
+*The design thesis behind the architecture. Aetherix is the proof; Anima is the promise.*
 
 ## The argument
 
@@ -240,7 +240,7 @@ direction rather than a blank:
    against, SOP or otherwise. A more useful falsification criterion may not be "matches the
    SOP" but "matches the outcome": log a captured answer next to what actually happened when a
    junior followed it — the same predict‑versus‑outcome loop Aetherix already runs. That would
-   make Peritia's correctness measurable the same way the rest of the mesh is, instead of
+   make Peritia's correctness measurable the same way the rest of the architecture is, instead of
    needing a separate evaluation frame.
 
 ## Reading list in this repo
