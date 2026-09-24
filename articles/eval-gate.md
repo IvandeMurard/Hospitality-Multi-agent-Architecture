@@ -41,7 +41,7 @@ flowchart LR
 ```
 
 `[screenshot: the sticky PR comment rendering the eval report — per-category MAPE delta, parser
-accuracy delta, drift status]`
+plumbing check, drift status]`
 
 ## Four outcomes, not two
 
@@ -70,6 +70,10 @@ We needed three consecutive CI runs of the same forecast, on the same code, to s
 "stochastic" model was actually just drifting library versions between local and CI.
 
 > **3 runs. Identical MAPE: 25.40%. Zero regressions. 0.00 percentage points of variance.**
+
+The series behind that MAPE is synthetic, generated from the same regressors Prophet is given, so
+the number proves the gate is stable, not that the forecast is accurate on real covers. That is
+what the [real-data benchmark](../benchmark/) is for.
 
 The instability wasn't Prophet. It was environment drift — CI's library versions weren't pinned
 to local. Fit in MAP mode with `L-BFGS`, on a frozen environment, Prophet is deterministic.
