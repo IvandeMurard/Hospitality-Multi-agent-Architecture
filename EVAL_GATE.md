@@ -64,9 +64,15 @@ Scenarios are organized into an 11-category taxonomy — normal days, event
 days, weather anomalies, OTA cancellation waves, weekday/weekend splits,
 service mix shifts, closures, holiday eves, out-of-distribution edge cases,
 parser intents, and a forward-compatible placeholder for POS anomalies. The
-forecast ground truth is drawn from real values in the training series, not
-invented; the parser scenarios are grounded in the deterministic behavior of
-the receipt-parsing service.
+forecast scenarios take their expected values from the training series, and
+that series is synthetic today: it is generated from the same regressors
+Prophet is given. So the forecast gate is a non-regression check on the
+pipeline, not a measure of accuracy on real covers; accuracy on real data is
+what the [benchmark](benchmark/) measures, and what the pilot will. In the PR
+gate, the parser scenarios run against a deterministic rule-based stand-in:
+that checks the plumbing and says nothing about the model. The model on the
+production reply path is graded by a separate, opt-in run that is being added;
+until it has run, parser accuracy is not measured.
 
 ## Coverage and exit codes
 
@@ -85,7 +91,7 @@ The script's exit code carries the verdict end to end: `0` pass, `1` fail
 (a regression over 3 percentage points on any category, or coverage under
 60%), `2` error (the script crashed or the dataset is corrupt), `3` warn.
 A sticky comment on the PR renders the same result as a Markdown table —
-per-category MAPE delta, parser accuracy delta, drift status — updated in
+per-category MAPE delta, the parser plumbing check, drift status — updated in
 place on every push rather than piling up new comments.
 
 ## The escape hatch, and where it stops applying
@@ -116,7 +122,7 @@ alarm — which is worse than not having one.
 The rollout to blocking needed evidence, not a calendar date. A canary PR — a
 no-op change to a file the gate treats as a forecast trigger — forced three
 consecutive Prophet runs inside the actual CI environment. All three produced
-an identical forecast MAPE of 25.40%, zero regressions, and 0.00 percentage
+an identical forecast MAPE of 25.40% on the synthetic series, zero regressions, and 0.00 percentage
 points of run-to-run variance against the frozen baseline. The stochasticity
 that had been the concern turned out to be environment drift — CI library
 versions diverging from local — not Prophet itself: fit in MAP mode with
@@ -136,6 +142,12 @@ Stated plainly, because a gate is only as trustworthy as its stated limits:
   doesn't get to grade before it's shown it grades like a person would.
 - **Full memory-recall precision** runs as a smoke check today, not the
   annotated-ground-truth evaluation a production recall system deserves.
+- **Parser accuracy on the real model** is not measured yet. An audit in
+  September 2026 found that the earlier 100% came from a rule-based stand-in
+  written against the same cases, and that the reply path itself records a
+  decision only for an exact "accept" or "reject" (or a corrected figure): a
+  free-text refusal is stored as a modification, and a bare "ok" records
+  nothing. The capture is being fixed first, then measured.
 - **Outcome-level evaluation** — did the recommendation get accepted, and did
   accepting it actually help — sits outside this gate entirely. That's the
   trust signal the closed loop is built to produce (see
@@ -165,7 +177,7 @@ actually enforced promise.
   proved it
 - [Evaluating LLM agents: how would you know it had stopped working?](https://ivandemurard.com/journal/harnesses-graders-closed-loops) —
   the vocabulary this gate is built on: graders, harnesses, protocols, the three
-  arms of evaluation, and why 52 out of 53 can still be a failure. Note the sense
+  arms of evaluation, and why 61 out of 64 can still be a failure. Note the sense
   of *harness* there: the machinery that runs the exam — case set, graders,
   thresholds, verdict — not the agent harness of the 2026 write-ups, which is the
   runtime environment around a model. This repo uses both senses, so they are
