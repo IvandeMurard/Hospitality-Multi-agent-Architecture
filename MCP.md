@@ -83,6 +83,12 @@ watch hardest, because a system can raise its acceptance rate indefinitely by
 being ignored more selectively. These are the inputs to the loop metric stated
 in [VISION.md](VISION.md).
 
+**In progress:** a revision of this call that also records who decided (a human
+through the host tool, or the host agent) and requires a typed reason from the
+calling agent, so that a decision taken by an agent is never counted as a human
+signal and a reason guessed by an agent is never stored as the human's. The
+contract above stays valid until that revision ships.
+
 `notes` is free text today, which makes the override corpus a pile of prose:
 "banquet booked late" records *that* the system was wrong, not *which layer*
 was wrong — a stale fact, a rule nobody encoded, or a pattern the model has
