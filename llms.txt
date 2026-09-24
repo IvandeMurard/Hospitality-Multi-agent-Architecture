@@ -22,6 +22,7 @@ Canonical across this repo, the execution-node repos and https://ivandemurard.co
 - Peritia (house-knowledge node): Design — contracts specified, not implemented.
 - Bespoke Orchestrator: Design — proto-stub only.
 - Meta-Learner & Hive priors: Research — no substrate yet.
+- Model portability (nodes ask for a capability tier, not a model; any model that passes the eval gate is admissible): Design — Claude is the primary model, and no second provider has been run through the eval gate yet.
 
 ## Docs
 
