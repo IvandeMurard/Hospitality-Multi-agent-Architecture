@@ -83,11 +83,13 @@ watch hardest, because a system can raise its acceptance rate indefinitely by
 being ignored more selectively. These are the inputs to the loop metric stated
 in [VISION.md](VISION.md).
 
-**In progress:** a revision of this call that also records who decided (a human
-through the host tool, or the host agent) and requires a typed reason from the
-calling agent, so that a decision taken by an agent is never counted as a human
-signal and a reason guessed by an agent is never stored as the human's. The
-contract above stays valid until that revision ships.
+**Changing with the next deployment (built, September 2026):** this call will also
+require who decided (a human through the host tool, or the host agent) and a typed
+reason from the calling agent, so that a decision taken by an agent is never
+counted as a human signal and a reason guessed by an agent is never stored as the
+human's. Calls without those fields will be refused. A read tool listing pending
+recommendations, with their per-option consequences, ships alongside. The
+contract above stays valid until that deployment.
 
 `notes` is free text today, which makes the override corpus a pile of prose:
 "banquet booked late" records *that* the system was wrong, not *which layer*
