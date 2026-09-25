@@ -219,6 +219,39 @@ This is a solo project — **built by one person, which is a real key‑person (
 | **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built — and deliberately so while one node is live, see the note under the diagram | Architectural ADRs |
 | **Meta‑Learner & Hive priors** | **Research**: no substrate yet (the cohort‑feature table does not exist). Outcome capture exists only inside the F&B node | — |
 
+### Aetherix, capability by capability
+
+Synced from the Aetherix repository on every merge, through a reviewed pull request. Only the status lines below are synced; the text above stays hand-written.
+
+<!-- aetherix-status:start -->
+<!-- Generated from the Aetherix node's public-status.yml. Do not edit by hand: the next sync overwrites it. -->
+
+| Capability | Status | What it does | Live? |
+|---|---|---|---|
+| F&B execution node | **Built** | Backend that turns covers, staffing and demand signals into recommendations for an F&B manager; zero real users so far. | Not verified |
+| Covers forecast | **Shadow-mode** | Benchmarked on real public restaurant data (ahead of a naive baseline on mean error, level with it on the median); no manager decision has been delivered on it. | Not verified |
+| Daily receipt | **Built** | Daily WhatsApp and e-mail digest of what was recommended, what was decided and what happened. | Not verified |
+| MCP server | **Built** | Atomic, tenant-scoped MCP tools so a host agent can read recommendations and record decisions; no external consumer yet. | Not verified |
+| Operational memory | **Built** | Per-property vector memory of past services and outcomes; it has only ever held synthetic data. | Not verified |
+| Runtime guardrails | **Built** | Heartbeat, error-rate alerting, forecast circuit-breaker and output bounds, each trip logged with a machine-readable reason; exercised in CI, not in a real incident. | Not verified |
+| Blocking eval gate | **Built** | Offline evals on a golden dataset run in CI and block a merge on regression. | — |
+| Decision ledger | **Built** | Links each recommendation to the response it got and the outcome that followed, in one auditable record. | Not verified |
+| Decision capture with confirmation | **Built** | A manager's reply is read as a stance on the proposal, deterministically first; an uncertain reading is confirmed before anything is recorded. Model reading quality not yet measured. | Not verified |
+| Tap-to-answer buttons | **In progress** | Accept / reject buttons on the recommendation message; code is behind a flag, waiting for messaging template approval. | No |
+| Decision recap | **Built** | Deterministic recap of recent recommendations, decisions and outcomes, on demand in chat or through an MCP tool; no model, no estimated money. | Not verified |
+| Decision provenance and agent reasons | **Built** | Every decision records who made it, and an agent caller must give a structured reason; an agent's inference is never stored as a human decision. | Not verified |
+| Host-agent autonomy | **Design** | A host agent would decide on its own only under an explicit, reviewed policy; today every decision requires human validation. | No |
+| Reply-reading eval on a pinned model | **Built** | Grades the production reply path against one pinned model version; no real-model score exists yet. | — |
+| Point of no return per decision type | **Built** | Each recommendation carries the last moment it can still be changed; the timings are defaults until a hotel sets its own. | Not verified |
+| Calibrated forecast intervals | **Synthetic PoC** | Forecast uncertainty intervals recalibrated on synthetic data only; not measured on real covers. | No |
+| Per-hotel costs and limits | **Built** | Bounded, audited per-hotel costs and limits; while none is set, no amount of money is ever shown. No hotel has set any. | Not verified |
+| Risk-bearing recommendations | **Built** | Each recommendation states what follows if accepted and if refused; probabilities and amounts only when calibrated and configured, otherwise qualitative. | Not verified |
+| Learning loop with named approval | **Built** | A weekly pass proposes recalibrations that apply only after a named person approves, with rollback; tested on constructed data, nothing learned from real outcomes yet. | Not verified |
+| Model portability | **Design** | A second model provider would be admitted only after passing the same eval gate; none has yet. Services already request a capability tier, never a model. | No |
+
+Reading this table: **Built** means merged on the node's main branch and covered by tests; it does not by itself mean deployed or used, and the node has zero real users. **Live?** is Yes only when the deployed version was checked, Not verified otherwise, and — for CI gates and eval harnesses. Oldest entry verified on 2026-09-25.
+<!-- aetherix-status:end -->
+
 ## Engineering practices I’d bring to a team
 
 I’m building this Mesh solo to master the full lifecycle of agentic AI systems. Beyond wiring API calls, this project demonstrates:
