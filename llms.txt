@@ -24,6 +24,24 @@ Canonical across this repo, the execution-node repos and https://ivandemurard.co
 - Meta-Learner & Hive priors: Research — no substrate yet.
 - Model portability (nodes ask for a capability tier, not a model; any model that passes the eval gate is admissible): Design — Claude is the primary model, and no second provider has been run through the eval gate yet.
 
+## Canonical names and surfaces
+
+One name per thing, on every surface. A surface that says something different is corrected to match this file, never the other way round. Repeating a claim on several surfaces is still one claim.
+
+Names
+
+- Project: Hospitality Multi-agent Architecture (repository: Hospitality-Multi-agent-Architecture). "Hospitality Agentic Mesh" is the former repository name, not a current name.
+- Nodes: Aetherix (F&B node), Anima (guest node), Peritia (house-knowledge node), Tacet (environment node), Orchestrator. Use the node name, then its role in parentheses on first mention, exactly as in the list above.
+
+Surfaces. Each one carries the same status label and the same one-line description as "Current component status".
+
+- Meta-repo — public — https://github.com/IvandeMurard/Hospitality-Multi-agent-Architecture — this file is canonical.
+- Tacet repository — public — https://github.com/IvandeMurard/tacet-app — its own llms.txt uses the same labels.
+- Aetherix repository — private — no public address; the case study stands in for it and repository access is given on request.
+- Portfolio — public — https://ivandemurard.com (case studies /aetherix and /tacet, machine-readable corpus /llms-full.txt) — corrected to match this file.
+- GitHub profile README — public — https://github.com/IvandeMurard — corrected to match this file.
+- Other profile material (LinkedIn, CV) — checked by hand against this file.
+
 ## Docs
 
 - [README](README.md): agent roster, architecture, evaluation approach
