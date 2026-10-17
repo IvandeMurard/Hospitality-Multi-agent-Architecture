@@ -203,7 +203,7 @@ The decision layer is the interesting one and does not exist here, so none of th
 
 This is a solo project — **built by one person, which is a real key‑person (bus‑factor) risk** for anyone relying on it. It is mitigated by tracked decisions (12 ADRs), synchronized recovery harnesses, and deterministic, reproducible pipelines — not by redundancy, and there is no SLA yet. The mesh narrative is a north star; the nodes below are built to de‑risk the architecture, but every status uses one honest label, and **Built means the code runs, not that anyone uses it yet**:
 
-- **Built** — deployed and exercised end‑to‑end on the target environment.
+- **Built** — merged and covered by tests. Whether it runs live is stated separately: the Aetherix capability table below has a **Live?** column, and "Yes" there means the deployed version was checked.
 - **Shadow‑mode** — runs on real data, but no decision is delivered to a human on that basis.
 - **Synthetic PoC** — validated on fabricated data only; never met the real world.
 - **Design** — specified (ADR, schema, contract), not implemented.
@@ -218,6 +218,13 @@ This is a solo project — **built by one person, which is a real key‑person (
 | **Tacet** (Environment Node) | **Built** (public): live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
 | **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built — and deliberately so while one node is live, see the note under the diagram | Architectural ADRs |
 | **Meta‑Learner & Hive priors** | **Research**: no substrate yet (the cohort‑feature table does not exist). Outcome capture exists only inside the F&B node | — |
+
+### Aetherix, capability by capability
+
+Generated from a curated status file in the private Aetherix repository and updated automatically by pull request. Do not edit between the markers.
+
+<!-- aetherix-status:start -->
+<!-- aetherix-status:end -->
 
 ## Engineering practices I’d bring to a team
 
