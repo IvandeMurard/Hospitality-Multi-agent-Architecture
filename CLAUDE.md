@@ -40,6 +40,9 @@ detected conflict has a right answer instead of an argument:
    would falsify it.
 4. **[`README.md`](README.md)** last on any detail. It summarizes the others, so on a
    conflict it is the derived copy and it is the one that gets corrected.
+5. **Other surfaces** — the GitHub profile README, the portfolio site, LinkedIn and the CV
+   — are derived copies of [`llms.txt`](llms.txt) (see its "Canonical names and
+   surfaces"). On a conflict they are the ones corrected.
 
 And when the answer is in none of them: say what could not be found. An unstated gap
 is the one failure this repo's whole argument cannot survive — the documents earn their
