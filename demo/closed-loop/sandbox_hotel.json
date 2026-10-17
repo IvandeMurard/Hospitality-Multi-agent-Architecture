@@ -1,0 +1,16 @@
+{
+  "tenant_id": "sandbox_hotel",
+  "description": "Synthetic sandbox hotel: a 120-seat restaurant in a boutique hotel. These staffing rules are invented for the demo, as the hotel itself would enter them. They are not taken from a real hotel. The usual team is what these ratios give on a typical night of the demo (about 68 covers).",
+  "set_by": "sandbox config (synthetic)",
+  "set_at": "2025-12-15T09:00:00+00:00",
+  "parameters": {
+    "covers_per_server": 15,
+    "covers_per_host": 60,
+    "covers_per_runner": 45,
+    "covers_per_kitchen_staff": 25,
+    "usual_servers": 5,
+    "usual_hosts": 2,
+    "usual_runners": 2,
+    "usual_kitchen_staff": 3
+  }
+}

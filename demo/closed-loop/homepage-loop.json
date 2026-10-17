@@ -1,0 +1,234 @@
+{
+  "provenance": {
+    "repo": "IvandeMurard/Hospitality-Multi-agent-Architecture",
+    "commit": "096509806333661409ab682b7d9e498ca7a67bcd",
+    "path": "demo/closed-loop/",
+    "seed": 42,
+    "data": "synthetic sandbox",
+    "hotel": "sandbox_hotel.json: a synthetic hotel with its own staffing rules",
+    "services": "real PredictionEngine, StaffingService, feedback_guard",
+    "drivers": "forecast_drivers.json: Prophet's own breakdown of each forecast, captured by rerunning the demo (ledger reproduced exactly)",
+    "signals": "hotel occupancy, weather, local events (synthetic in this run), French public holidays, past covers",
+    "translated": true,
+    "backend_commit": "d48f691",
+    "staffing_rules_version": "2025-12-15T09:00:00+00:00"
+  },
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-01-01",
+      "weekday": "Thursday",
+      "evening": {
+        "predicted": 101,
+        "range": [
+          94,
+          109
+        ],
+        "range_width_pct": 15,
+        "confidence": 0.9,
+        "confidence_label": "high",
+        "confidence_text": "High confidence: 94–109 covers on 4 nights out of 5.",
+        "confidence_detail": "The range is the model's 80% interval. It is 15 covers wide, 15% of the forecast. Under 20% earns the engine's top rating, 0.9. The rating measures how tight the range is; it is not a probability.",
+        "baseline": 87,
+        "drivers": [
+          {
+            "label": "Hotel 98% full",
+            "covers": 9
+          },
+          {
+            "label": "New Year's Day",
+            "covers": 8
+          },
+          {
+            "label": "Season",
+            "covers": 7
+          },
+          {
+            "label": "Poor weather",
+            "covers": -6
+          },
+          {
+            "label": "Thursday",
+            "covers": -3
+          },
+          {
+            "label": "No local event",
+            "covers": -1
+          }
+        ],
+        "why": "Why 101: usual level 87, then hotel 98% full +9, New Year's Day +8, season +7.",
+        "staffing": {
+          "servers": 7,
+          "hosts": 2,
+          "runners": 3,
+          "kitchen": 5,
+          "usual": {
+            "servers": 5,
+            "hosts": 2,
+            "runners": 2,
+            "kitchen": 3
+          },
+          "source": "hotel",
+          "text": "7 servers, 2 hosts, 3 runners, 5 kitchen staff, on the hotel's own rules (usual night: 5, 2, 2, 3).",
+          "basis": "The hotel's own rules: 1 server per 15 covers, 1 host per 60 covers, 1 runner per 45 covers, 1 kitchen staff member per 25 covers, rounded up."
+        }
+      },
+      "reply": {
+        "kind": "modified",
+        "signal": "warn",
+        "text": "I'd say 79 covers instead.",
+        "counter": 79,
+        "basis": "The simulated manager averages the last 4 Thursdays: 69, 81, 72 and 95."
+      },
+      "morning": {
+        "kind": "outcome",
+        "signal": "go",
+        "text": "Actual: 95 covers. Forecast 101: 6% off, inside the 94–109 range. Your estimate 79: 17% off.",
+        "actual": 95.0,
+        "ape_pct": 6.3,
+        "in_range": true,
+        "manager_ape_pct": 16.8
+      }
+    },
+    {
+      "day": 10,
+      "date": "2026-01-10",
+      "weekday": "Saturday",
+      "evening": {
+        "predicted": 85,
+        "range": [
+          78,
+          92
+        ],
+        "range_width_pct": 16,
+        "confidence": 0.9,
+        "confidence_label": "high",
+        "confidence_text": "High confidence: 78–92 covers on 4 nights out of 5.",
+        "confidence_detail": "The range is the model's 80% interval. It is 14 covers wide, 16% of the forecast. Under 20% earns the engine's top rating, 0.9. The rating measures how tight the range is; it is not a probability.",
+        "baseline": 85,
+        "drivers": [
+          {
+            "label": "Saturday",
+            "covers": 17
+          },
+          {
+            "label": "Hotel 59% full",
+            "covers": -14
+          },
+          {
+            "label": "Poor weather",
+            "covers": -5
+          },
+          {
+            "label": "Season",
+            "covers": 3
+          },
+          {
+            "label": "No local event",
+            "covers": -1
+          }
+        ],
+        "why": "Why 85: usual level 85, then Saturday +17, hotel 59% full −14, poor weather −5.",
+        "staffing": {
+          "servers": 6,
+          "hosts": 2,
+          "runners": 2,
+          "kitchen": 4,
+          "usual": {
+            "servers": 5,
+            "hosts": 2,
+            "runners": 2,
+            "kitchen": 3
+          },
+          "source": "hotel",
+          "text": "6 servers, 2 hosts, 2 runners, 4 kitchen staff, on the hotel's own rules (usual night: 5, 2, 2, 3).",
+          "basis": "The hotel's own rules: 1 server per 15 covers, 1 host per 60 covers, 1 runner per 45 covers, 1 kitchen staff member per 25 covers, rounded up."
+        }
+      },
+      "reply": {
+        "kind": "accepted",
+        "signal": "go",
+        "text": "OK",
+        "counter": 85
+      },
+      "morning": {
+        "kind": "quarantine",
+        "signal": "stop",
+        "text": "Yesterday's POS figure (900 covers) is implausible. It was discarded and will not feed learning. Could you check the till export?",
+        "actual": 900.0,
+        "ape_pct": null,
+        "reason": "implausible_feedback"
+      }
+    },
+    {
+      "day": 17,
+      "date": "2026-01-17",
+      "weekday": "Saturday",
+      "evening": {
+        "predicted": 82,
+        "range": [
+          75,
+          90
+        ],
+        "range_width_pct": 18,
+        "confidence": 0.9,
+        "confidence_label": "high",
+        "confidence_text": "High confidence: 75–90 covers on 4 nights out of 5.",
+        "confidence_detail": "The range is the model's 80% interval. It is 15 covers wide, 18% of the forecast. Under 20% earns the engine's top rating, 0.9. The rating measures how tight the range is; it is not a probability.",
+        "baseline": 84,
+        "drivers": [
+          {
+            "label": "Saturday",
+            "covers": 17
+          },
+          {
+            "label": "Hotel 64% full",
+            "covers": -11
+          },
+          {
+            "label": "Poor weather",
+            "covers": -6
+          },
+          {
+            "label": "No local event",
+            "covers": -1
+          },
+          {
+            "label": "Season",
+            "covers": -1
+          }
+        ],
+        "why": "Why 82: usual level 84, then Saturday +17, hotel 64% full −11, poor weather −6.",
+        "staffing": {
+          "servers": 6,
+          "hosts": 2,
+          "runners": 2,
+          "kitchen": 4,
+          "usual": {
+            "servers": 5,
+            "hosts": 2,
+            "runners": 2,
+            "kitchen": 3
+          },
+          "source": "hotel",
+          "text": "6 servers, 2 hosts, 2 runners, 4 kitchen staff, on the hotel's own rules (usual night: 5, 2, 2, 3).",
+          "basis": "The hotel's own rules: 1 server per 15 covers, 1 host per 60 covers, 1 runner per 45 covers, 1 kitchen staff member per 25 covers, rounded up."
+        }
+      },
+      "reply": {
+        "kind": "accepted",
+        "signal": "go",
+        "text": "OK",
+        "counter": 82
+      },
+      "morning": {
+        "kind": "drift",
+        "signal": "warn",
+        "text": "Actual: 92 covers. Forecast 82: 11% off, outside the 75–90 range. That is the third under-estimate in a row: demand seems to be shifting (a new contract? a recurring group?). The weekly recalibration will take it into account.",
+        "actual": 92.0,
+        "ape_pct": 10.9,
+        "in_range": false
+      }
+    }
+  ]
+}
