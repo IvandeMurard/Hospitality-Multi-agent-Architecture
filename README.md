@@ -249,7 +249,7 @@ Generated from a curated status file in the private Aetherix repository and upda
 | Learning loop with named approval | **Built** | A weekly pass proposes recalibrations that apply only after a named person approves, with rollback; tested on constructed data, nothing learned from real outcomes yet. | Not verified |
 | Model portability | **Design** | A second model provider would be admitted only after passing the same eval gate; none has yet. Services already request a capability tier, never a model. | No |
 | Hotel-owned data | **Built** | A hotel can export or delete all its data, learned parts included, after seeing the plan. Cross-hotel learning is opt-in, averages over five or more hotels; none exists yet. Anonymity is not claimed. | Not verified |
-| Hotel data through the hotel's own agent | **Design** | The hotel's own agent would fetch its export and deletion plan over MCP; a deletion or an opt-in to sharing would wait for a human to confirm. Not built yet. | No |
+| Hotel data through the hotel's own agent | **Built** | The hotel's own agent reads its data export and deletion plan over MCP. A deletion or an opt-in to sharing waits for the owner to confirm on WhatsApp; deletion runs a day later and can be cancelled. | Not verified |
 
 Reading this table: **Built** means merged on the node's main branch and covered by tests; it does not by itself mean deployed or used, and the node has zero real users. **Live?** is Yes only when the deployed version was checked, Not verified otherwise, and — for CI gates and eval harnesses. Oldest entry verified on 2026-09-25.
 <!-- aetherix-status:end -->
