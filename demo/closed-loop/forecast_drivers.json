@@ -1,0 +1,725 @@
+{
+  "days": [
+    {
+      "index": 1,
+      "day": "2026-01-01",
+      "signals": {
+        "occupancy": 0.98,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 87.45337775907407,
+      "components": {
+        "New Year's Day": 8.264418613,
+        "event_impact": -1.2789256206726662,
+        "occupancy": 9.030529807197311,
+        "weather_score": -6.17092169977474,
+        "weekly": -2.7119093560177916,
+        "yearly": 6.858503380869817
+      },
+      "yhat": 101.445072883676,
+      "manager_last_same_weekdays": [
+        69,
+        81,
+        72,
+        95
+      ]
+    },
+    {
+      "index": 2,
+      "day": "2026-01-02",
+      "signals": {
+        "occupancy": 0.98,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 87.4756044735326,
+      "components": {
+        "event_impact": -1.2789256206726662,
+        "occupancy": 9.030529807197311,
+        "weather_score": -6.17092169977474,
+        "weekly": 18.306769078408767,
+        "yearly": 6.856332461722664
+      },
+      "yhat": 114.21938850041393,
+      "manager_last_same_weekdays": [
+        79,
+        86,
+        97,
+        120
+      ]
+    },
+    {
+      "index": 3,
+      "day": "2026-01-03",
+      "signals": {
+        "occupancy": 0.92,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 87.49783118799112,
+      "components": {
+        "event_impact": -1.2789256206726662,
+        "occupancy": 5.574245242750946,
+        "weather_score": -6.17092169977474,
+        "weekly": 17.415674490103928,
+        "yearly": 6.787972516363022
+      },
+      "yhat": 109.8258761167616,
+      "manager_last_same_weekdays": [
+        96,
+        80,
+        107,
+        126
+      ]
+    },
+    {
+      "index": 4,
+      "day": "2026-01-04",
+      "signals": {
+        "occupancy": 0.56,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 87.52005790244965,
+      "components": {
+        "event_impact": -1.2789256206726662,
+        "occupancy": -15.16346214392726,
+        "weather_score": -6.17092169977474,
+        "weekly": 2.0409451119130644,
+        "yearly": 6.657366868075875
+      },
+      "yhat": 73.60506041806393,
+      "manager_last_same_weekdays": [
+        77,
+        73,
+        103,
+        94
+      ]
+    },
+    {
+      "index": 5,
+      "day": "2026-01-05",
+      "signals": {
+        "occupancy": 0.64,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 87.54228461690818,
+      "components": {
+        "event_impact": -1.2789256206726662,
+        "occupancy": -10.55508272466544,
+        "weather_score": -6.17092169977474,
+        "weekly": -18.718699163835776,
+        "yearly": 6.469646027778669
+      },
+      "yhat": 57.28830143573822,
+      "manager_last_same_weekdays": [
+        60,
+        51,
+        67,
+        69
+      ]
+    },
+    {
+      "index": 6,
+      "day": "2026-01-06",
+      "signals": {
+        "occupancy": 0.55,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 87.56451133136669,
+      "components": {
+        "event_impact": -1.2789256206726662,
+        "occupancy": -15.739509571334988,
+        "weather_score": -6.17092169977474,
+        "weekly": -14.304592293677787,
+        "yearly": 6.231017013134082
+      },
+      "yhat": 56.301579159040585,
+      "manager_last_same_weekdays": [
+        63,
+        64,
+        77,
+        75
+      ]
+    },
+    {
+      "index": 7,
+      "day": "2026-01-07",
+      "signals": {
+        "occupancy": 0.54,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 87.58673804582523,
+      "components": {
+        "event_impact": -1.2789256206726662,
+        "occupancy": -16.315556998742718,
+        "weather_score": -6.17092169977474,
+        "weekly": -2.0281878669393403,
+        "yearly": 5.948625583865238
+      },
+      "yhat": 67.74177144356099,
+      "manager_last_same_weekdays": [
+        71,
+        65,
+        92,
+        144
+      ]
+    },
+    {
+      "index": 8,
+      "day": "2026-01-08",
+      "signals": {
+        "occupancy": 0.58,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 85.30041714447435,
+      "components": {
+        "event_impact": -1.262604894285998,
+        "occupancy": -14.887692478217941,
+        "weather_score": -5.5896046124769585,
+        "weekly": -2.7909571290040063,
+        "yearly": 4.151853152261594
+      },
+      "yhat": 64.92141118275104,
+      "manager_last_same_weekdays": [
+        81,
+        72,
+        95,
+        95
+      ]
+    },
+    {
+      "index": 9,
+      "day": "2026-01-09",
+      "signals": {
+        "occupancy": 0.64,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 85.31170052995492,
+      "components": {
+        "event_impact": -1.262604894285998,
+        "occupancy": -11.191026596431042,
+        "weather_score": -5.5896046124769585,
+        "weekly": 18.511417958657372,
+        "yearly": 3.7068233411748763
+      },
+      "yhat": 89.48670572659316,
+      "manager_last_same_weekdays": [
+        86,
+        97,
+        120,
+        123
+      ]
+    },
+    {
+      "index": 10,
+      "day": "2026-01-10",
+      "signals": {
+        "occupancy": 0.59,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 85.3229839154355,
+      "components": {
+        "event_impact": -1.262604894285998,
+        "occupancy": -14.271581497920126,
+        "weather_score": -5.5896046124769585,
+        "weekly": 17.33157542243758,
+        "yearly": 3.2583976124178586
+      },
+      "yhat": 84.78916594560786,
+      "manager_last_same_weekdays": [
+        80,
+        107,
+        126,
+        104
+      ]
+    },
+    {
+      "index": 11,
+      "day": "2026-01-11",
+      "signals": {
+        "occupancy": 0.55,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 85.33426730091607,
+      "components": {
+        "event_impact": -1.262604894285998,
+        "occupancy": -16.736025419111385,
+        "weather_score": -5.5896046124769585,
+        "weekly": 2.0082794946553433,
+        "yearly": 2.8160943636913776
+      },
+      "yhat": 66.57040623338844,
+      "manager_last_same_weekdays": [
+        73,
+        103,
+        94,
+        67
+      ]
+    },
+    {
+      "index": 12,
+      "day": "2026-01-12",
+      "signals": {
+        "occupancy": 0.61,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 85.34555068639663,
+      "components": {
+        "event_impact": -1.262604894285998,
+        "occupancy": -13.039359537324493,
+        "weather_score": -5.5896046124769585,
+        "weekly": -18.806160410375117,
+        "yearly": 2.389139331073159
+      },
+      "yhat": 49.03696056300723,
+      "manager_last_same_weekdays": [
+        51,
+        67,
+        69,
+        50
+      ]
+    },
+    {
+      "index": 13,
+      "day": "2026-01-13",
+      "signals": {
+        "occupancy": 0.55,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 85.35683407187719,
+      "components": {
+        "event_impact": -1.262604894285998,
+        "occupancy": -16.736025419111385,
+        "weather_score": -5.5896046124769585,
+        "weekly": -14.18582627791154,
+        "yearly": 1.9862543480455728
+      },
+      "yhat": 49.56902721613688,
+      "manager_last_same_weekdays": [
+        64,
+        77,
+        75,
+        56
+      ]
+    },
+    {
+      "index": 14,
+      "day": "2026-01-14",
+      "signals": {
+        "occupancy": 0.59,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 85.36811745735776,
+      "components": {
+        "event_impact": -1.262604894285998,
+        "occupancy": -14.271581497920126,
+        "weather_score": -5.5896046124769585,
+        "weekly": -2.0683290585160914,
+        "yearly": 1.6154572993204048
+      },
+      "yhat": 63.79145469347898,
+      "manager_last_same_weekdays": [
+        65,
+        92,
+        144,
+        59
+      ]
+    },
+    {
+      "index": 15,
+      "day": "2026-01-15",
+      "signals": {
+        "occupancy": 0.69,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 83.66620141918186,
+      "components": {
+        "event_impact": -1.2546324707070764,
+        "occupancy": -7.885229600978143,
+        "weather_score": -5.728412271302929,
+        "weekly": -2.791816390008765,
+        "yearly": -0.02180609573873584
+      },
+      "yhat": 65.98430459044621,
+      "manager_last_same_weekdays": [
+        72,
+        95,
+        95,
+        62
+      ]
+    },
+    {
+      "index": 16,
+      "day": "2026-01-16",
+      "signals": {
+        "occupancy": 0.62,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 83.670495082806,
+      "components": {
+        "event_impact": -1.2546324707070764,
+        "occupancy": -12.200496927594097,
+        "weather_score": -5.728412271302929,
+        "weekly": 18.227934917772043,
+        "yearly": -0.32653393302725675
+      },
+      "yhat": 82.38835439794669,
+      "manager_last_same_weekdays": [
+        97,
+        120,
+        123,
+        71
+      ]
+    },
+    {
+      "index": 17,
+      "day": "2026-01-17",
+      "signals": {
+        "occupancy": 0.64,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 83.6747887464301,
+      "components": {
+        "event_impact": -1.2546324707070764,
+        "occupancy": -10.967563405703821,
+        "weather_score": -5.728412271302929,
+        "weekly": 17.34338522688938,
+        "yearly": -0.5678462573822421
+      },
+      "yhat": 82.49971956822341,
+      "manager_last_same_weekdays": [
+        80,
+        107,
+        126,
+        104
+      ]
+    },
+    {
+      "index": 18,
+      "day": "2026-01-18",
+      "signals": {
+        "occupancy": 0.66,
+        "weather_score": 0.1,
+        "event_impact": 0.3
+      },
+      "baseline": 83.67908241005424,
+      "components": {
+        "event_impact": 27.14363542912974,
+        "occupancy": -9.734629883813549,
+        "weather_score": -5.728412271302929,
+        "weekly": 2.047506318251067,
+        "yearly": -0.7430436781517942
+      },
+      "yhat": 96.66413832416677,
+      "manager_last_same_weekdays": [
+        103,
+        94,
+        67,
+        65
+      ]
+    },
+    {
+      "index": 19,
+      "day": "2026-01-19",
+      "signals": {
+        "occupancy": 0.52,
+        "weather_score": 0.1,
+        "event_impact": 0.3
+      },
+      "baseline": 83.68337607367836,
+      "components": {
+        "event_impact": 27.14363542912974,
+        "occupancy": -18.365164537045462,
+        "weather_score": -5.728412271302929,
+        "weekly": -18.776592963674297,
+        "yearly": -0.850998186425371
+      },
+      "yhat": 67.10584354436004,
+      "manager_last_same_weekdays": [
+        67,
+        69,
+        50,
+        45
+      ]
+    },
+    {
+      "index": 20,
+      "day": "2026-01-20",
+      "signals": {
+        "occupancy": 0.59,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 83.68766973730246,
+      "components": {
+        "event_impact": -1.2546324707070764,
+        "occupancy": -14.04989721042951,
+        "weather_score": -5.728412271302929,
+        "weekly": -14.039729126805314,
+        "yearly": -0.8921678411077931
+      },
+      "yhat": 47.72283081694984,
+      "manager_last_same_weekdays": [
+        77,
+        75,
+        56,
+        51
+      ]
+    },
+    {
+      "index": 21,
+      "day": "2026-01-21",
+      "signals": {
+        "occupancy": 0.55,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 83.6919634009266,
+      "components": {
+        "event_impact": -1.2546324707070764,
+        "occupancy": -16.51576425421005,
+        "weather_score": -5.728412271302929,
+        "weekly": -2.0106879824593142,
+        "yearly": -0.8685731930431523
+      },
+      "yhat": 57.31389322920407,
+      "manager_last_same_weekdays": [
+        92,
+        144,
+        59,
+        62
+      ]
+    },
+    {
+      "index": 22,
+      "day": "2026-01-22",
+      "signals": {
+        "occupancy": 0.63,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 86.44879815387345,
+      "components": {
+        "event_impact": -1.4092018600826939,
+        "occupancy": -11.950867632173248,
+        "weather_score": -4.616329138409489,
+        "weekly": -2.650775754030976,
+        "yearly": 3.1051138516236088
+      },
+      "yhat": 68.92673762080065,
+      "manager_last_same_weekdays": [
+        95,
+        95,
+        62,
+        84
+      ]
+    },
+    {
+      "index": 23,
+      "day": "2026-01-23",
+      "signals": {
+        "occupancy": 0.54,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 86.46744075633993,
+      "components": {
+        "event_impact": -1.4092018600826939,
+        "occupancy": -17.79227775285039,
+        "weather_score": -4.616329138409489,
+        "weekly": 18.212486627277826,
+        "yearly": 3.226575556764936
+      },
+      "yhat": 84.08869418904011,
+      "manager_last_same_weekdays": [
+        120,
+        123,
+        71,
+        92
+      ]
+    },
+    {
+      "index": 24,
+      "day": "2026-01-24",
+      "signals": {
+        "occupancy": 0.64,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 86.4860833588064,
+      "components": {
+        "event_impact": -1.4092018600826939,
+        "occupancy": -11.301822063209121,
+        "weather_score": -4.616329138409489,
+        "weekly": 17.337971767086866,
+        "yearly": 3.363322868188411
+      },
+      "yhat": 89.86002493238037,
+      "manager_last_same_weekdays": [
+        107,
+        126,
+        104,
+        92
+      ]
+    },
+    {
+      "index": 25,
+      "day": "2026-01-25",
+      "signals": {
+        "occupancy": 0.6,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 86.50472596127287,
+      "components": {
+        "event_impact": -1.4092018600826939,
+        "occupancy": -13.898004339065631,
+        "weather_score": -4.616329138409489,
+        "weekly": 2.1724972309225725,
+        "yearly": 3.5111658992466173
+      },
+      "yhat": 72.26485375388424,
+      "manager_last_same_weekdays": [
+        94,
+        67,
+        65,
+        118
+      ]
+    },
+    {
+      "index": 26,
+      "day": "2026-01-26",
+      "signals": {
+        "occupancy": 0.57,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 86.52336856373933,
+      "components": {
+        "event_impact": -1.4092018600826939,
+        "occupancy": -15.845141045958014,
+        "weather_score": -4.616329138409489,
+        "weekly": -18.991457287486234,
+        "yearly": 3.6654708921769252
+      },
+      "yhat": 49.326710123979815,
+      "manager_last_same_weekdays": [
+        69,
+        50,
+        45,
+        72
+      ]
+    },
+    {
+      "index": 27,
+      "day": "2026-01-27",
+      "signals": {
+        "occupancy": 0.62,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 86.5420111662058,
+      "components": {
+        "event_impact": -1.4092018600826939,
+        "occupancy": -12.599913201137376,
+        "weather_score": -4.616329138409489,
+        "weekly": -14.008701976587124,
+        "yearly": 3.8212834334579524
+      },
+      "yhat": 57.729148423447064,
+      "manager_last_same_weekdays": [
+        75,
+        56,
+        51,
+        64
+      ]
+    },
+    {
+      "index": 28,
+      "day": "2026-01-28",
+      "signals": {
+        "occupancy": 0.65,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 86.56065376867228,
+      "components": {
+        "event_impact": -1.4092018600826939,
+        "occupancy": -10.652776494244993,
+        "weather_score": -4.616329138409489,
+        "weekly": -2.0720206072651766,
+        "yearly": 3.9734610174704215
+      },
+      "yhat": 71.78378668614035,
+      "manager_last_same_weekdays": [
+        144,
+        59,
+        62,
+        70
+      ]
+    },
+    {
+      "index": 29,
+      "day": "2026-01-29",
+      "signals": {
+        "occupancy": 0.64,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 87.98768719270674,
+      "components": {
+        "event_impact": -1.3461543438853112,
+        "occupancy": -11.203636695673366,
+        "weather_score": -4.159861292157019,
+        "weekly": -2.7419280700369684,
+        "yearly": 6.717245221561953
+      },
+      "yhat": 75.25335201251603,
+      "manager_last_same_weekdays": [
+        95,
+        62,
+        84,
+        75
+      ]
+    },
+    {
+      "index": 30,
+      "day": "2026-01-30",
+      "signals": {
+        "occupancy": 0.62,
+        "weather_score": 0.1,
+        "event_impact": 0.0
+      },
+      "baseline": 88.01465827542334,
+      "components": {
+        "event_impact": -1.3461543438853112,
+        "occupancy": -12.518357720880362,
+        "weather_score": -4.159861292157019,
+        "weekly": 18.192710233755054,
+        "yearly": 6.826666343373788
+      },
+      "yhat": 95.0096614956295,
+      "manager_last_same_weekdays": [
+        123,
+        71,
+        92,
+        92
+      ]
+    }
+  ]
+}

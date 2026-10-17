@@ -9,7 +9,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Thu 01 Jan
 > Couverts attendus : 101 (fourchette 94–109, confiance 90%)
-> Staffing : 6 salle · 3 cuisine
+> Effectif : 7 serveurs · 2 hôtes · 3 runners · 5 cuisine (règles de l'hôtel)
 > 🏨 Hôtel à 98 % d'occupation — pression forte attendue sur le restaurant.
 > Répondre OK pour valider, ou votre estimation.
 
@@ -24,7 +24,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Fri 02 Jan
 > Couverts attendus : 114 (fourchette 106–121, confiance 90%)
-> Staffing : 7 salle · 3 cuisine
+> Effectif : 8 serveurs · 2 hôtes · 3 runners · 5 cuisine (règles de l'hôtel)
 > 🏨 Hôtel à 98 % d'occupation — pression forte attendue sur le restaurant.
 > Répondre OK pour valider, ou votre estimation.
 
@@ -39,7 +39,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Sat 03 Jan
 > Couverts attendus : 110 (fourchette 102–118, confiance 90%)
-> Staffing : 7 salle · 3 cuisine
+> Effectif : 8 serveurs · 2 hôtes · 3 runners · 5 cuisine (règles de l'hôtel)
 > 🏨 Hôtel à 92 % d'occupation — pression forte attendue sur le restaurant.
 > Répondre OK pour valider, ou votre estimation.
 
@@ -54,7 +54,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Sun 04 Jan
 > Couverts attendus : 74 (fourchette 66–81, confiance 80%)
-> Staffing : 5 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -68,7 +68,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Mon 05 Jan
 > Couverts attendus : 57 (fourchette 50–65, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 4 serveurs · 1 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -82,7 +82,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Tue 06 Jan
 > Couverts attendus : 56 (fourchette 49–64, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 4 serveurs · 1 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -96,7 +96,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Wed 07 Jan
 > Couverts attendus : 68 (fourchette 60–75, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -113,7 +113,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Thu 08 Jan
 > Couverts attendus : 65 (fourchette 57–72, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -127,7 +127,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Fri 09 Jan
 > Couverts attendus : 89 (fourchette 82–97, confiance 90%)
-> Staffing : 5 salle · 2 cuisine
+> Effectif : 6 serveurs · 2 hôtes · 2 runners · 4 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -141,7 +141,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Sat 10 Jan
 > Couverts attendus : 85 (fourchette 78–92, confiance 90%)
-> Staffing : 5 salle · 2 cuisine
+> Effectif : 6 serveurs · 2 hôtes · 2 runners · 4 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -155,7 +155,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Sun 11 Jan
 > Couverts attendus : 67 (fourchette 59–74, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -169,7 +169,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Mon 12 Jan
 > Couverts attendus : 49 (fourchette 42–57, confiance 70%)
-> Staffing : 3 salle · 1 cuisine
+> Effectif : 4 serveurs · 1 hôtes · 2 runners · 2 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -183,7 +183,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Tue 13 Jan
 > Couverts attendus : 50 (fourchette 42–57, confiance 70%)
-> Staffing : 3 salle · 1 cuisine
+> Effectif : 4 serveurs · 1 hôtes · 2 runners · 2 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -197,7 +197,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Wed 14 Jan
 > Couverts attendus : 64 (fourchette 56–71, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -214,7 +214,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Thu 15 Jan
 > Couverts attendus : 66 (fourchette 59–73, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -228,7 +228,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Fri 16 Jan
 > Couverts attendus : 82 (fourchette 75–90, confiance 90%)
-> Staffing : 5 salle · 2 cuisine
+> Effectif : 6 serveurs · 2 hôtes · 2 runners · 4 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -242,7 +242,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Sat 17 Jan
 > Couverts attendus : 82 (fourchette 75–90, confiance 90%)
-> Staffing : 5 salle · 2 cuisine
+> Effectif : 6 serveurs · 2 hôtes · 2 runners · 4 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -258,7 +258,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Sun 18 Jan
 > Couverts attendus : 97 (fourchette 89–104, confiance 90%)
-> Staffing : 6 salle · 2 cuisine
+> Effectif : 7 serveurs · 2 hôtes · 3 runners · 4 cuisine (règles de l'hôtel)
 > 📍 Signal : événement local demain — impact estimé +30 % intégré au forecast.
 > Répondre OK pour valider, ou votre estimation.
 
@@ -273,7 +273,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Mon 19 Jan
 > Couverts attendus : 67 (fourchette 59–75, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > 📍 Signal : événement local demain — impact estimé +30 % intégré au forecast.
 > Répondre OK pour valider, ou votre estimation.
 
@@ -288,7 +288,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Tue 20 Jan
 > Couverts attendus : 48 (fourchette 40–55, confiance 70%)
-> Staffing : 3 salle · 1 cuisine
+> Effectif : 4 serveurs · 1 hôtes · 2 runners · 2 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -302,7 +302,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Wed 21 Jan
 > Couverts attendus : 57 (fourchette 49–65, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 4 serveurs · 1 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -319,7 +319,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Thu 22 Jan
 > Couverts attendus : 69 (fourchette 61–76, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -333,7 +333,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Fri 23 Jan
 > Couverts attendus : 84 (fourchette 76–92, confiance 90%)
-> Staffing : 5 salle · 2 cuisine
+> Effectif : 6 serveurs · 2 hôtes · 2 runners · 4 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -347,7 +347,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Sat 24 Jan
 > Couverts attendus : 90 (fourchette 83–97, confiance 90%)
-> Staffing : 5 salle · 2 cuisine
+> Effectif : 6 serveurs · 2 hôtes · 2 runners · 4 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -361,7 +361,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Sun 25 Jan
 > Couverts attendus : 72 (fourchette 64–80, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -375,7 +375,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Mon 26 Jan
 > Couverts attendus : 49 (fourchette 41–57, confiance 70%)
-> Staffing : 3 salle · 1 cuisine
+> Effectif : 4 serveurs · 1 hôtes · 2 runners · 2 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -391,7 +391,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Tue 27 Jan
 > Couverts attendus : 58 (fourchette 50–65, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 4 serveurs · 1 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -405,7 +405,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Wed 28 Jan
 > Couverts attendus : 72 (fourchette 64–79, confiance 80%)
-> Staffing : 4 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -422,7 +422,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Thu 29 Jan
 > Couverts attendus : 75 (fourchette 68–83, confiance 80%)
-> Staffing : 5 salle · 2 cuisine
+> Effectif : 5 serveurs · 2 hôtes · 2 runners · 3 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :
@@ -436,7 +436,7 @@
 **Aetherix** (la veille, 17h) :
 > 📋 Aetherix — Fri 30 Jan
 > Couverts attendus : 95 (fourchette 87–103, confiance 90%)
-> Staffing : 6 salle · 2 cuisine
+> Effectif : 7 serveurs · 2 hôtes · 3 runners · 4 cuisine (règles de l'hôtel)
 > Répondre OK pour valider, ou votre estimation.
 
 **Manager** :

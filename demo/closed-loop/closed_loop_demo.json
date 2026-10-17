@@ -6,7 +6,13 @@
     "shift_factor": 1.25,
     "retrain_every_days": 7,
     "services": "real PredictionEngine / StaffingService / feedback_guard.evaluate",
-    "data": "synthetic sandbox (loop mechanics demo \u2014 accuracy is HOS-307's job)"
+    "data": "synthetic sandbox (loop mechanics demo \u2014 accuracy is HOS-307's job)",
+    "hotel": {
+      "tenant_id": "sandbox_hotel",
+      "staffing_rules": "sandbox_hotel.json (synthetic)",
+      "rules_version": "2025-12-15T09:00:00+00:00"
+    },
+    "backend_commit": "d48f691"
   },
   "metrics": {
     "mape_by_week_pct": {
@@ -34,15 +40,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 6,
+        "servers": 7,
         "hosts": 2,
-        "kitchen": 3,
+        "runners": 3,
+        "kitchen": 5,
         "deltas": {
-          "servers": -1,
+          "servers": 2,
           "hosts": 0,
-          "kitchen": 0,
+          "runners": 1,
+          "kitchen": 2,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -50,7 +89,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 101 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 101 covers, using the hotel's own ratios."
       },
       "manager_feedback": "modified",
       "manager_counter": 79,
@@ -70,15 +109,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 7,
+        "servers": 8,
         "hosts": 2,
-        "kitchen": 3,
+        "runners": 3,
+        "kitchen": 5,
         "deltas": {
-          "servers": 0,
+          "servers": 3,
           "hosts": 0,
-          "kitchen": 0,
+          "runners": 1,
+          "kitchen": 2,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -86,7 +158,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 114 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 114 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 114,
@@ -106,15 +178,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 7,
+        "servers": 8,
         "hosts": 2,
-        "kitchen": 3,
+        "runners": 3,
+        "kitchen": 5,
         "deltas": {
-          "servers": 0,
+          "servers": 3,
           "hosts": 0,
-          "kitchen": 0,
+          "runners": 1,
+          "kitchen": 2,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -122,7 +227,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 110 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 110 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 110,
@@ -144,13 +249,46 @@
       "staffing": {
         "servers": 5,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -2,
+          "servers": 0,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -158,7 +296,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 74 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 74 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 74,
@@ -180,13 +318,46 @@
       "staffing": {
         "servers": 4,
         "hosts": 1,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
+          "servers": -1,
           "hosts": -1,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -194,7 +365,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 57 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 57 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 57,
@@ -216,13 +387,46 @@
       "staffing": {
         "servers": 4,
         "hosts": 1,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
+          "servers": -1,
           "hosts": -1,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -230,7 +434,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 56 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 56 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 56,
@@ -250,15 +454,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
-        "hosts": 1,
-        "kitchen": 2,
+        "servers": 5,
+        "hosts": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
-          "hosts": -1,
-          "kitchen": -1,
+          "servers": 0,
+          "hosts": 0,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -266,7 +503,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 68 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 68 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 68,
@@ -286,15 +523,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
-        "hosts": 1,
-        "kitchen": 2,
+        "servers": 5,
+        "hosts": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
-          "hosts": -1,
-          "kitchen": -1,
+          "servers": 0,
+          "hosts": 0,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -302,7 +572,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 65 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 65 covers, using the hotel's own ratios."
       },
       "manager_feedback": "modified",
       "manager_counter": 86,
@@ -322,15 +592,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 5,
+        "servers": 6,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 4,
         "deltas": {
-          "servers": -2,
+          "servers": 1,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -338,7 +641,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 89 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 89 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 89,
@@ -358,15 +661,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 5,
+        "servers": 6,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 4,
         "deltas": {
-          "servers": -2,
+          "servers": 1,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -374,7 +710,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 85 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 85 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 85,
@@ -394,15 +730,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
-        "hosts": 1,
-        "kitchen": 2,
+        "servers": 5,
+        "hosts": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
-          "hosts": -1,
-          "kitchen": -1,
+          "servers": 0,
+          "hosts": 0,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -410,7 +779,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 67 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 67 covers, using the hotel's own ratios."
       },
       "manager_feedback": "modified",
       "manager_counter": 84,
@@ -430,15 +799,48 @@
       ],
       "confidence": 0.7,
       "staffing": {
-        "servers": 3,
+        "servers": 4,
         "hosts": 1,
-        "kitchen": 1,
+        "runners": 2,
+        "kitchen": 2,
         "deltas": {
-          "servers": -4,
+          "servers": -1,
           "hosts": -1,
-          "kitchen": -2,
+          "runners": 0,
+          "kitchen": -1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -446,7 +848,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 49 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 49 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 49,
@@ -466,15 +868,48 @@
       ],
       "confidence": 0.7,
       "staffing": {
-        "servers": 3,
+        "servers": 4,
         "hosts": 1,
-        "kitchen": 1,
+        "runners": 2,
+        "kitchen": 2,
         "deltas": {
-          "servers": -4,
+          "servers": -1,
           "hosts": -1,
-          "kitchen": -2,
+          "runners": 0,
+          "kitchen": -1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -482,7 +917,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 50 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 50 covers, using the hotel's own ratios."
       },
       "manager_feedback": "modified",
       "manager_counter": 68,
@@ -502,15 +937,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
-        "hosts": 1,
-        "kitchen": 2,
+        "servers": 5,
+        "hosts": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
-          "hosts": -1,
-          "kitchen": -1,
+          "servers": 0,
+          "hosts": 0,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -518,7 +986,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 64 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 64 covers, using the hotel's own ratios."
       },
       "manager_feedback": "modified",
       "manager_counter": 90,
@@ -538,15 +1006,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
-        "hosts": 1,
-        "kitchen": 2,
+        "servers": 5,
+        "hosts": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
-          "hosts": -1,
-          "kitchen": -1,
+          "servers": 0,
+          "hosts": 0,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -554,7 +1055,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 66 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 66 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 66,
@@ -574,15 +1075,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 5,
+        "servers": 6,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 4,
         "deltas": {
-          "servers": -2,
+          "servers": 1,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -590,7 +1124,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 82 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 82 covers, using the hotel's own ratios."
       },
       "manager_feedback": "modified",
       "manager_counter": 103,
@@ -610,15 +1144,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 5,
+        "servers": 6,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 4,
         "deltas": {
-          "servers": -2,
+          "servers": 1,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -626,7 +1193,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 82 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 82 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 82,
@@ -646,15 +1213,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 6,
+        "servers": 7,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 3,
+        "kitchen": 4,
         "deltas": {
-          "servers": -1,
+          "servers": 2,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 1,
+          "kitchen": 1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -662,7 +1262,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 97 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 97 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 97,
@@ -682,15 +1282,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
-        "hosts": 1,
-        "kitchen": 2,
+        "servers": 5,
+        "hosts": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
-          "hosts": -1,
-          "kitchen": -1,
+          "servers": 0,
+          "hosts": 0,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -698,7 +1331,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 67 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 67 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 67,
@@ -718,15 +1351,48 @@
       ],
       "confidence": 0.7,
       "staffing": {
-        "servers": 3,
+        "servers": 4,
         "hosts": 1,
-        "kitchen": 1,
+        "runners": 2,
+        "kitchen": 2,
         "deltas": {
-          "servers": -4,
+          "servers": -1,
           "hosts": -1,
-          "kitchen": -2,
+          "runners": 0,
+          "kitchen": -1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -734,7 +1400,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 48 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 48 covers, using the hotel's own ratios."
       },
       "manager_feedback": "modified",
       "manager_counter": 65,
@@ -756,13 +1422,46 @@
       "staffing": {
         "servers": 4,
         "hosts": 1,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
+          "servers": -1,
           "hosts": -1,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -770,7 +1469,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 57 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 57 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 57,
@@ -790,15 +1489,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
-        "hosts": 1,
-        "kitchen": 2,
+        "servers": 5,
+        "hosts": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
-          "hosts": -1,
-          "kitchen": -1,
+          "servers": 0,
+          "hosts": 0,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -806,7 +1538,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 69 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 69 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 69,
@@ -826,15 +1558,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 5,
+        "servers": 6,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 4,
         "deltas": {
-          "servers": -2,
+          "servers": 1,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -842,7 +1607,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 84 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 84 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 84,
@@ -862,15 +1627,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 5,
+        "servers": 6,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 4,
         "deltas": {
-          "servers": -2,
+          "servers": 1,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -878,7 +1676,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 90 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 90 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 90,
@@ -898,15 +1696,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
+        "servers": 5,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
+          "servers": 0,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -914,7 +1745,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 72 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 72 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 72,
@@ -934,15 +1765,48 @@
       ],
       "confidence": 0.7,
       "staffing": {
-        "servers": 3,
+        "servers": 4,
         "hosts": 1,
-        "kitchen": 1,
+        "runners": 2,
+        "kitchen": 2,
         "deltas": {
-          "servers": -4,
+          "servers": -1,
           "hosts": -1,
-          "kitchen": -2,
+          "runners": 0,
+          "kitchen": -1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -950,7 +1814,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 49 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 49 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 49,
@@ -972,13 +1836,46 @@
       "staffing": {
         "servers": 4,
         "hosts": 1,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
+          "servers": -1,
           "hosts": -1,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -986,7 +1883,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 58 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 58 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 58,
@@ -1006,15 +1903,48 @@
       ],
       "confidence": 0.8,
       "staffing": {
-        "servers": 4,
+        "servers": 5,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -3,
+          "servers": 0,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -1022,7 +1952,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 72 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 72 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 72,
@@ -1044,13 +1974,46 @@
       "staffing": {
         "servers": 5,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 2,
+        "kitchen": 3,
         "deltas": {
-          "servers": -2,
+          "servers": 0,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 0,
+          "kitchen": 0,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -1058,7 +2021,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 75 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 75 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 75,
@@ -1078,15 +2041,48 @@
       ],
       "confidence": 0.9,
       "staffing": {
-        "servers": 6,
+        "servers": 7,
         "hosts": 2,
-        "kitchen": 2,
+        "runners": 3,
+        "kitchen": 4,
         "deltas": {
-          "servers": -1,
+          "servers": 2,
           "hosts": 0,
-          "kitchen": -1,
+          "runners": 1,
+          "kitchen": 1,
           "sommeliers": 0
         },
+        "rules": {
+          "servers": {
+            "covers_per": 15.0,
+            "covers_per_source": "hotel",
+            "usual": 5,
+            "usual_source": "hotel"
+          },
+          "hosts": {
+            "covers_per": 60.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "runners": {
+            "covers_per": 45.0,
+            "covers_per_source": "hotel",
+            "usual": 2,
+            "usual_source": "hotel"
+          },
+          "kitchen": {
+            "covers_per": 25.0,
+            "covers_per_source": "hotel",
+            "usual": 3,
+            "usual_source": "hotel"
+          },
+          "sommeliers": {
+            "rule": "1, or 2 above 160 covers",
+            "source": "default"
+          }
+        },
+        "rules_version": "2025-12-15T09:00:00+00:00",
         "warnings": [],
         "sanity": {
           "within_bounds": true,
@@ -1094,7 +2090,7 @@
           "clamped_covers": null,
           "flags": []
         },
-        "rationale": "Staffing suggestion based on 95 covers. Optimized for role-ratios."
+        "rationale": "Staffing suggestion based on 95 covers, using the hotel's own ratios."
       },
       "manager_feedback": "accepted",
       "manager_counter": 95,

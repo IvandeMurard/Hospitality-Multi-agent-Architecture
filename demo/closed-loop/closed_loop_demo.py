@@ -20,9 +20,15 @@ exists.
 Deterministic: fixed seeds, no network, no DB writes. Reruns produce the
 same report (Décision #29 discipline).
 
-Usage:
-    backend/.venv/Scripts/python scripts/ops/closed_loop_demo.py \
-        [--days 30] [--out docs/demos/closed_loop_demo.json]
+Staffing follows the sandbox hotel's own rules (sandbox_hotel.json, synthetic):
+each value goes through the real hotel-parameter bounds and carries its
+provenance, as if the hotel had entered it (Décision #43).
+
+The services live in the private Aetherix backend. Point AETHERIX_ROOT at a
+checkout of it (backend/ + scripts/ops/) and run with that backend's venv:
+
+    AETHERIX_ROOT=<aetherix> <aetherix>/backend/.venv/Scripts/python \
+        demo/closed-loop/closed_loop_demo.py --out demo/closed-loop/closed_loop_demo.json
 """
 from __future__ import annotations
 
@@ -40,7 +46,8 @@ from pathlib import Path
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
+HERE = Path(__file__).resolve().parent
+REPO_ROOT = Path(os.environ["AETHERIX_ROOT"]) if os.environ.get("AETHERIX_ROOT") else Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO_ROOT / "backend"))
 sys.path.insert(0, str(REPO_ROOT / "scripts" / "ops"))
 
@@ -56,7 +63,8 @@ from generate_demo_data import generate  # noqa: E402 — scripts/ops sibling
 from app.core.observability import span as obs_span  # noqa: E402
 from app.services.feedback_guard import evaluate as bounds_evaluate  # noqa: E402
 from app.services.prediction_engine import PredictionEngine  # noqa: E402
-from app.services.staffing_service import StaffingService  # noqa: E402
+from app.services import hotel_parameters as hp  # noqa: E402
+from app.services.staffing_service import StaffingRules, StaffingService  # noqa: E402
 
 SEED = 42
 TOTAL_SEATS = 120.0
@@ -74,6 +82,24 @@ def _naive_guess(history: list[dict], target: date) -> float | None:
     return sum(same_dow[-4:]) / len(same_dow[-4:]) if same_dow else None
 
 
+def _sandbox_hotel_rules() -> tuple[dict, StaffingRules]:
+    """The sandbox hotel's staffing rules, validated by the real catalog bounds."""
+    from datetime import datetime
+
+    cfg = json.loads((HERE / "sandbox_hotel.json").read_text(encoding="utf-8"))
+    set_at = datetime.fromisoformat(cfg["set_at"])
+    params = hp.HotelParameters(tenant_id=cfg["tenant_id"])
+    for name, value in cfg["parameters"].items():
+        params.values[name] = hp.ParamValue(
+            value=hp.validate(name, value), unit=hp.CATALOG[name].unit, currency=None,
+            set_by=cfg["set_by"], set_via="ops", set_at=set_at, note=None,
+        )
+    return cfg, StaffingRules.from_parameters(params)
+
+
+_ROLE_FR = {"servers": "serveurs", "hosts": "hôtes", "runners": "runners", "kitchen": "cuisine"}
+
+
 def _receipt_text(day: date, pred, staffing: dict, row: dict) -> str:
     """Compact WhatsApp-style daily receipt (sandbox rendering).
 
@@ -81,12 +107,14 @@ def _receipt_text(day: date, pred, staffing: dict, row: dict) -> str:
     (local event, strong occupancy) drives the number, the receipt says so —
     the agent explains why tomorrow won't look like last week.
     """
+    staffed = [r for r in _ROLE_FR if staffing["rules"][r]["covers_per"] is not None]
     lines = [
         f"📋 Aetherix — {day.strftime('%a %d %b')}",
         f"Couverts attendus : {pred.predicted} (fourchette {pred.lower}–{pred.upper}, "
         f"confiance {int(pred.confidence * 100)}%)",
-        f"Staffing : {staffing.get('servers', '?')} salle · "
-        f"{staffing.get('kitchen_staff', staffing.get('kitchen', '?'))} cuisine",
+        "Effectif : " + " · ".join(f"{staffing[r]} {_ROLE_FR[r]}" for r in staffed)
+        + (" (règles de l'hôtel)" if all(staffing["rules"][r]["covers_per_source"] == "hotel" for r in staffed)
+           else " (règles par défaut)"),
     ]
     if row.get("event_impact", 0) > 0:
         lines.append(f"📍 Signal : événement local demain — impact estimé "
@@ -115,6 +143,7 @@ async def run(days: int, out_path: Path) -> dict:
 
     engine = PredictionEngine()
     staffer = StaffingService()
+    hotel, hotel_rules = _sandbox_hotel_rules()
 
     async def retrain() -> None:
         df = pd.DataFrame(history)
@@ -144,9 +173,9 @@ async def run(days: int, out_path: Path) -> dict:
             features = {k: row[k] for k in ("weather_score", "event_impact", "occupancy")}
             pred = await engine.predict(day, features=features)
 
-            # 2. Staffing recommendation (real service).
+            # 2. Staffing recommendation (real service, on the hotel's own rules).
             staffing = await staffer.calculate_recommendation(
-                pred.predicted, confidence=pred.confidence
+                pred.predicted, confidence=pred.confidence, rules=hotel_rules
             )
             receipt = _receipt_text(day, pred, staffing, row)
 
@@ -251,6 +280,10 @@ async def run(days: int, out_path: Path) -> dict:
             "shift_factor": SHIFT_FACTOR, "retrain_every_days": RETRAIN_EVERY,
             "services": "real PredictionEngine / StaffingService / feedback_guard.evaluate",
             "data": "synthetic sandbox (loop mechanics demo — accuracy is HOS-307's job)",
+            "hotel": {"tenant_id": hotel["tenant_id"], "staffing_rules": "sandbox_hotel.json (synthetic)",
+                      "rules_version": hotel_rules.version},
+            # Version of the private backend that ran the services (set by the caller).
+            "backend_commit": os.environ.get("AETHERIX_COMMIT"),
         },
         "metrics": {
             "mape_by_week_pct": weeks,
