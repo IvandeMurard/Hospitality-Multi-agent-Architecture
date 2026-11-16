@@ -24,7 +24,7 @@ That object has a name here: the **Decision Ledger**. The rename was not cosmeti
 names the storage, which is the commodity; the ledger names the *linkage* — each recommendation
 tied to the response it got and the outcome that followed — which is the part a competitor
 cannot install. It also retires a phrase this project used to use: not "self-improving memory",
-which claims a result, but **outcome-tracked operational history**, which claims a mechanism.
+which claims a result, but the **Decision Ledger**, which claims a mechanism.
 The first is only earnable by demonstrating that the system learned; the second is checkable
 today. **Status: Built** — the ledger consolidates records that were previously spread across
 several tables, so what shipped is traceability over existing data, not a new store.

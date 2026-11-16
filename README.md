@@ -66,7 +66,7 @@
 
 ---
 
-## The Vision: A Closed Loop, Not a Smarter Model
+## The Vision: A Learning Loop, Not a Smarter Model
 
 Rather than generating a static F&B forecast or a daily report, the Mesh closes the loop between what it said and what happened:
 
@@ -78,7 +78,7 @@ What compounds is the **Decision Ledger** — the record of decisions and their 
 
 And an override is not one kind of error, which is why it gets **routed rather than averaged**: a stale fact belongs in memory, an unwritten house rule belongs in a recorded decision, a preference seen three times belongs in a policy, an unseen pattern belongs in the training corpus, and a recommendation that should never have been surfaced belongs in the filter upstream. Only one of those five is a retrain. The other four are how a system stops making the same class of mistake instead of getting better at apologizing for it — [the routing table, and its Design status, are in VISION](VISION.md).
 
-> **Operational memory, precisely:** persistent agent memory is now commodity infrastructure. The differentiator is the loop: what a human does with each recommendation, what outcome follows, and whether the gap between the two is captured against the recommendation that preceded it. Whether the system then *learns* from that record is a separate claim, and a later one — it takes deployment, not architecture. **This system has zero real users -yet (interested?), so the asset is a mechanism in place, not an accumulated advantage.**
+> **Operational Memory, precisely:** persistent agent memory is now commodity infrastructure. The differentiator is the loop: what a human does with each recommendation, what outcome follows, and whether the gap between the two is captured against the recommendation that preceded it. Whether the system then *learns* from that record is a separate claim, and a later one — it takes deployment, not architecture. **This system has zero real users -yet (interested?), so the asset is a mechanism in place, not an accumulated advantage.**
 
 ## What this is
 
@@ -180,7 +180,7 @@ Orchestrator with one live node behind it, that claim was wrong.
 ### Core Design Principles
 
 1. **Execution nodes never orchestrate.** Perception nodes (Anima, Aetherix, Tacet) interpret signals; the bespoke Orchestrator holds all decision logic.
-2. **Glue, not replacement.** The Mesh uses a PMS‑agnostic canonical schema behind adapters. Intelligence is delivered inside existing tools (e.g., WhatsApp receipts answered with a one-word reply; tap-to-answer buttons are in progress), with zero new dashboards.
+2. **Glue, not replacement.** The Mesh uses a PMS‑agnostic canonical schema behind adapters. Intelligence is delivered inside existing tools (e.g., WhatsApp Daily Receipts answered with a one-word reply; tap-to-answer buttons are in progress), with zero new dashboards.
 3. **Preventing HITL fatigue.** The Orchestrator filters noise and sends only high‑significance, composite recommendations. Human approval is a prerequisite, not a differentiator; the hard part is deciding what is worth interrupting a human for. The filter sorts on **how expensive the mistake is to undo, not on the model's confidence** — confidence is the only input in that decision the model itself can influence. A prep quantity is reversible and cheap; a staffing call costs money; anything touching guest personal data cannot be un‑inferred.
 4. **Continuous Improvement (Meta‑Learner, Research).** A dual loop would optimize decision thresholds via manager feedback and autonomous comparison of predictions vs ground truth. Today, outcome capture exists only inside the F&B node. **What it must never be allowed to tune:** guardrail bounds, the red lines below, and DPIA scope. An optimizer pointed at acceptance will eventually find that the cheapest way to raise it is to widen the constraint that rejected the work — so the constraints it could weaken are the ones held outside its reach by construction, not by policy.
 5. **Hive Memory (Federated Priors, Research).** A federated layer would share anonymized priors across properties to solve cold‑start, without leaking tenant data. No substrate exists yet.
@@ -230,12 +230,12 @@ Generated from a curated status file in the private Aetherix repository and upda
 |---|---|---|---|
 | F&B execution node | **Built** | Backend that turns covers, staffing and demand signals into recommendations for an F&B manager; zero real users so far. | Not verified |
 | Covers forecast | **Shadow-mode** | Benchmarked on real public restaurant data (ahead of a naive baseline on mean error, level with it on the median); no manager decision has been delivered on it. | Not verified |
-| Daily receipt | **Built** | Daily WhatsApp and e-mail digest of what was recommended, what was decided and what happened. | Not verified |
+| Daily Receipt | **Built** | Daily WhatsApp and e-mail digest of what was recommended, what was decided and what happened. | Not verified |
 | MCP server | **Built** | Atomic, tenant-scoped MCP tools so a host agent can read recommendations and record decisions; no external consumer yet. | Not verified |
-| Operational memory | **Built** | Per-property vector memory of past services and outcomes; it has only ever held synthetic data. | Not verified |
+| Operational Memory | **Built** | Per-property vector memory of past services and outcomes; it has only ever held synthetic data. | Not verified |
 | Runtime guardrails | **Built** | Heartbeat, error-rate alerting, forecast circuit-breaker and output bounds, each trip logged with a machine-readable reason; exercised in CI, not in a real incident. | Not verified |
 | Blocking eval gate | **Built** | Offline evals on a golden dataset run in CI and block a merge on regression. | — |
-| Decision ledger | **Built** | Links each recommendation to the response it got and the outcome that followed, in one auditable record. | Not verified |
+| Decision Ledger | **Built** | Links each recommendation to the response it got and the outcome that followed, in one auditable record. | Not verified |
 | Decision capture with confirmation | **Built** | A manager's reply is read as a stance on the proposal, deterministically first; an uncertain reading is confirmed before anything is recorded. Model reading quality not yet measured. | Not verified |
 | Tap-to-answer buttons | **In progress** | Accept / reject buttons on the recommendation message; code is behind a flag, waiting for messaging template approval. | No |
 | Decision recap | **Built** | Deterministic recap of recent recommendations, decisions and outcomes, on demand in chat or through an MCP tool; no model, no estimated money. | Not verified |
