@@ -15,7 +15,7 @@ Canonical across this repo, the execution-node repos and https://ivandemurard.co
 ## Current component status
 
 - Aetherix (F&B node): Built — private repo, 0 real users, staging on Fly.io.
-- Decision Ledger (recommendation → manager response → measured outcome, one auditable record): Built — inside the F&B node. Say "outcome-tracked operational history", never "self-improving memory": the record is Built, the learning is not demonstrated.
+- Decision Ledger (one row per recommendation: context → recommendation → manager response → measured outcome): Built — inside the F&B node. Never "self-improving": the record is Built, the learning is not demonstrated.
 - Aetherix forecast: Shadow-mode — benchmarked on real public data, no manager decision delivered on it yet.
 - Tacet (environment node): Built — public repo, paused / maintenance mode since July 2026.
 - Anima (guest node): Synthetic PoC — DPIA-gated, never run on a real guest.
@@ -32,6 +32,14 @@ Names
 
 - Project: Hospitality Multi-agent Architecture (repository: Hospitality-Multi-agent-Architecture). "Hospitality Agentic Mesh" is the former repository name, not a current name.
 - Nodes: Aetherix (F&B node), Anima (guest node), Peritia (house-knowledge node), Tacet (environment node), Orchestrator. Use the node name, then its role in parentheses on first mention, exactly as in the list above.
+- Decision Ledger: one row per recommendation (context → recommendation → manager response → measured outcome). Built, inside the F&B node, 0 real users. Former names: outcome-tracked operational history, decision log, decision records. Never "self-improving".
+- Learning loop: what changes from Decision Ledger rows, always approved by a named person. Built, never run on real data. Former names: closed loop, feedback loop.
+- Operational Memory: per-hotel memory, isolated by hotel. Built. Former names: Private Memory, layer 1.
+- Hive Memory: anonymised patterns across hotels. Research. Former names: HiveMemory, Federated HiveMemory, layer 2.
+- Cold-start prior: Bayesian prior from a cohort of similar hotels, for a hotel with no history. Research. Former name: cold-start meta-learner (ADR-0005, May 2026).
+- Meta-Learner: tunes the orchestrator's decision thresholds from outcomes. Research.
+- Daily Receipt: the daily message to the manager. Built. Former name: receipts.
+- Context Graph: multi-source context graph (ADR-0008). Design.
 
 Surfaces. Each one carries the same status label and the same one-line description as "Current component status".
 
@@ -45,7 +53,7 @@ Surfaces. Each one carries the same status label and the same one-line descripti
 ## Docs
 
 - [README](README.md): agent roster, architecture, evaluation approach
-- [Vision](VISION.md): the closed-loop thesis behind the system
+- [Vision](VISION.md): the Learning loop thesis behind the system
 - [Eval gate](EVAL_GATE.md): why a failing eval blocks a merge
 - [Proof protocol](PROOF_PROTOCOL.md): pre-registered thresholds and stopping rules for what would prove Aetherix wrong, and where each test stands
 - [MCP contract](MCP.md): the tool surface the nodes expose

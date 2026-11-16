@@ -150,7 +150,7 @@ Stated plainly, because a gate is only as trustworthy as its stated limits:
   nothing. The capture is being fixed first, then measured.
 - **Outcome-level evaluation** — did the recommendation get accepted, and did
   accepting it actually help — sits outside this gate entirely. That's the
-  trust signal the closed loop is built to produce (see
+  trust signal the Learning loop is built to produce (see
   [COGNITION.md](COGNITION.md)), and it's a downstream measurement, not a
   pre-merge check. It is now at least a *named* gap rather than an open one:
   the pair it will be measured on — acceptance rate read against manager
