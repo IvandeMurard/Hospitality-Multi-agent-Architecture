@@ -54,7 +54,7 @@
 - **Orchestrator** – *Supervisory agent*  
   Connects the agents, sequences their work, applies business rules, and keeps final operational decisions accountable.
 
-*Two of the five — Peritia and the Orchestrator — are **Design**, not code. The [status table](#whats-built-vs-whats-vision) below is the authority; these five lines are the roster, not the inventory.*
+*Peritia is **Design**, not code; the Orchestrator is a **Synthetic PoC** running in shadow, not yet the way to the manager. The [status table](#whats-built-vs-whats-vision) below is the authority; these five lines are the roster, not the inventory.*
 
 > **Mesh:** a network of microservices that only exchange structured messages.  
 > Agents remain strictly isolated for security, reliability, and clear bounded contexts.  
@@ -108,7 +108,7 @@ flowchart TB
     end
 
     %% Coordination and human decision
-    O["Orchestrator<br/><i>coordination, business rules<br/>and audit trail</i><br/><small>Design</small>"]
+    O["Orchestrator<br/><i>coordination, business rules<br/>and audit trail</i><br/><small>Synthetic PoC, in shadow</small>"]
     H["Hotel manager / team<br/><i>final decision</i>"]
     ACTION["Operational action<br/><i>service, staffing, preparation,<br/>guest interaction, yield</i>"]
     OUTCOME["Measured outcome<br/><i>what happened in practice</i>"]
@@ -169,14 +169,19 @@ flowchart TB
 
 *Solid lines carry traffic today. Dashed lines do not: Anima is a Synthetic PoC and Peritia has no code,
 so every edge touching them is prospective, as is the whole learning layer. The Orchestrator they point at is
-itself Design — which makes the honest reading of this diagram one Built node (Aetherix) feeding a coordination
-layer that is specified and not written.*
+a Synthetic PoC running in shadow, which makes the honest reading of this diagram one Built node (Aetherix)
+feeding a coordination layer that watches and decides nothing yet.*
 
-**The Orchestrator is Design by decision, not by delay.** Building a routing layer for a single live node is the
-over-engineering that the agent-architecture literature describes as the default failure mode: a graph earns its
-cost through routing, parallelism or durability, and with one node answering there is nothing to route. It gets
-built when a second node has users — not before. The sequencing is the claim; if this repo ever shows an
-Orchestrator with one live node behind it, that claim was wrong.
+**The Orchestrator was Design by decision. That sequencing changed, and the claim it made was wrong as stated.**
+This README said the Orchestrator would be built when a second node has users, and that if it ever showed an
+Orchestrator with one live node behind it, the claim was wrong. It now shows exactly that. The warning still
+holds: a routing layer for one node is over-engineering, because with one node answering there is nothing to
+route. What changed is the reason to build it. It is not built as a router but as **the only way out to the
+manager**: nodes take the initiative, the Orchestrator takes none, and everything that reaches a human goes
+through it, so that three nodes never mean three unreconciled messages a morning. That role has to exist before
+a second node speaks, not after. It is built in shadow first: it runs beside each daily recommendation of the
+F&B node and is linked to it, and it never changes or sends the message. It has run once on staging, on
+synthetic input: see the [run note](demo/staging-run-2026-11-19.md), failures included.
 ### Core Design Principles
 
 1. **Execution nodes never orchestrate.** Perception nodes (Anima, Aetherix, Tacet) interpret signals; the bespoke Orchestrator holds all decision logic.
@@ -216,7 +221,7 @@ This is a solo project — **built by one person, which is a real key‑person (
 | **Anima** (Guest Node) | **Synthetic PoC**: 4‑layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA‑gated) | Local evals & synthetic data |
 | **Peritia** (House knowledge agent) | **Design**: adaptation of [Lore](https://github.com/IvandeMurard/Lore) (voice AI mentor for tacit expertise in aviation maintenance) to hospitality; domain & contracts specified, not implemented | ADRs & Lore codebase |
 | **Tacet** (Environment Node) | **Built** (public): live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
-| **Bespoke Orchestrator** | **Design**: event‑driven decision engine specified in ADRs; proto‑stub only, not built — and deliberately so while one node is live, see the note under the diagram | Architectural ADRs |
+| **Bespoke Orchestrator** | **Synthetic PoC**: runs in the shadow of the F&B node's daily recommendation, linked to it, never changing or sending it; run once on staging on synthetic input. Combining several nodes' outputs and becoming the only way to the manager are **Design**; see the note under the diagram | [Staging run note](demo/staging-run-2026-11-19.md), architectural ADRs |
 | **Meta‑Learner & Hive priors** | **Research**: no substrate yet (the cohort‑feature table does not exist). Outcome capture exists only inside the F&B node | — |
 
 ### Aetherix, capability by capability
