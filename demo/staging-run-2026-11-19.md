@@ -55,9 +55,28 @@ until this run.
 - **That the scan finds anything on its own.** The anomaly was injected. Staging has no live signals.
 - **That the Orchestrator reasoned.** Its model step failed on staging (the provider rejected the
   staging credentials), and the run still reported completion. A run that completes without reasoning
-  should not read as a success; that is an open fault, not a detail.
+  should not read as a success; that was an open fault, not a detail. Fixed the next day, see below.
 - **Anything about a real hotel, a real manager or a real decision.** No hotel is connected.
 - **Repeatability.** One run. It shows the path can work, not that it works every morning.
+
+## Update, 20 November 2026: the false success is fixed
+
+The fault above is closed. A run whose model step does not answer now ends **degraded**, with a reason
+that says the model was unavailable, instead of reading as a success. A degraded run keeps its
+figures on the decision record, but it never counts when the Orchestrator is compared with the daily
+recommendation: the gap reads "not comparable", never zero.
+
+Checked once on staging, the same way as above: one anomaly injected by hand on the fictional hotel,
+the staging model credentials still rejected. The run ended degraded and was linked to its
+recommendation. The comparison showed "not comparable". The manager's message was unchanged and was
+sent.
+
+A second fault surfaced on the way, of the same family as the two above: one way a run can end was
+accepted by the code and refused by the production database. Fixed in the same change, and now
+covered by a test.
+
+What this still does not show: that the Orchestrator reasons. The model credentials on staging have not
+been renewed, so no run has reasoned yet. Two runs, both on synthetic input.
 
 ## Related
 
