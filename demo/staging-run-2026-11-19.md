@@ -76,7 +76,34 @@ accepted by the code and refused by the production database. Fixed in the same c
 covered by a test.
 
 What this still does not show: that the Orchestrator reasons. The model credentials on staging have not
-been renewed, so no run has reasoned yet. Two runs, both on synthetic input.
+been renewed, so no run has reasoned yet. Two runs, both on synthetic input. (Superseded on 26 November,
+see below.)
+
+## Update, 26 November 2026: the model answered, and its text is not usable
+
+With the staging model credentials renewed, a third run, set up the same way (one anomaly injected by
+hand on the fictional hotel), ended **completed**: the Orchestrator's model step answered for the first
+time. The manager's message was unchanged and was sent.
+
+What the model wrote is not usable:
+
+1. **It opened by refusing.** It began with a line saying it can only help with food and beverage
+   operations, on a request that was exactly that, then answered anyway.
+2. **It invented facts.** It said its figure was driven by current bookings and by the hotel's usual
+   share of walk-in guests. Staging has neither. It also gave the dining room a size that appears
+   nowhere in its inputs.
+3. **It ignored the requested form.** Asked for two sentences, it wrote a four-point memo and was cut
+   off mid-word by its length limit.
+
+Nothing caught this, because in shadow its text reaches no one. That is the concrete reason the
+Orchestrator does not yet become the only way to the manager: this text would have reached one.
+
+The run also gave the first comparison between the two paths, and they disagree in direction: the daily
+recommendation said 130 covers and one more person, the Orchestrator 51 covers and five fewer. This
+shows the comparison works. It says nothing about which side is right: the 130 was written by hand, and
+the 51 comes from a forecast with no history for a fictional hotel.
+
+Three runs in all, all on synthetic input. The model answered once, and that answer invented facts.
 
 ## Related
 
