@@ -180,8 +180,9 @@ route. What changed is the reason to build it. It is not built as a router but a
 manager**: nodes take the initiative, the Orchestrator takes none, and everything that reaches a human goes
 through it, so that three nodes never mean three unreconciled messages a morning. That role has to exist before
 a second node speaks, not after. It is built in shadow first: it runs beside each daily recommendation of the
-F&B node and is linked to it, and it never changes or sends the message. It has run three times on staging, on
-synthetic input; its model answered once, and that text invented facts: see the [run note](demo/staging-run-2026-11-19.md), failures
+F&B node and is linked to it, and it never changes or sends the message. It has run four times on staging, on
+synthetic input; its model answered twice. The first text invented facts; the second, after a fix to its
+instructions, did not, but one clean run is not proof the fault is gone: see the [run note](demo/staging-run-2026-11-19.md), failures
 included.
 ### Core Design Principles
 
@@ -222,7 +223,7 @@ This is a solo project — **built by one person, which is a real key‑person (
 | **Anima** (Guest Node) | **Synthetic PoC**: 4‑layer temporal memory, synthetic cohort eval, working MCP server — never in production (DPIA‑gated) | Local evals & synthetic data |
 | **Peritia** (House knowledge agent) | **Design**: adaptation of [Lore](https://github.com/IvandeMurard/Lore) (voice AI mentor for tacit expertise in aviation maintenance) to hospitality; domain & contracts specified, not implemented | ADRs & Lore codebase |
 | **Tacet** (Environment Node) | **Built** (public): live data ingestion pipeline | [Public Repo](https://github.com/IvandeMurard/tacet-app) |
-| **Bespoke Orchestrator** | **Synthetic PoC**: runs in the shadow of the F&B node's daily recommendation, linked to it, never changing or sending it; run three times on staging on synthetic input; the model answered once, and that text invented facts. Combining several nodes' outputs and becoming the only way to the manager are **Design**; see the note under the diagram | [Staging run note](demo/staging-run-2026-11-19.md), architectural ADRs |
+| **Bespoke Orchestrator** | **Synthetic PoC**: runs in the shadow of the F&B node's daily recommendation, linked to it, never changing or sending it; run four times on staging on synthetic input; the model answered twice: the first text invented facts, the second, after a fix, did not. Combining several nodes' outputs and becoming the only way to the manager are **Design**; see the note under the diagram | [Staging run note](demo/staging-run-2026-11-19.md), architectural ADRs |
 | **Meta‑Learner & Hive priors** | **Research**: no substrate yet (the cohort‑feature table does not exist). Outcome capture exists only inside the F&B node | — |
 
 ### Aetherix, capability by capability

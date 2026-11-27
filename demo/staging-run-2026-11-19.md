@@ -93,15 +93,15 @@ What the model wrote is not usable:
    share of walk-in guests. Staging has neither. (Corrected on 27 November: this note first said it
    also invented the dining room's size. It did not: the size was in its inputs, and its percentage
    was right. The mistake was in reading the run, not in the run.)
+3. **It ignored the requested form.** Asked for two sentences, it wrote a four-point memo and was cut
+   off mid-word by its length limit.
 
 Why, found on 27 November: the instructions given to the model tell it to always cite bookings, the
 walk-in share and walk-ins as its sources, whether or not it has them; the explanation request opens by
 redefining the model's role, which most likely read as an attempt to hijack it and triggered the scripted
 refusal line; and the two sets of instructions disagree on length. The fix is to the instructions, plus a
 check that marks a run degraded when its text cites a source it was not given, refuses for no reason,
-or is cut off. It is written and in review, not yet checked on staging.
-3. **It ignored the requested form.** Asked for two sentences, it wrote a four-point memo and was cut
-   off mid-word by its length limit.
+or is cut off. It was checked on staging the next day, see below.
 
 Nothing caught this, because in shadow its text reaches no one. That is the concrete reason the
 Orchestrator does not yet become the only way to the manager: this text would have reached one.
@@ -112,6 +112,34 @@ shows the comparison works. It says nothing about which side is right: the 130 w
 the 51 comes from a forecast with no history for a fictional hotel.
 
 Three runs in all, all on synthetic input. The model answered once, and that answer invented facts.
+(Superseded on 27 November, see below.)
+
+## Update, 27 November 2026: the fix, checked once
+
+The fix to the instructions and the check on the text were deployed to staging, and a fourth run was set
+up the same way: one anomaly injected by hand on the fictional hotel. It ended **completed**, and the
+check raised nothing. The manager's message was unchanged and was sent.
+
+What the model wrote this time:
+
+1. **No refusal.** It went straight to the forecast.
+2. **No invented source.** It cited only what it was given: the forecast, the absence of comparable
+   past nights, and the absence of weather and event data. Instead of claiming bookings as a source, it
+   said the figure should be checked against bookings before committing staff.
+3. **Not cut off.** It ended on a full sentence.
+
+What is still wrong: asked for two sentences, it wrote four. Nothing flags length, so nothing caught
+it. Minor, and open.
+
+What this does not show: that the fault is gone. One clean run shows the fix held once, on the case
+that was seen, not that the next text will be faithful. The check is deliberately narrow: it catches
+what the third run did, and a text it does not flag is not proven faithful.
+
+The comparison was again possible, and again in the same direction: 130 covers written by hand on one
+side, 50 from a forecast with no history on the other. It still says nothing about which is right.
+
+Four runs in all, all on synthetic input. The model answered twice: the first text invented facts, the
+second did not.
 
 ## Related
 
