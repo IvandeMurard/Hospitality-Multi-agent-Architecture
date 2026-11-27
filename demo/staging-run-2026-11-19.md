@@ -90,8 +90,16 @@ What the model wrote is not usable:
 1. **It opened by refusing.** It began with a line saying it can only help with food and beverage
    operations, on a request that was exactly that, then answered anyway.
 2. **It invented facts.** It said its figure was driven by current bookings and by the hotel's usual
-   share of walk-in guests. Staging has neither. It also gave the dining room a size that appears
-   nowhere in its inputs.
+   share of walk-in guests. Staging has neither. (Corrected on 27 November: this note first said it
+   also invented the dining room's size. It did not: the size was in its inputs, and its percentage
+   was right. The mistake was in reading the run, not in the run.)
+
+Why, found on 27 November: the instructions given to the model tell it to always cite bookings, the
+walk-in share and walk-ins as its sources, whether or not it has them; the explanation request opens by
+redefining the model's role, which most likely read as an attempt to hijack it and triggered the scripted
+refusal line; and the two sets of instructions disagree on length. The fix is to the instructions, plus a
+check that marks a run degraded when its text cites a source it was not given, refuses for no reason,
+or is cut off. It is written and in review, not yet checked on staging.
 3. **It ignored the requested form.** Asked for two sentences, it wrote a four-point memo and was cut
    off mid-word by its length limit.
 
